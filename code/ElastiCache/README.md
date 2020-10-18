@@ -1,6 +1,6 @@
 # Python program to interact with Redis
 
-1. Create an Ubuntu EC2 instance (t2.micro) and connecto to it.
+1. Create an Ubuntu EC2 instance (t2.micro) and connect to to it.
 
 1. Execute the below commands on the EC2 instance.
 
@@ -24,7 +24,7 @@
     1. delete-tuple.py
     1. insert-tuple.py
 
-1. Eeceute the below command to insert a tuple in the ElastiCache Redis Cluster.
+1. Execute the below command to insert a tuple in the ElastiCache Redis Cluster.
     >python insert-tuple-redis.py age 25
 
 1. Get the tuple back from the ElastiCache Redis Cluster. It should return 25.
