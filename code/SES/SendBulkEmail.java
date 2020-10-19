@@ -13,7 +13,7 @@ import com.amazonaws.services.simpleemail.model.Destination;
 import com.amazonaws.services.simpleemail.model.Message;
 import com.amazonaws.services.simpleemail.model.SendEmailRequest;
 
-public class SendEmailSample {
+public class SendBulkEmail {
 	public static void main(String[] args) throws Exception {
 
 		int numOfMailsPerSec = 5;
