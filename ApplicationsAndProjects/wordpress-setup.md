@@ -1,4 +1,6 @@
-[Wordpress](https://wordpress.org/) is a very popular CMS (Content Management System) and is widely used to build blogs, sites etc. This page is about setting up WordPress on AWS.
+# WordPress Setup on AWS
+
+[WordPress](https://wordpress.org/) is a very popular CMS (Content Management System) and is widely used to build blogs, sites etc. This page is about setting up WordPress on AWS.
 
 **Option 1** : Install it using AWS Elastic BeanStalk as mentioned below. Note that this option is a bit costly than the other.
 
@@ -47,7 +49,7 @@
 
 1. Once the installation is complete, log in to the WordPress and publish a new post.
 
-** Additional tasks :
+## Additional tasks 
 
 1. Create an ANAME record for the EC2 public ip address in the Route53 service. Now the WordPress blog can be accessed by using a user friendly URL. For this a domain needs to be registered.
 
