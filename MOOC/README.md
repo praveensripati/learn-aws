@@ -42,3 +42,5 @@ https://www.aws.training/Details/eLearning?id=54077
 https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS157x+3T2020/
 
 # ToDo
+
+1. Categories the above based on AWS Services.

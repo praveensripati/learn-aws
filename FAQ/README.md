@@ -1,7 +1,7 @@
 
 # AWS FAQ
 
-While talking to someone around AWS on while conducting trainings, some of the questions pop up again and again. This page is an attempt to consolidate all such questions.
+While talking to someone around AWS on while conducting trainings, some of the questions pop up again and again. This page is an attempt to consolidate all such questions. These FAQ are also very good for the sake of interviews.
 
 1. How to work with windows EC2?\
 https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/EC2_GetStarted.html

@@ -6,6 +6,6 @@ It's tough to keep up with AWS. This is an attempt to consolidate my learnings a
 
 Also, I have written a good number of blogs/articles on Big Data, AWS and Kubernetes on my blog [https://www.thecloudavenue.com/](https://www.thecloudavenue.com/).
 
-Feel free to submit any pull requests for any changes to the documentation or the code.
+Feel free to submit any pull requests for any changes to the documentation and the code.
 
-Good Luck !!!
+**Good Luck !!!**
