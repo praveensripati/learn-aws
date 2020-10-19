@@ -18,12 +18,12 @@ https://aws.amazon.com/getting-started/hands-on/
 1. Controlling your AWS costs by deleting unused Amazon EBS volumes\
 https://aws.amazon.com/blogs/mt/controlling-your-aws-costs-by-deleting-unused-amazon-ebs-volumes/
 
-1. AWS S3 Photo Thumbnail\
+1. AWS S3 Photo Thumbnail
 	- https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html
 	- https://aws.amazon.com/solutions/implementations/serverless-image-handler/
 	- http://www.thecloudavenue.com/2017/08/photo-resizing-using-aws-lambda-serverless-architecture.html
 	
-1. Analyzing the Airline Dataset using S3/Athena or EMR\
+1. Analyzing the Airline Dataset using S3/Athena or EMR
 	- http://stat-computing.org/dataexpo/2009/the-data.html
 	- http://www.thecloudavenue.com/2017/06/converting-airline-row-to-columnar-format.html
 	- http://www.thecloudavenue.com/2017/06/processing-airline-dataset-with-aws-athena.html
