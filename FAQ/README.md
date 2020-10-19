@@ -370,3 +370,5 @@ https://stackoverflow.com/a/5246045/614157
 ## ToDo
 
 1. Categorize the questions based on services. Makes it easy to find the appropriate question.
+
+1. Put a new line character at the end of each statement.

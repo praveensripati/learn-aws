@@ -36,12 +36,12 @@ https://aws.amazon.com/blogs/machine-learning/exploring-images-on-social-media-u
 	2. Host the website on an Apache instance running on an EC2 micro instance.
 	4. Have the whole thing “come to life” from nothing by using CloudFormation to create, configure and start the components of the solution.
 
-1. Installing Moodle LMS on EC2\
+1. Installing Moodle LMS on EC2
 	- https://docs.moodle.org/33/en/Installation_Guide_for_Installing_on_Amazon_EC2
 	- https://docs.moodle.org/33/en/Installing_Moodle
 
 1. Using X-ray to debug distributed applications\
-https://aws.amazon.com/blogs/aws/aws-lambda-support-for-aws-x-ray/
+https://aws.amazon.com/blogs/aws/aws-lambda-support-for-aws-x-ray
 
 1. Creating an Amazon Rekognition Lambda Function\
 https://docs.aws.amazon.com/rekognition/latest/dg/stored-video-lambda.html
@@ -50,7 +50,7 @@ https://docs.aws.amazon.com/rekognition/latest/dg/stored-video-lambda.html
 https://aws.amazon.com/blogs/security/how-to-optimize-and-visualize-your-security-groups/
 https://aws.amazon.com/blogs/security/how-to-visualize-and-refine-your-networks-security-by-adding-security-group-ids-to-your-vpc-flow-logs/
 
-1. Analysis of the Wiki data to calculate the PageRank and to create and Index.\
+1. Analysis of the Wiki data to calculate the PageRank and to create and Index.
 
 1. Build a Serverless Web Application using Lambda, API Gateway, S3, DynamoDB, Cognito\
 https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/
@@ -179,4 +179,4 @@ https://aws.amazon.com/blogs/machine-learning/automatically-detecting-personal-p
 
 ## ToDo
 
-The above references have to be sorted either from a domain or a service perspective.
+1. The above references have to be sorted either from a domain or a service perspective.

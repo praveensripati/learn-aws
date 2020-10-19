@@ -40,3 +40,7 @@ https://www.aws.training/Details/eLearning?id=54077
 
 1. Introduction to Serverless on Kubernetes
 https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS157x+3T2020/
+
+# ToDo
+
+1. Put a new line character at the end of each statement.
