@@ -37,7 +37,7 @@
 
 1. Make sure to terminate the EC2 and the ElastiCache Cluster.
 
-## Further Reading
+# Further Reading
 
 https://aws.amazon.com/elasticache/
 

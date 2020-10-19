@@ -1,4 +1,4 @@
-# Interesting projects and applications of AWS
+# Interesting projects and applications around AWS
 
 AWS does provide a lot of services with very nice and interesting features. But, combining the different AWS Services makes it much mores interesting. This page is an attempt to consolidate such things (AWS and non AWS articles). Follow the detailed instructions in each one of them and get more familiar with AWS.
 
@@ -177,6 +177,6 @@ https://aws.amazon.com/blogs/machine-learning/building-a-medical-image-search-pl
 1. Automatically detecting personal protective equipment on persons in images using Amazon Rekognition\
 https://aws.amazon.com/blogs/machine-learning/automatically-detecting-personal-protective-equipment-on-persons-in-images-using-amazon-rekognition/
 
-## ToDo
+# ToDo
 
 1. The above references have to be sorted either from a domain or a service perspective.

@@ -8,7 +8,7 @@ CloudFormation Templates allow automation of the resource management in AWS. Clo
 
 More complicated CloudFormation sample templates can be found in the AWS documentation [here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-sample-templates.html).
 
-## Further Reading
+# Further Reading
 
 https://aws.amazon.com/cloudformation/
 

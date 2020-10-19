@@ -14,6 +14,6 @@ SNS, SQS, SES, S3 along with Lambda are a few AWS Services which follow the serv
 
 2. **lambda-nodejs-publish-sns-topic-sqs-trigger.js** again is a JS code which publishes a messaged to an SNS Topic. This Lambda function can be integrated with SQS. As soon as a messages is put in the Queue, it triggers the Lambda functions which publishes a messages to the SNS Topic.
 
-## Further Reading
+# Further Reading
 
 https://aws.amazon.com/lambda/
