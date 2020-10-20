@@ -2,7 +2,14 @@
 
 AWS does provide a lot of services with very nice and interesting features. But, combining the different AWS Services makes it much mores interesting. This page is an attempt to consolidate such things (AWS and non AWS articles). Follow the detailed instructions in each one of them and get more familiar with AWS.
 
-1. Configure Sub-Domain in AWS SES to Receive Mails/
+1. Using serverless backends to iterate quickly on web apps\
+https://aws.amazon.com/blogs/compute/using-serverless-backends-to-iterate-quickly-on-web-apps-part-1/
+https://aws.amazon.com/blogs/compute/using-serverless-backends-to-iterate-quickly-on-web-apps-part-2/
+https://aws.amazon.com/blogs/compute/using-serverless-backends-to-iterate-quickly-on-web-apps-part-3/
+https://github.com/aws-samples/happy-path
+https://aws.amazon.com/blogs/compute/optimizing-the-cost-of-serverless-web-applications/
+
+1. Configure Sub-Domain in AWS SES to Receive Mails\
 https://blog.cloudthat.com/configure-sub-domain-in-aws-ses-to-receive-mails/
 
 1. Projects in the intersection of Big Data and AWS Services\
