@@ -367,6 +367,6 @@ https://docs.aws.amazon.com/elasticloadbalancing/latest/application/lambda-funct
 1. Use RSA private key to generate public key?\
 https://stackoverflow.com/a/5246045/614157
 
-# ToDo
+# TODO
 
 1. Categorize the questions based on services. Makes it easy to find the appropriate question.

@@ -8,6 +8,6 @@ AWS SES is a service for sending emails without bothering about setting up a SMT
 
 https://aws.amazon.com/ses/
 
-# ToDo
+# TODO
 
 1. The SendBulkEmail.java program works as-is, but has to be cleaned and also more comments have to be included.
