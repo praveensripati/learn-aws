@@ -1,0 +1,70 @@
+{
+    "Comment": "A state machine that automates a order fulfillment.",
+    "StartAt": "Update the order table",
+    "States": {
+        "Update the order table": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::dynamodb:putItem",
+            "Parameters": {
+                "TableName": "OrderTable",
+                "Item": {
+                    "OrderId": {
+                        "S.$": "$.OrderId"
+                    },
+                    "Name": {
+                        "S.$": "$.Name"
+                    },
+                    "ItemName": {
+                        "S.$": "$.ItemName"
+                    },
+                    "Price": {
+                        "S.$": "$.Price"
+                    },
+                    "CC": {
+                        "S.$": "$.CC"
+                    }
+                }
+            },
+            "ResultPath": null,
+            "Next": "Are details Proper"
+        },
+        "Are details Proper": {
+            "Type": "Task",
+            "Resource": "arn:aws:lambda:us-east-1:304000509264:function:VerifyCCAndPrice",
+            "Next": "Put message in Queue"
+        },
+        "Put message in Queue": {
+            "Type": "Choice",
+            "Choices": [
+                {
+                    "Variable": "$.Status",
+                    "NumericEquals": 1,
+                    "Next": "Put message in order OrderFulfillment Queue"
+                },
+                {
+                    "Variable": "$.Status",
+                    "NumericEquals": 0,
+                    "Next": "Put message in order Escalation Queue"
+                }
+            ]
+        },
+        "Put message in order OrderFulfillment Queue": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::sqs:sendMessage",
+            "Parameters": {
+                "QueueUrl": "https://sqs.us-east-1.amazonaws.com/304000509264/OrderFulfillmentQueue",
+                "MessageBody.$": "$.OrderId"
+            },
+            "End": true
+        },
+        "Put message in order Escalation Queue": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::sqs:sendMessage",
+            "Parameters": {
+                "QueueUrl": "https://sqs.us-east-1.amazonaws.com/304000509264/EscalationQueue",
+                "MessageBody.$": "$.OrderId"
+            },
+            "End": true
+        }
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "AWSPolicyFormatVersion": "2015-10-01",
+    "RecordType": "A",
+    "Endpoints": {
+        "endpoint-failover-SoCt": {
+            "Type": "application-load-balancer",
+            "Value": "MyALB-Mumbai-739034449.ap-south-1.elb.amazonaws.com"
+        },
+        "endpoint-failover-jQOZ": {
+            "Type": "s3-website",
+            "Value": "praveen-sripati.tk.s3-website.ap-south-1.amazonaws.com",
+            "Region": "ap-south-1"
+        },
+        "endpoint-failover-taLF": {
+            "Type": "application-load-balancer",
+            "Value": "MyALB-NV-451634127.us-east-1.elb.amazonaws.com"
+        }
+    },
+    "Rules": {
+        "geo-start-XzOn": {
+            "RuleType": "geo",
+            "Locations": [
+                {
+                    "RuleReference": "failover-geo-leDT",
+                    "IsDefault": false,
+                    "Country": "IN",
+                    "EvaluateTargetHealth": true
+                },
+                {
+                    "IsDefault": false,
+                    "Country": "US",
+                    "EvaluateTargetHealth": true,
+                    "RuleReference": "failover-geo-IqWN"
+                }
+            ]
+        },
+        "failover-geo-leDT": {
+            "RuleType": "failover",
+            "Primary": {
+                "EndpointReference": "endpoint-failover-SoCt",
+                "EvaluateTargetHealth": true,
+                "HealthCheck": "9b3a04e5-c492-470d-bddf-af9f5cd5ff86"
+            },
+            "Secondary": {
+                "EvaluateTargetHealth": true,
+                "EndpointReference": "endpoint-failover-jQOZ"
+            }
+        },
+        "failover-geo-IqWN": {
+            "RuleType": "failover",
+            "Primary": {
+                "EvaluateTargetHealth": true,
+                "HealthCheck": "47146c98-360a-4f26-8ca1-052b02e55ab6",
+                "EndpointReference": "endpoint-failover-taLF"
+            },
+            "Secondary": {
+                "EvaluateTargetHealth": true,
+                "EndpointReference": "endpoint-failover-jQOZ"
+            }
+        }
+    },
+    "StartRule": "geo-start-XzOn"
+}

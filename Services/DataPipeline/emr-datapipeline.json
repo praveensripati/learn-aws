@@ -1,0 +1,146 @@
+{
+    "objects": [
+        {
+            "failureAndRerunMode": "CASCADE",
+            "resourceRole": "DataPipelineDefaultResourceRole",
+            "role": "DataPipelineDefaultRole",
+            "pipelineLogUri": "s3://airline-dataset-praveen/logs/",
+            "scheduleType": "ONDEMAND",
+            "name": "Default",
+            "id": "Default"
+        },
+        {
+            "role": "DataPipelineDefaultRole",
+            "subject": "Hive Ran Successfully",
+            "name": "SuccessNotification",
+            "id": "ActionId_Y3WGh",
+            "message": "Hive Ran Successfully",
+            "type": "SnsAlarm",
+            "topicArn": "arn:aws:sns:us-east-1:304000509264:MyEMRTopic"
+        },
+        {
+            "role": "DataPipelineDefaultRole",
+            "subject": "Hive Ran Failure",
+            "name": "FailureNotification",
+            "id": "ActionId_75ocL",
+            "message": "Hive Ran Failure",
+            "type": "SnsAlarm",
+            "topicArn": "arn:aws:sns:us-east-1:304000509264:MyEMRTopic"
+        },
+        {
+            "maximumRetries": "1",
+            "role": "DataPipelineDefaultRole",
+            "s3Key": "s3://airline-dataset-praveen/input/1987.csv",
+            "name": "CheckIfInputExists",
+            "id": "PreconditionId_3V3Y8",
+            "type": "S3KeyExists"
+        },
+        {
+            "maximumRetries": "1",
+            "useOnDemandOnLastAttempt": "true",
+            "coreInstanceBidPrice": "19",
+            "coreInstanceCount": "1",
+            "masterInstanceType": "m5.xlarge",
+            "releaseLabel": "emr-5.30.1",
+            "type": "EmrCluster",
+            "attemptTimeout": "15 Minutes",
+            "terminateAfter": "60 Minutes",
+            "name": "EMR-Cluster-For-AirlineData",
+            "coreInstanceType": "m5.xlarge",
+            "keyPair": "my-keypair",
+            "id": "EmrClusterId_oOXSg",
+            "masterInstanceBidPrice": "19",
+            "additionalMasterSecurityGroupIds": "sg-0fa7df1dab4d7ebcb"
+        },
+        {
+            "directoryPath": "s3://airline-dataset-praveen/input/",
+            "dataFormat": {
+                "ref": "DataFormatId_FBIwP"
+            },
+            "name": "S3Node-CSV-Data",
+            "precondition": {
+                "ref": "PreconditionId_3V3Y8"
+            },
+            "id": "DataNodeId_o4MSC",
+            "type": "S3DataNode"
+        },
+        {
+            "column": [
+                "Year INT",
+                "Month INT",
+                "DayofMonth INT",
+                "DayOfWeek INT",
+                "DepTime INT",
+                "CRSDepTime INT",
+                "ArrTime INT",
+                "CRSArrTime INT",
+                "UniqueCarrier STRING",
+                "FlightNum INT",
+                "TailNum STRING",
+                "ActualElapsedTime INT",
+                "CRSElapsedTime INT",
+                "AirTime INT",
+                "ArrDelay INT",
+                "DepDelay INT",
+                "Origin STRING",
+                "Dest STRING",
+                "Distance INT",
+                "TaxiIn INT",
+                "TaxiOut INT",
+                "Cancelled INT",
+                "CancellationCode STRING",
+                "Diverted STRING",
+                "CarrierDelay INT",
+                "WeatherDelay INT",
+                "NASDelay INT",
+                "SecurityDelay INT",
+                "LateAircraftDelay INT"
+            ],
+            "name": "CSV-Input",
+            "id": "DataFormatId_FBIwP",
+            "type": "CSV"
+        },
+        {
+            "directoryPath": "s3://airline-dataset-praveen/final-results",
+            "dataFormat": {
+                "ref": "DataFormatId_0iWke"
+            },
+            "name": "S3Node-FInal-Results",
+            "id": "DataNodeId_3Fjg6",
+            "type": "S3DataNode"
+        },
+        {
+            "column": [
+                "Origin INT",
+                "Total INT"
+            ],
+            "name": "CSV-Output",
+            "id": "DataFormatId_0iWke",
+            "type": "CSV"
+        },
+        {
+            "maximumRetries": "0",
+            "output": {
+                "ref": "DataNodeId_3Fjg6"
+            },
+            "input": {
+                "ref": "DataNodeId_o4MSC"
+            },
+            "stage": "true",
+            "onFail": {
+                "ref": "ActionId_75ocL"
+            },
+            "name": "AnalyzeData",
+            "hiveScript": "delete jar /mnt/taskRunner/emr-hive-goodies.jar;INSERT OVERWRITE TABLE ${output1} select Origin, count(*) As Total from ${input1} group by Origin order by Total;",
+            "id": "HiveActivityId_ySH25",
+            "runsOn": {
+                "ref": "EmrClusterId_oOXSg"
+            },
+            "type": "HiveActivity",
+            "onSuccess": {
+                "ref": "ActionId_Y3WGh"
+            }
+        }
+    ],
+    "parameters": []
+}

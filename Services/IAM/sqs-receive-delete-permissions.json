@@ -1,0 +1,14 @@
+{
+   "Version": "2012-10-17",
+   "Statement": [
+      {
+         "Sid": "SQSReceiveDeleteMessage",
+         "Effect": "Allow",
+         "Action": [
+            "sqs:ReceiveMessage",
+            "sqs:DeleteMessage"
+         ],
+         "Resource": "arn:aws:sqs:us-east-1:304000509264:CustomerQueue"
+      }
+   ]
+}

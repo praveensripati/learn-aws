@@ -1,0 +1,35 @@
+1. All the data is valid.
+{
+   "OrderId": "001",
+   "Name": "Praveen Sripati",
+   "ItemName": "Lenovo ThinkPad E14",
+   "Price": "80000",
+   "CC" : "1234123456785678"
+}
+
+2. Invalid Price.
+{
+   "OrderId": "002",
+   "Name": "Praveen Sripati",
+   "ItemName": "Lenovo ThinkPad E14",
+   "Price": "-123",
+   "CC" : "1234123456785678"
+}
+
+3. Invalid CC.
+{
+   "OrderId": "003",
+   "Name": "Praveen Sripati",
+   "ItemName": "Lenovo ThinkPad E14",
+   "Price": "80000",
+   "CC" : "123412345678"
+}
+
+4. Invalid CC and Price.
+{
+   "OrderId": "004",
+   "Name": "Praveen Sripati",
+   "ItemName": "Lenovo ThinkPad E14",
+   "Price": "-123",
+   "CC" : "123412345678"
+}

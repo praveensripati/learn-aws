@@ -1,7 +1,7 @@
 
 # AWS FAQ
 
-While talking to someone around AWS on while conducting trainings, some of the questions pop up again and again. This page is an attempt to consolidate all such questions. These FAQ are also very good for the sake of interviews.
+While talking to someone around AWS or while conducting trainings, some of the questions pop up again and again. This page is an attempt to consolidate all such questions. These FAQ are also very good for the sake of interviews.
 
 1. How to work with windows EC2?\
 https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/EC2_GetStarted.html
@@ -23,7 +23,7 @@ https://aws.amazon.com/premiumsupport/knowledge-center/copy-ami-region/
 https://aws.amazon.com/ec2/dedicated-hosts/getting-started/
 https://aws.amazon.com/ec2/dedicated-hosts/faqs/
 
-1. How to work with your own ip pool?\
+1. How to work with your own IP pool?\
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html
 
 1. How to extend a existing EBS for Windows and Linux\
