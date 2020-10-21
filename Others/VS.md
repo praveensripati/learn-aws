@@ -25,3 +25,8 @@ It's easy to get confused :) Here we try to compare concepts related to the clou
     >AWS Data Pipeline provides a managed orchestration service that gives you greater flexibility in terms of the execution environment, access and control over the compute resources that run your code, as well as the code itself that does data processing. AWS Data Pipeline launches compute resources in your account allowing you direct access to the Amazon EC2 instances or Amazon EMR clusters.
 
     >Furthermore, AWS Glue ETL jobs are Scala or Python based. If your use case requires you to use an engine other than Apache Spark or if you want to run a heterogeneous set of jobs that run on a variety of engines like Hive, Pig, etc., then AWS Data Pipeline would be a better choice.
+
+1. Different types of ELB
+    - https://aws.amazon.com/elasticloadbalancing/details/#compare
+    - https://www.sumologic.com/aws/elb/aws-elastic-load-balancers-classic-vs-application/
+    - https://medium.com/containers-on-aws/using-aws-application-load-balancer-and-network-load-balancer-with-ec2-container-service-d0cb0b1d5ae5

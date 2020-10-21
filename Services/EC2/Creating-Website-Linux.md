@@ -2,17 +2,14 @@
 
 1. Create a Security Group (Add inbound rule, open port 22 and 80 for anywhere)
 
-1. Create a KeyPair and download the .pem file.
-
-1. Convert the .pem file .ppk file using PuttyGen.\
-https://stackoverflow.com/a/8131938
+1. Create a KeyPair and download the .ppk file.
 
 1. Launch an EC2 with the below options. Rest of the options can be left default.
 	- Search for "Ubuntu Server 18.04 LTS" and select the first AMI
 	- t2.micro (free tier)
 	- Use the above created SecurityGroup and the KeyPair
 
-1. Get the public ip from the Web Console for the EC2
+1. Get the Public IP from the Web Console for the EC2.
 
 1. Use Putty to login. In the putty provide
 	- username and IP (ubuntu@1.2.3.4)
