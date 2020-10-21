@@ -4,11 +4,10 @@ Once the installation is done, confirm the same by running the `aws --version` c
 
 ## AWS CLI for Windows
 
-https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html#install-msi-on-windows
+    https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html#install-msi-on-windows
 
 
 ## AWS CLI for Ubuntu
-https://docs.aws.amazon.com/cli/latest/userguide/install-linux.html
 
 1. Create an Ubuntu EC2 instance and execute the below commands.
     >sudo apt-get update\
@@ -16,10 +15,11 @@ https://docs.aws.amazon.com/cli/latest/userguide/install-linux.html
     >pip install awscli --upgrade\
     >export PATH="$PATH:/home/ubuntu/.local/bin/"\
 
+    https://docs.aws.amazon.com/cli/latest/userguide/install-linux.html
+
 ## Generating the Access Keys
 
-1. Generate the credentials from the below link
-https://console.aws.amazon.com/iam/home?region=us-east-1#/security_credential
+1. Generate the credentials from the [this](https://console.aws.amazon.com/iam/home?region=us-east-1#/security_credential) link.
     - Click on `Continue with Security Credentials`
     - Click on `Access keys (access key ID and secret access key)`.
     - Click on `Create New Access Key`.
@@ -34,9 +34,9 @@ https://console.aws.amazon.com/iam/home?region=us-east-1#/security_credential
     >aws ec2 authorize-security-group-ingress --group-name ssh-access --protocol tcp --port 22 --cidr 0.0.0.0/0
 
 1. Get the subnets
-    >aws ec2 describe-subnetsec2
+    >aws ec2 describe-subnets
 
-1. Terminate the instance
+1. Terminate the instance (make sure to replace the instance-ids with an existing one)
     >aws ec2 terminate-instances --instance-ids i-032154634c23e4868
 
 # Further Reading
@@ -45,11 +45,11 @@ https://console.aws.amazon.com/iam/home?region=us-east-1#/security_credential
     - https://docs.aws.amazon.com/cli/latest/reference/ (v1)
     - https://awscli.amazonaws.com/v2/documentation/api/latest/index.html (v2)
 
+1. AWS CLI v1 vs v2
+    - https://www.youtube.com/watch?v=U5y7JI_mHk8
+
 1. Configure Auto Completion with the CLI
     - https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html
 
 1. s3 vs s3api commands
     - https://aws.amazon.com/blogs/developer/leveraging-the-s3-and-s3api-commands/
-
-1. AWS CLI v1 vs v2
-    - https://www.youtube.com/watch?v=U5y7JI_mHk8

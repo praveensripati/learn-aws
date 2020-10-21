@@ -58,15 +58,15 @@
 
 # Further Reading
 
-General Migration\
-https://aws.amazon.com/cloud-migration/
+1. General Migration
+	- https://aws.amazon.com/cloud-migration/
 
-Data Migration\
-https://aws.amazon.com/cloud-data-migration/
+1. Data Migration
+	- https://aws.amazon.com/cloud-data-migration/
 
-How does migration work from Mainframes to Cloud?\
-https://aws.amazon.com/blogs/apn/migrating-a-mainframe-to-aws-in-5-steps/
-https://aws.amazon.com/blogs/enterprise-strategy/yes-you-should-modernize-your-mainframe-with-the-cloud/
+1. How does migration work from Mainframes to Cloud?
+	- https://aws.amazon.com/blogs/apn/migrating-a-mainframe-to-aws-in-5-steps/
+	- https://aws.amazon.com/blogs/enterprise-strategy/yes-you-should-modernize-your-mainframe-with-the-cloud/
 
-Paper\
-https://www.infosys.com/modernization/insights/Pages/accelerate-mainframe-migration-aws.aspx
+1. Papers
+	- https://www.infosys.com/modernization/insights/Pages/accelerate-mainframe-migration-aws.aspx

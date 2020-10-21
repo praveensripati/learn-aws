@@ -68,10 +68,10 @@ There are a good number of blogs on AWS and below are some of them I do follow o
 # Blogs not written by AWS and I like :)
 
 1. Perspectives (very much recommend this one)
-http://perspectives.mvdirona.com/SyndicationService.asmx/GetRss
+    - http://perspectives.mvdirona.com/SyndicationService.asmx/GetRss
 
 1. Praveen's Blog
-- https://www.thecloudavenue.com/
+    - https://www.thecloudavenue.com/
 
 1. Prasad Domala
     - https://prasaddomala.com/feed

@@ -1,8 +1,8 @@
 # Installing Java SDK
 
-1. Create an Ubuntu 18.04 t2.micro instance and connect to it.
+1. Create an Ubuntu 18.04 t2.micro EC2 instance and connect to it.
 
-1. Execute the below commands to install Maven and java-common.
+1. Execute the below commands to install maven and java-common.
     >sudo apt-get update\
     >sudo apt install maven java-common
 
@@ -18,12 +18,12 @@ Attach the IAM Role to the EC2.
   
 1. Delete the pom.xml in the myapp folder and replace the one from java-aws-sdk-code\pom.xml.
 
-1. Execute the below commands on the EC2 instance.
-    >cd /home/ubuntu/myapp/src/main/java/org/example/basicapp
-    >rm App.java
-    >Copy the code from java-aws-sdk-code/S3Sample.java
-    >cd ~/myapp
-    >mvn clean compile exec:java
+1. Execute the below commands on the EC2 instance. Make sure there are no errors.
+    >cd /home/ubuntu/myapp/src/main/java/org/example/basicapp\
+    >rm App.java\
+    >Copy the code from java-aws-sdk-code/S3Sample.java\
+    >cd ~/myapp\
+    >mvn clean compile exec:java\
 
 1. Note from the S3 Management Console that a bucket with the name starting with `my-first-s3-bucket-` will be created a file uploaded to it.
 

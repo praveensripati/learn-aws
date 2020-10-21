@@ -1,6 +1,6 @@
 # Installing Python SDK
 
-1. Create an Ubuntu 18.04 t2.micro instance and connect to it.
+1. Create an Ubuntu 18.04 t2.micro EC2 instance and connect to it.
 
 1. Execute the below commands on the EC2 instance.
     >#become root\
