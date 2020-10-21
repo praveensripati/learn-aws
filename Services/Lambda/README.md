@@ -26,6 +26,9 @@ https://aws.amazon.com/blogs/aws/firecracker-lightweight-virtualization-for-serv
 https://aws.amazon.com/about-aws/whats-new/2018/11/firecracker-lightweight-virtualization-for-serverless-computing/
 https://aws.amazon.com/bottlerocket/
 
+Use AWS PrivateLink to Access AWS Lambda Over Private AWS Network\
+https://aws.amazon.com/blogs/aws/new-use-aws-privatelink-to-access-aws-lambda-over-private-aws-network/
+
 Shrinking an S3 image with NodeJS\
 https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html
 

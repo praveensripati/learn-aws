@@ -1,6 +1,6 @@
 # Virtual Private Cloud
 
-To make it easy VPC provides a **logically isolated network**. Any resource like an EC2 in a VPC by default won't be able to talk to another VPC, unless we setup [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) across them. VPC can bes used to isolate Prod/Dev environments, Applications, Customers etc.
+VPC is nothing more than a **logically isolated network**. Any resource like an EC2 in a VPC by default won't be able to talk to another VPC, unless we setup [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) across them. VPC can bes used to isolate Prod/Dev environments, Applications, Customers etc.
 
 VPC spans within a region, Subnet spans within a Availability Zone. When you create a VPC, it spans all the Availability Zones in the region. After creating a VPC, you can add one or more subnets in each Availability Zone.
 
@@ -73,12 +73,12 @@ VPC spans within a region, Subnet spans within a Availability Zone. When you cre
 1. If the Ping works make sure to delete all the resources created earlier including the Elastic IP.
 
 ## Steps for deleting the VPC
-	- Terminate the EC2
-	- Delete the Peering connections
-	- Delete the NAT Gateway
-	- Wait for a few Minutes
-	- Delete ElasticIP
-    - Finally delete the VPC
+1. Terminate the EC2
+1. Delete the Peering connections
+1. Delete the NAT Gateway
+1. Wait for a few Minutes
+1. Delete ElasticIP
+1. Finally delete the VPC
 
 # Further Reading
 
@@ -87,6 +87,6 @@ https://aws.amazon.com/blogs/aws/new-vpc-traffic-mirroring/
 
 Transit Gateway\
 https://docs.aws.amazon.com/vpc/latest/tgw/tgw-getting-started.html
-https://aws.amazon.com/blogs/networking-and-content-delivery/migrate-from-transit-vpc-to-aws-transit-gateway/
+https://aws.amazon.com/blogs/networking-and-content-delivery/migrate-from-transit-vpc-to-aws-transit-gateway/\
 https://aws.amazon.com/blogs/aws/new-use-an-aws-transit-gateway-to-simplify-your-network-architecture/
 https://www.youtube.com/watch?v=yQGxPEGt_-w/
