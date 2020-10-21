@@ -21,20 +21,21 @@ https://aws.amazon.com/elasticbeanstalk/
 
 # Further Reading
 
-https://aws.amazon.com/elasticbeanstalk/
+1. Home Page
+    - https://aws.amazon.com/elasticbeanstalk/
 
-Getting started
-https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/GettingStarted.html
+1. Getting started
+    - https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/GettingStarted.html
 
-Concepts
-https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.html
+1. Concepts
+    - https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.html
 
-Extensions to Elastic Beanstalk
-https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/ebextensions.html
-https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-resources.html
+1. Extensions to Elastic Beanstalk
+    - https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/ebextensions.html
+    - https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-resources.html
 
-Sample configuration files
-https://github.com/awsdocs/elastic-beanstalk-samples/tree/master/configuration-files
+1. Sample configuration files
+    - https://github.com/awsdocs/elastic-beanstalk-samples/tree/master/configuration-files
 
-Adding a DB to the Elastic Beanstalk Environment. Can be done manually or by using the extensions.
-https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.db.html
+1. Adding a Database to the Elastic Beanstalk Environment. Can be done manually or by using the extensions.
+    - https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.managing.db.html

@@ -26,5 +26,5 @@
 
 # Further Reading
 
-Mount the Amazon EFS File System on the EC2 Instance and Test
-https://docs.aws.amazon.com/efs/latest/ug/wt1-test.html
+1. Mount the Amazon EFS File System on the EC2 Instance and Test
+    - https://docs.aws.amazon.com/efs/latest/ug/wt1-test.html

@@ -16,44 +16,44 @@ High level steps for CloudFormation
 
 # Further Reading
 
-AWS CloudFormation\
-https://aws.amazon.com/cloudformation/
+1. AWS CloudFormation
+	- https://aws.amazon.com/cloudformation/
 
-Comparing CloudFormation with other similar tools\
-https://cloudonaut.io/cloudformation-vs-terraform/
-https://ryaneschinger.com/blog/aws-cloudformation-vs-terraform/
+1. Comparing CloudFormation with other similar tools
+	1. https://cloudonaut.io/cloudformation-vs-terraform/
+	1. https://ryaneschinger.com/blog/aws-cloudformation-vs-terraform/
 
-List of AWS Resources Supported\
-https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html
+1. List of AWS Resources Supported
+	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html
 
-Template anatomy\
-https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
+1. AWS resource and property types reference
+	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
 
-Sample CloudFormation Templates\
-https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-sample-templates.html
-https://github.com/widdix/aws-cf-templates
-https://github.com/cfn-modules/docs
+1. Template anatomy
+	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
 
-Walkthroughs\
-https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/CHAP_Using.html
+1. Sample CloudFormation Templates
+	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-sample-templates.html
+	- https://github.com/widdix/aws-cf-templates
+	- https://github.com/cfn-modules/docs
 
-Rollback on failure\
-https://aws.amazon.com/premiumsupport/knowledge-center/cloudformation-prevent-rollback-failure/
+1. Walkthroughs
+	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/CHAP_Using.html
 
-Nested stacks (for reusability)\
-https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html
+1. Rollback on failure
+	- https://aws.amazon.com/premiumsupport/knowledge-center/cloudformation-prevent-rollback-failure/
 
-Change Sets (previewing the changes when updating a Stack)\
-https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html
+1. Nested stacks (for reusability)
+	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html
 
-Detect drift on an entire CloudFormation stack\
-https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/detect-drift-stack.html
+1. Change Sets (previewing the changes when updating a Stack)
+	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html
 
-Bringing existing resources into CloudFormation management\
-https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import.html
+1. Detect drift on an entire CloudFormation stack
+	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/detect-drift-stack.html
 
-AWS resource and property types reference\
-https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
+1. Bringing existing resources into CloudFormation management
+	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import.html
 
-Linter\
-https://github.com/aws-cloudformation/cfn-python-lint
+1. Linter
+	- https://github.com/aws-cloudformation/cfn-python-lint

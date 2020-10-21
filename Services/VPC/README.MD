@@ -82,11 +82,11 @@ VPC spans within a region, Subnet spans within a Availability Zone. When you cre
 
 # Further Reading
 
-Traffic Mirroring\
-https://aws.amazon.com/blogs/aws/new-vpc-traffic-mirroring/
+1. Traffic Mirroring
+	- https://aws.amazon.com/blogs/aws/new-vpc-traffic-mirroring/
 
-Transit Gateway\
-https://docs.aws.amazon.com/vpc/latest/tgw/tgw-getting-started.html
-https://aws.amazon.com/blogs/networking-and-content-delivery/migrate-from-transit-vpc-to-aws-transit-gateway/\
-https://aws.amazon.com/blogs/aws/new-use-an-aws-transit-gateway-to-simplify-your-network-architecture/
-https://www.youtube.com/watch?v=yQGxPEGt_-w/
+1. Transit Gateway (a better alternate to VPC Peering)
+	- https://docs.aws.amazon.com/vpc/latest/tgw/tgw-getting-started.html
+	- https://aws.amazon.com/blogs/networking-and-content-delivery/migrate-from-transit-vpc-to-aws-transit-gateway/\
+	- https://aws.amazon.com/blogs/aws/new-use-an-aws-transit-gateway-to-simplify-your-network-architecture/
+	- https://www.youtube.com/watch?v=yQGxPEGt_-w/

@@ -41,15 +41,15 @@ https://console.aws.amazon.com/iam/home?region=us-east-1#/security_credential
 
 # Further Reading
 
-CLI Reference Guide\
-https://docs.aws.amazon.com/cli/latest/reference/ (v1)
-https://awscli.amazonaws.com/v2/documentation/api/latest/index.html (v2)
+1. CLI Reference Guide
+    - https://docs.aws.amazon.com/cli/latest/reference/ (v1)
+    - https://awscli.amazonaws.com/v2/documentation/api/latest/index.html (v2)
 
-Configure Auto Completion with the CLI
-https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html
+1. Configure Auto Completion with the CLI
+    - https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html
 
-s3 vs s3api commands\
-https://aws.amazon.com/blogs/developer/leveraging-the-s3-and-s3api-commands/
+1. s3 vs s3api commands
+    - https://aws.amazon.com/blogs/developer/leveraging-the-s3-and-s3api-commands/
 
-AWS CLI v1 vs v2\
-https://www.youtube.com/watch?v=U5y7JI_mHk8
+1. AWS CLI v1 vs v2
+    - https://www.youtube.com/watch?v=U5y7JI_mHk8
