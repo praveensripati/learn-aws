@@ -41,3 +41,26 @@
 
 https://aws.amazon.com/elasticache/
 
+Cache 101\
+https://cloudonaut.io/caching-on-aws-101/
+
+Comparing Memcached and Redis\
+https://aws.amazon.com/elasticache/redis-vs-memcached/
+https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html
+
+UseCases\
+https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/elasticache-use-cases.html
+
+Integrating Memcached with WordPress\
+https://aws.amazon.com/elasticache/memcached/wordpress-with-memcached/ 
+
+Getting started with Memcached\
+https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/GettingStarted.html
+
+Connecting to the node through Telnet\
+https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-connecting.html
+https://www.tutorialspoint.com/memcached/memcached_add_data.htm
+
+Interfacing with Memcached\
+https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-connecting.html
+https://www.tutorialspoint.com/memcached/memcached_add_data.htm

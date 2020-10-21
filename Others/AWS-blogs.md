@@ -5,7 +5,7 @@ There are a good number of blogs on AWS and below are some of them I do follow o
 1. Serverless Land Serverless Land\
 https://serverlessland.com/feed.xml
 
-1. AWS Architecture Blog AWS Architecture Blog.
+1. AWS Architecture Blog AWS Architecture Blog\
 https://aws.amazon.com/blogs/architecture/feed
 
 1. AWS Security Blog AWS Security Blog\

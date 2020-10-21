@@ -17,3 +17,30 @@ SNS, SQS, SES, S3 along with Lambda are a few AWS Services which follow the serv
 # Further Reading
 
 https://aws.amazon.com/lambda/
+
+AWS Serverless\
+https://aws.amazon.com/serverless/
+
+Firecracker (VM technology for Fargate and Lambda) and BottleRocket (Container OS for K8S for customers)\
+https://aws.amazon.com/blogs/aws/firecracker-lightweight-virtualization-for-serverless-computing/
+https://aws.amazon.com/about-aws/whats-new/2018/11/firecracker-lightweight-virtualization-for-serverless-computing/
+https://aws.amazon.com/bottlerocket/
+
+Shrinking an S3 image with NodeJS\
+https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html
+
+Collation of articles on Serverless Architecture\
+https://aws.amazon.com/blogs/architecture/ten-things-serverless-architects-should-know/
+
+How to Design Your Serverless Apps for Massive Scale
+https://aws.amazon.com/blogs/architecture/how-to-design-your-serverless-apps-for-massive-scale/
+
+Bootstrapping a Java Lambda application with minimal AWS Java SDK startup time using Maven
+https://aws.amazon.com/blogs/developer/bootstrapping-a-java-lambda-application-with-minimal-aws-java-sdk-startup-time-using-maven/
+
+Lambda Concurrency
+https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html
+https://docs.aws.amazon.com/lambda/latest/dg/invocation-scaling.html
+
+Replacing web server functionality with serverless services
+https://aws.amazon.com/blogs/compute/replacing-web-server-functionality-with-serverless-services/
