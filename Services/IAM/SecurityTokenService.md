@@ -4,8 +4,8 @@ You can use the AWS Security Token Service (AWS STS) to create and provide trust
 
 STS Supports
 
-    1. Enterprise identity federation (SAML 2.0 with Microsoft Active Directory).
-    1. Web identity federation (Amazon, FB, Google or any OpenID Connect (OIDC) 2.0 compatible provider.
+    - Enterprise identity federation (SAML 2.0 with Microsoft Active Directory).
+    - Web identity federation (Amazon, FB, Google or any OpenID Connect (OIDC) 2.0 compatible provider.
 
 # Further Reading
 

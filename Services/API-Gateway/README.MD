@@ -24,9 +24,9 @@ REST services take actions corresponding to the HTTP request verb. These four ar
 
 ## Steps to get started with the API Gateway Service
 
-1. Create a Lambda execution role (lambda-apigateway-role) with the below policy attached. The policy gives the permissions to CloudWatch and DynamoDB.
+1. Create a Lambda execution role (lambda-apigateway-role) with the `lambda-permissions.json`. The policy gives the permissions to CloudWatch and DynamoDB.
 
-1. Create a Lambda Function (LambdaFunctionOverHttps) with the below code. And also attach the role created earlier. The runtime should be Node.js 8.10.
+1. Create a Lambda Function (LambdaFunctionOverHttps) with the `LambdaFunctionOverHttps.js` code. And also attach the role created earlier. The runtime should be Node.js 10x.
 
 1. Create a table in DynamoDB with the following details.
 
@@ -80,3 +80,5 @@ REST services take actions corresponding to the HTTP request verb. These four ar
     - https://docs.aws.amazon.com/lambda/latest/dg/with-on-demand-https-example.html
 
 # TODO
+
+1. Need to check if the Lambda code works with NodeJS 10x.
