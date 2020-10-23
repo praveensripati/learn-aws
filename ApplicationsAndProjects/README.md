@@ -2,6 +2,9 @@
 
 AWS does provide a lot of services with very nice and interesting features. But, combining the different AWS Services makes it much more interesting. This page is an attempt to consolidate such things (AWS and non AWS articles). Follow the detailed instructions in each one of them and get more familiar with AWS.
 
+1. Building event-driven architectures with Amazon SNS FIFO
+	- https://aws.amazon.com/blogs/compute/building-event-driven-architectures-with-amazon-sns-fifo/
+
 1. Time series forecasting using unstructured data with Amazon Forecast and the Amazon SageMaker Neural Topic Model
 	- https://aws.amazon.com/blogs/machine-learning/time-series-forecasting-using-unstructured-data-with-amazon-forecast-and-the-amazon-sagemaker-neural-topic-model/
 

@@ -3,7 +3,9 @@
 # Further Reading
 
 1. Amazon Prime Infrastructure (including DynamoDB)
+    - https://aws.amazon.com/blogs/aws/how-aws-powered-amazons-biggest-day-ever/
     - https://aws.amazon.com/blogs/aws/amazon-prime-day-2019-powered-by-aws/
+    - https://aws.amazon.com/blogs/aws/amazon-prime-day-2020-powered-by-aws/
 
 1. Migration Complete
     - https://aws.amazon.com/blogs/aws/migration-complete-amazons-consumer-business-just-turned-off-its-final-oracle-database/

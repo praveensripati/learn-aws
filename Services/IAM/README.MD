@@ -2,6 +2,9 @@
 
 # Further Reading
 
+1. AWS Networking, Environments and you (different approaches for isolating applications)
+	- https://charity.wtf/2016/03/23/aws-networking-environments-and-you/
+
 1. AWS Services That Work with IAM
 	- https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html
 
