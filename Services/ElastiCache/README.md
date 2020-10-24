@@ -45,10 +45,6 @@
 1. Cache 101
    - https://cloudonaut.io/caching-on-aws-101/
 
-1. Comparing Memcached and Redis
-   - https://aws.amazon.com/elasticache/redis-vs-memcached/
-   - https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html
-
 1. UseCases
    - https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/elasticache-use-cases.html
 

@@ -30,3 +30,7 @@ It's easy to get confused :) Here we try to compare concepts related to the clou
     - https://aws.amazon.com/elasticloadbalancing/details/#compare
     - https://www.sumologic.com/aws/elb/aws-elastic-load-balancers-classic-vs-application/
     - https://medium.com/containers-on-aws/using-aws-application-load-balancer-and-network-load-balancer-with-ec2-container-service-d0cb0b1d5ae5
+
+1. Comparing Memcached and Redis
+   - https://aws.amazon.com/elasticache/redis-vs-memcached/
+   - https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html

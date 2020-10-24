@@ -16,8 +16,8 @@
     >pip install boto3
 
     >#Configure the SDK\
-    >exit
-    >mkdir .aws
+    >exit\
+    >mkdir .aws\
     >echo -e "[default]\nregion=us-east-1" > .aws/config
 
 # Further Reading
