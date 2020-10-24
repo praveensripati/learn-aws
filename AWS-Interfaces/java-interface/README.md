@@ -16,7 +16,7 @@ Attach the IAM Role to the EC2.
 1. Create basic maven package
     >mvn -B archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DgroupId=org.example.basicapp -DartifactId=myapp
   
-1. Delete the pom.xml in the myapp folder and replace the one from java-aws-sdk-code\pom.xml.
+1. Delete the pom.xml in the myapp folder and replace with the one in this folder.
 
 1. Execute the below commands on the EC2 instance. Make sure there are no errors.
     >cd /home/ubuntu/myapp/src/main/java/org/example/basicapp\
