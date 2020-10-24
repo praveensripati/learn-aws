@@ -23,9 +23,17 @@
 1. Building a Proof of Concept for Amazon Redshift
     - https://docs.aws.amazon.com/redshift/latest/dg/proof-of-concept-playbook.html
 
-1. Uses cases DWH, ETL and BI tools?
+1. Uses cases
     - https://aws.amazon.com/redshift/customer-success/
-    - https://aws.amazon.com/glue/customers/
     - https://aws.amazon.com/quicksight/customers/
+
+1. BI Tools working with RedShift
+    - https://aws.amazon.com/redshift/partners/
+    - https://aws.amazon.com/quicksight/
+    - https://aws.amazon.com/blogs/big-data/integrate-power-bi-with-amazon-redshift-for-insights-and-analytics/
+
+1. ETL into RedShift
+    - https://aws.amazon.com/glue/
+    - https://aws.amazon.com/datapipeline/
 
 # TODO

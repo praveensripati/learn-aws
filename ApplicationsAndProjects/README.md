@@ -2,56 +2,59 @@
 
 AWS does provide a lot of services with very nice and interesting features. But, combining the different AWS Services makes it much more interesting. This page is an attempt to consolidate such things (AWS and non AWS articles). Follow the detailed instructions in each one of them and get more familiar with AWS.
 
-1. Building event-driven architectures with Amazon SNS FIFO
+1. Integrate Power BI with Amazon Redshift for insights and analytics (**#REDSHIFT**, **#POWER-BI**)
+	- https://aws.amazon.com/blogs/big-data/integrate-power-bi-with-amazon-redshift-for-insights-and-analytics/
+
+1. Building event-driven architectures with Amazon SNS FIFO (**#SNS**)
 	- https://aws.amazon.com/blogs/compute/building-event-driven-architectures-with-amazon-sns-fifo/
 
-1. Time series forecasting using unstructured data with Amazon Forecast and the Amazon SageMaker Neural Topic Model
+1. Time series forecasting using unstructured data with Amazon Forecast and the Amazon SageMaker Neural Topic Model (**#FORECAST, #SAGEMAKER**)
 	- https://aws.amazon.com/blogs/machine-learning/time-series-forecasting-using-unstructured-data-with-amazon-forecast-and-the-amazon-sagemaker-neural-topic-model/
 
-1. Performing batch fraud predictions using Amazon Fraud Detector, Amazon S3, and AWS Lambda
+1. Performing batch fraud predictions using Amazon Fraud Detector, Amazon S3, and AWS Lambda (**#FRAUDDETECTOR, #S3, #LAMBDA**)
 
 	- https://aws.amazon.com/blogs/machine-learning/performing-batch-fraud-predictions-using-amazon-fraud-detector-amazon-s3-and-aws-lambda/
 
-1. How to automate incident response in the AWS Cloud for EC2 instances
+1. How to automate incident response in the AWS Cloud for EC2 instances (**#SECURITY, #EC2**)
 	- https://aws.amazon.com/blogs/security/how-to-automate-incident-response-in-aws-cloud-for-ec2-instances/
 
-1. Using serverless backends to iterate quickly on web apps
+1. Using serverless backends to iterate quickly on web apps (**#SERVERLESS**)
 	- https://aws.amazon.com/blogs/compute/using-serverless-backends-to-iterate-quickly-on-web-apps-part-1/
 	- https://aws.amazon.com/blogs/compute/using-serverless-backends-to-iterate-quickly-on-web-apps-part-2/
 	- https://aws.amazon.com/blogs/compute/using-serverless-backends-to-iterate-quickly-on-web-apps-part-3/
 	- https://github.com/aws-samples/happy-path
 	- https://aws.amazon.com/blogs/compute/optimizing-the-cost-of-serverless-web-applications/
 
-1. Configure Sub-Domain in AWS SES to Receive Mails
+1. Configure Sub-Domain in AWS SES to Receive Mails (**#SES**)
 	- https://blog.cloudthat.com/configure-sub-domain-in-aws-ses-to-receive-mails/
 
-1. Projects in the intersection of Big Data and AWS Services
+1. Projects in the intersection of Big Data and AWS Services (**#BIGDATA**)
 	- https://registry.opendata.aws/usage-examples/
 
-1. Solution Implementations
+1. Solution Implementations (**#GENERAL**)
 	- https://aws.amazon.com/solutions/implementations/
 
-1. Architect an Airline Booking Application, End-to-End
+1. Architect an Airline Booking Application, End-to-End (**#SERVERLESS**)
 	- https://pages.awscloud.com/GLOBAL-devstrategy-OE-BuildOnServerless-2019-reg-event.html
 	- https://www.youtube.com/playlist?list=PLJV9303TMVKzFk1CNV_bStVZd3ZhW8dNz
 
-1. Project Ideas
+1. Project Ideas (**#GENERAL**)
 	- https://aws.amazon.com/getting-started/hands-on/
 
-1. Controlling your AWS costs by deleting unused Amazon EBS volumes
+1. Controlling your AWS costs by deleting unused Amazon EBS volumes (**#COST**)
 	- https://aws.amazon.com/blogs/mt/controlling-your-aws-costs-by-deleting-unused-amazon-ebs-volumes/
 
-1. AWS S3 Photo Thumbnail
+1. AWS S3 Photo Thumbnail (**#S3, #LAMBDA**)
 	- https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html
 	- https://aws.amazon.com/solutions/implementations/serverless-image-handler/
 	- http://www.thecloudavenue.com/2017/08/photo-resizing-using-aws-lambda-serverless-architecture.html
 	
-1. Analyzing the Airline Dataset using S3/Athena or EMR
+1. Analyzing the Airline Dataset using S3/Athena or EMR (**#S3, #ATHENA, #EMR**)
 	- http://stat-computing.org/dataexpo/2009/the-data.html
 	- http://www.thecloudavenue.com/2017/06/converting-airline-row-to-columnar-format.html
 	- http://www.thecloudavenue.com/2017/06/processing-airline-dataset-with-aws-athena.html
 
-1. Exploring images on social media using Amazon Rekognition and Amazon Athena
+1. Exploring images on social media using Amazon Rekognition and Amazon Athena (**#ATHENA, #REKOGNITION**)
 	- https://aws.amazon.com/blogs/machine-learning/exploring-images-on-social-media-using-amazon-rekognition-and-amazon-athena/
 
 1. Building a website
@@ -59,55 +62,54 @@ AWS does provide a lot of services with very nice and interesting features. But,
 	1. Host the website on an Apache instance running on an EC2 micro instance.
 	1. Have the whole thing “come to life” from nothing by using CloudFormation to create, configure and start the components of the solution.
 
-1. Installing Moodle LMS on EC2
+1. Installing Moodle LMS on EC2 (**#EC2, #RDS**)
 	- https://docs.moodle.org/33/en/Installation_Guide_for_Installing_on_Amazon_EC2
 	- https://docs.moodle.org/33/en/Installing_Moodle
 
-1. Using X-ray to debug distributed applications
+1. Using X-ray to debug distributed applications (**#XRAY**)
 	 - https://aws.amazon.com/blogs/aws/aws-lambda-support-for-aws-x-ray
 
-1. Creating an Amazon Rekognition Lambda Function
+1. Creating an Amazon Rekognition Lambda Function (**#LAMBDA, #REKOGNITION**)
 	- https://docs.aws.amazon.com/rekognition/latest/dg/stored-video-lambda.html
 
-1. Optimize Security Groups
+1. Optimize Security Groups (**#SECURITY**)
 	- https://aws.amazon.com/blogs/security/how-to-optimize-and-visualize-your-security-groups/
 	- https://aws.amazon.com/blogs/security/how-to-visualize-and-refine-your-networks-security-by-adding-security-group-ids-to-your-vpc-flow-logs/
 
 1. Analysis of the Wiki data to calculate the PageRank and to create and Index.
 
-1. Build a Serverless Web Application using Lambda, API Gateway, S3, DynamoDB, Cognito
+1. Build a Serverless Web Application using Lambda, API Gateway, S3, DynamoDB, Cognito (**#LAMBDA, #APIGATEWAY, #S3, #DYNAMODB, #COGNITO**)
 	- https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/
 
-1. How to add file upload features to your website with AWS Lambda and S3
+1. How to add file upload features to your website with AWS Lambda and S3 (**#S3, #LAMBDA**)
 	- https://read.acloud.guru/how-to-add-file-upload-features-to-your-website-with-aws-lambda-and-s3-48bbe9b83eaa
 
 1. Build a Modern Web Application
 	- https://aws.amazon.com/getting-started/projects/build-modern-app-fargate-lambda-dynamodb-python/
 
-1. Error Processor Sample Application for AWS Lambda
+1. Error Processor Sample Application for AWS Lambda (**#LAMBDA**)
 	- https://docs.aws.amazon.com/lambda/latest/dg/sample-errorprocessor.html
 
-1. Serverless DevOps Workshop
-Client -> API Gateway -> Lambda -> DynamoDB
+1. Serverless DevOps Workshop (**#LAMBDA, #APIGATEWAY, #S3**)
 	- https://github.com/aws-samples/aws-serverless-workshops/tree/master/DevOps
 
-1. Serverless Image Handler
+1. Serverless Image Handler (**#SERVERLESS**)
 	- https://aws.amazon.com/solutions/serverless-image-handler/
 
-1. How AWS built a production service using serverless technologies
+1. How AWS built a production service using serverless technologies (**#SERVERLESS**)
 	- https://aws.amazon.com/blogs/opensource/real-world-serverless-application/
 
-1. Building a serverless weather bot with two-way SMS, AWS SAM, and AWS Lambda
+1. Building a serverless weather bot with two-way SMS, AWS SAM, and AWS Lambda (**#SERVERLESS, #SAM, #LAMBDA**)
 	- https://aws.amazon.com/blogs/compute/building-a-serverless-weather-bot-with-two-way-sms-aws-sam-and-aws-lambda/
 
-1. How to analyze and reduce S3 storage usage?
+1. How to analyze and reduce S3 storage usage? (**#S3, #COST**)
 	- https://cloudonaut.io/how-to-analyze-and-reduce-s3-storage-usage/
 
-1. Building a Raspberry Pi telepresence robot using serverless
+1. Building a Raspberry Pi telepresence robot using serverless (**#SERVERLESS**)
 	- https://aws.amazon.com/blogs/compute/building-a-raspberry-pi-telepresence-robot-using-serverless-part-1/
 	- https://aws.amazon.com/blogs/compute/building-a-raspberry-pi-telepresence-robot-using-serverless-part-2/
 
-1. Translating documents at enterprise scale with serverless
+1. Translating documents at enterprise scale with serverless (**#SERVERLESS**)
 	- https://aws.amazon.com/blogs/compute/translating-documents-at-enterprise-scale-with-serverless/
 
 1. Building a serverless URL shortener app without AWS Lambda
@@ -119,31 +121,31 @@ Client -> API Gateway -> Lambda -> DynamoDB
 	- https://aws.amazon.com/blogs/compute/building-scalable-serverless-applications-with-amazon-s3-and-aws-lambda/
 	- https://www.youtube.com/playlist?list=PLJo-rJlep0EAY0nMNBv0MZ487l1tOFAjh
 
-1. Cutting Costs with AWS Lambda for Highly Scalable Image Processing
+1. Cutting Costs with AWS Lambda for Highly Scalable Image Processing (**#COST**)
 	- https://aws.amazon.com/blogs/apn/cutting-costs-with-aws-lambda-for-highly-scalable-image-processing/
 
 1. Converting call center recordings into useful data for analytics
 	- https://aws.amazon.com/blogs/compute/converting-call-center-recordings-into-useful-data-for-analytics/
 
-1. Visualizing Amazon GuardDuty findings
+1. Visualizing Amazon GuardDuty findings (**#SECURITY**)
 	- https://aws.amazon.com/blogs/security/visualizing-amazon-guardduty-findings/
 
-1. How to visualize Amazon GuardDuty findings: serverless edition
+1. How to visualize Amazon GuardDuty findings: serverless edition (**#SECURITY**)
 	- https://aws.amazon.com/blogs/security/how-to-visualize-amazon-guardduty-findings-serverless-edition/
 
-1. How to use Amazon GuardDuty and AWS Web Application Firewall to automatically block suspicious hosts
+1. How to use Amazon GuardDuty and AWS Web Application Firewall to automatically block suspicious hosts (**#SECURITY**)
 	- https://aws.amazon.com/blogs/security/how-to-use-amazon-guardduty-and-aws-web-application-firewall-to-automatically-block-suspicious-hosts/
 
-1. Delegate Access Across AWS Accounts Using IAM Roles
+1. Delegate Access Across AWS Accounts Using IAM Roles (**#SECURITY**)
 	- https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html
 
-1. 3 Steps to Access AWS Resources with Google Sign-In
+1. 3 Steps to Access AWS Resources with Google Sign-In (**#SECURITY**)
 	- https://blog.codecentric.de/en/2018/04/accessing-aws-resources-with-google-sign-in/
 
 1. Building a lawn monitor and weed detection solution with AWS machine learning and IoT services
 	- https://aws.amazon.com/blogs/machine-learning/building-a-lawn-monitor-and-weed-detection-solution-with-aws-machine-learning-and-iot-services/
 
-1. Catching fraud faster by building a proof of concept in Amazon Fraud Detector
+1. Catching fraud faster by building a proof of concept in Amazon Fraud Detector (**#SECURITY**)
 	- https://aws.amazon.com/blogs/machine-learning/catching-fraud-faster-by-building-a-proof-of-concept-in-amazon-fraud-detector/
 
 1. Build an end to end, automated inventory forecasting capability with AWS Lake Formation and Amazon Forecast
@@ -176,10 +178,10 @@ Client -> API Gateway -> Lambda -> DynamoDB
 1. Analyze and visualize nested JSON data with Amazon Athena and Amazon QuickSight
 	- https://aws.amazon.com/blogs/big-data/analyze-and-visualize-nested-json-data-with-amazon-athena-and-amazon-quicksight/
 
-1. Uploading to Amazon S3 directly from a web or mobile application
+1. Uploading to Amazon S3 directly from a web or mobile application (**#S3 #SECURITY**)
 	- https://aws.amazon.com/blogs/compute/uploading-to-amazon-s3-directly-from-a-web-or-mobile-application/
 
-1. Creating simple AWS Costs and Usage charts with a D3 JavaScript library
+1. Creating simple AWS Costs and Usage charts with a D3 JavaScript library (**#COST**)
 	- https://aws.amazon.com/blogs/opensource/creating-simple-aws-costs-and-usage-charts-with-a-d3-javascript-library/
 
 1. AWS Dojo

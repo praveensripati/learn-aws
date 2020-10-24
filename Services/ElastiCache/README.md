@@ -10,7 +10,7 @@
     1. Get the list of softwares
        >apt-get update
 
-    1. Install python and pip\
+    1. Install python and pip
        >apt-get install python2.7 python-pip -y
 
     1. Install the redis connector for python\
@@ -33,8 +33,8 @@
 1. Delete the tuple from the ElastiCache Redis Cluster.
    >python delete-tuple-redis.py age
 
-1. Try to delete the tuple "age" and it shouldn't return anything.
-
+1. Try to get the tuple "age" and it shouldn't return anything.
+   >python check-tuple-redis.py age
 1. Make sure to terminate the EC2 and the ElastiCache Cluster.
 
 # Further Reading
