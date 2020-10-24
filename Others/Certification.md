@@ -1,6 +1,6 @@
 # About the Certification
 
-1. SignIn for AWS Certificate\
+1. SignIn for AWS Certificate
     - https://www.aws.training/SignIn?returnUrl=%2FCertification
 
 2. Pricing
