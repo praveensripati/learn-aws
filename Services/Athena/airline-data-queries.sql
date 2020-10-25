@@ -40,10 +40,10 @@ Count the number of delayed flights for each of the origin on the CSV data
 Note down the execution time and amount of data scanned
 */
 
-select Origin, count(*) from ontime where DepTime > CRSDepTime group by Origin;
+select Origin, count(*) as delayed from ontime where DepTime > CRSDepTime group by Origin order by delayed desc;
 
 /*
-Convert the CSV data to the Parqet data with the Snappy compression
+Convert the CSV data to the Parquet data with the Snappy compression
 Make sure to change the location of the S3 data
 */
 
@@ -59,4 +59,4 @@ Count the number of delayed flights for each of the origin on the Parqet data wi
 Note down the execution time and amount of data scanned
 */
 
-select Origin, count(*) from ontime_parquet_snappy where DepTime > CRSDepTime group by Origin;
+select Origin, count(*) as delayed from ontime_parquet_snappy where DepTime > CRSDepTime group by Origin order by delayed desc;

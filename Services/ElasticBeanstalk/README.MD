@@ -1,7 +1,7 @@
 # ElasticBeanstalk (PAAS)
 
 1. Download tomcat.zip from the below URL.
-https://aws.amazon.com/elasticbeanstalk/
+https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/tutorials.html
 
 1. Go to the Elastic BeanStalk Management Console.
 
