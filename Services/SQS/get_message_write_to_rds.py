@@ -22,14 +22,6 @@ mycursor = mydb.cursor()
 response = sqs.receive_message(QueueUrl=queue_url)
 message = response['Messages'][0]
 
-# Delete received message from queue
-receipt_handle = message['ReceiptHandle']
-
-sqs.delete_message(
-    QueueUrl=queue_url,
-    ReceiptHandle=receipt_handle
-)
-
 print('Received and deleted message: %s' % message["Body"])
 
 # Get the customer name and address from the message
@@ -45,3 +37,13 @@ sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
 mycursor.execute(sql, val)
 mydb.commit()
 print("Record inserted in the DB")
+
+# Delete received message from queue as it has been processed
+# If not deleted then the message is again visible to some other application
+# after the visibility timeout
+receipt_handle = message['ReceiptHandle']
+
+sqs.delete_message(
+    QueueUrl=queue_url,
+    ReceiptHandle=receipt_handle
+)
