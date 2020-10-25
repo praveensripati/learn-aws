@@ -1,5 +1,11 @@
 # Athena
 
+Athena is a service to process the data in S3 using standard SQL queries. It's all serverless and there is no need to do any capacity planning. The pricing for Athena depends on the amount of data scanned in S3.
+
+1. `airline-data-queries.sql` has the sequence of steps to process the Airline dataset provided Hardvard Dataverse. The same can be downloaded from [here](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HG7NV7) and uploaded into S3 for further processing.
+
+1. `cloudtrail-data-queries.sql` has the sequence of steps to process the CloudTrial Trials data which can be used for auditing the user or the application activities in AWS.
+
 # Further Reading
 
 1. Athena uses Presto (https://prestosql.io/), RedShift uses PostgeSQL.

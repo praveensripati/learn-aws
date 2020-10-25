@@ -20,8 +20,9 @@ High level steps for CloudFormation
 	- https://aws.amazon.com/cloudformation/
 
 1. Comparing CloudFormation with other similar tools
-	1. https://cloudonaut.io/cloudformation-vs-terraform/
-	1. https://ryaneschinger.com/blog/aws-cloudformation-vs-terraform/
+	- https://cloudonaut.io/cloudformation-vs-terraform/
+	- https://ryaneschinger.com/blog/aws-cloudformation-vs-terraform/
+	- https://www.thecloudavenue.com/2020/09/aws-infrastructure-provisioning-with-ansible.html
 
 1. List of AWS Resources Supported
 	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html
@@ -33,11 +34,11 @@ High level steps for CloudFormation
 	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html
 
 1. Sample CloudFormation Templates
-	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-sample-templates.html
+	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/sample-templates-services-us-east-1.html
 	- https://github.com/widdix/aws-cf-templates
 	- https://github.com/cfn-modules/docs
 
-1. Walkthroughs
+1. Walkthroughs for auto generating the Template code 
 	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/CHAP_Using.html
 
 1. Rollback on failure
