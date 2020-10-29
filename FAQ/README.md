@@ -3,6 +3,9 @@
 
 While talking to someone around AWS or while conducting trainings, some of the questions pop up again and again. This page is an attempt to consolidate all such questions. These FAQ are also very good for the sake of interviews.
 
+1. Connecting to Your Linux Instance if You Lose Your Private Key
+    - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replacing-lost-key-pair.html
+
 1. How to work with windows EC2?
     - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/EC2_GetStarted.html
 
