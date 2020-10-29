@@ -331,11 +331,12 @@ While talking to someone around AWS or while conducting trainings, some of the q
     - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html
     - https://aws.amazon.com/blogs/database/amazon-rds-under-the-hood-multi-az/
     - https://www.youtube.com/watch?v=uiiS1h4PSI8
+    
 
 1. What is Cloud Native?
     - https://www.redhat.com/en/topics/cloud-native-apps
 
-    >Cloud-native applications are a collection of small, independent, and loosely coupled services. They are designed to deliver well recognized business value, like the ability to rapidly incorporate user feedback for continuous improvement. In short, cloud-native app development is a way to speed up how you build new applications, optimize existing ones, and connect them all together. Its goal is to deliver apps users want at the pace a business needs.
+    >Cloud-native applications are a collection of small, independent, and loosely coupled services. They are designed to deliver well recognized business value, like the ability to rapidly incorporate user feedback for continuous improvement. In short, cloud-native app development is a way to speed up how you build new applications, optimize existing ones, and connect them all together. Its goal is to deliver apps users want at the pace a business needs. This is the new line.
 
 1. Different ways of connecting the on-premise network to the AWS network
      - https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.html
