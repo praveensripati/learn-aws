@@ -3,6 +3,9 @@
 
 While talking to someone around AWS or while conducting trainings, some of the questions pop up again and again. This page is an attempt to consolidate all such questions. These FAQ are also very good for the sake of interviews.
 
+1. What is a Security Group?
+    - Some URL
+
 1. How to work with windows EC2?
     - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/EC2_GetStarted.html
 
@@ -331,7 +334,7 @@ While talking to someone around AWS or while conducting trainings, some of the q
     - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html
     - https://aws.amazon.com/blogs/database/amazon-rds-under-the-hood-multi-az/
     - https://www.youtube.com/watch?v=uiiS1h4PSI8
-    
+
 
 1. What is Cloud Native?
     - https://www.redhat.com/en/topics/cloud-native-apps
