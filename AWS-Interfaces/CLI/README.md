@@ -4,7 +4,8 @@ Once the installation is done, confirm the same by running the `aws --version` c
 
 ## AWS CLI for Windows
 
-    https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html#install-msi-on-windows
+1. Download and install the AWS CLI
+    - https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html#install-msi-on-windows
 
 
 ## AWS CLI for Ubuntu
@@ -13,11 +14,11 @@ Once the installation is done, confirm the same by running the `aws --version` c
     >sudo apt-get update\
     >sudo apt-get install python2.7 python-pip -y\
     >pip install awscli --upgrade\
-    >export PATH="$PATH:/home/ubuntu/.local/bin/"\
+    >export PATH="$PATH:/home/ubuntu/.local/bin/"
 
     https://docs.aws.amazon.com/cli/latest/userguide/install-linux.html
 
-## Generating the Access Keys
+## For **non-EC2** instances
 
 1. Generate the credentials from the [this](https://console.aws.amazon.com/iam/home?region=us-east-1#/security_credential) link.
     - Click on `Continue with Security Credentials`
@@ -26,6 +27,12 @@ Once the installation is done, confirm the same by running the `aws --version` c
     - Note down the keys.
 
 1. Run the `aws configure` command to specify the region (us-east-1 for North Virginia) and the keys. For the default output format leave blank.
+
+## For the **EC2** instances
+
+1. Create an IAM Role with the appropriate policy and attach the same to the EC2 instance.
+
+1. Run the `aws configure` command to specify **only** the region (us-east-1 for North Virginia).
 
 ## Commands to create AWS resources
 

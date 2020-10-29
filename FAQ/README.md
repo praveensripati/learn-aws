@@ -151,7 +151,7 @@ While talking to someone around AWS or while conducting trainings, some of the q
     - https://www.nomachine.com/accessing-your-remote-linux-desktop-on-amazon-elastic-compute-cloud-via-NoMachine
     - https://aws.amazon.com/premiumsupport/knowledge-center/ec2-linux-2-install-gui/
 
-1. General getting started with IT\
+1. General getting started with IT
     - Programming Language - https://www.tutorialspoint.com/python/index.htm
     - Database - https://www.tutorialspoint.com/mysql/index.htm
     - Linux - https://www.tutorialspoint.com/unix/index.htm

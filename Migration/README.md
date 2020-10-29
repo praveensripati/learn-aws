@@ -1,5 +1,7 @@
 # Migration to the AWS
 
+Many are moving towards and some are moving away from the Cloud. This page is all about exploring the resources around to get started with the migration.
+
 ## Four Phases
 
     - PROJECT - Run small/trial projects/PoC to get familiar and experience the benefits of the Cloud
@@ -9,7 +11,6 @@
 	- MIGRATION - Migrate applications or entire data center to the Cloud
 	
 	- REINVENTION - Take advantage of flexibility of the Cloud for increasing the innovation, TTM etc.
-
 
 ## Migration Process
 
@@ -61,8 +62,9 @@
 1. General Migration
 	- https://aws.amazon.com/cloud-migration/
 
-1. Data Migration
+1. AWS Services around Migration
 	- https://aws.amazon.com/cloud-data-migration/
+	- https://aws.amazon.com/server-migration-service/
 
 1. How does migration work from Mainframes to Cloud?
 	- https://aws.amazon.com/blogs/apn/migrating-a-mainframe-to-aws-in-5-steps/

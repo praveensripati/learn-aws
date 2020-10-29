@@ -2,6 +2,14 @@
 
 AWS does provide a lot of services with very nice and interesting features. But, combining the different AWS Services makes it much more interesting. This page is an attempt to consolidate such things (AWS and non AWS articles). Follow the detailed instructions in each one of them and get more familiar with AWS.
 
+1. Transforming Eat-In Restaurant Margarita’s to a Successful Delivery, Carry-Out Business Using Amazon Connect (#CONNECT, #LAMBDA, #DYNAMODB)
+	- https://aws.amazon.com/blogs/apn/transforming-eat-in-restaurant-margaritas-to-a-successful-delivery-carry-out-business-using-amazon-connect/
+
+1. Bringing real-time machine learning-powered insights to rugby using Amazon SageMaker (**SAGEMAKER**)
+	- https://aws.amazon.com/blogs/machine-learning/bringing-real-time-machine-learning-powered-insights-to-rugby-using-amazon-sagemaker/
+
+1. 
+
 1. Integrate Power BI with Amazon Redshift for insights and analytics (**#REDSHIFT**, **#POWER-BI**)
 	- https://aws.amazon.com/blogs/big-data/integrate-power-bi-with-amazon-redshift-for-insights-and-analytics/
 

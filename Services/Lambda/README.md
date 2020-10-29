@@ -48,3 +48,6 @@ SNS, SQS, SES, S3 along with Lambda are a few AWS Services which follow the serv
 
 1. Replacing web server functionality with serverless services
     - https://aws.amazon.com/blogs/compute/replacing-web-server-functionality-with-serverless-services/
+
+1. Choosing between AWS Lambda data storage options in web apps
+    - https://aws.amazon.com/blogs/compute/choosing-between-aws-lambda-data-storage-options-in-web-apps/

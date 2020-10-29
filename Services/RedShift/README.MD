@@ -65,4 +65,7 @@
     - https://aws.amazon.com/glue/
     - https://aws.amazon.com/datapipeline/
 
+1. Creating a scalar Lambda UDF
+    - https://docs.aws.amazon.com/redshift/latest/dg/udf-creating-a-lambda-sql-udf.html
+
 # TODO
