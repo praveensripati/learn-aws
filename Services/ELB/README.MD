@@ -24,5 +24,3 @@
 
 1. Weighted Target Groups
     - https://www.exampleloadbalancer.net/albwtg_demo.html
-
-# TODO

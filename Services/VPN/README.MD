@@ -25,5 +25,3 @@
 1. Building a VPN Between GCP and AWS with Terraform
     - https://cloud.google.com/solutions/automated-network-deployment-multicloud
     - https://jumpcloud.com/blog/connect-gce-and-aws#cookie-accept
-
-# TODO

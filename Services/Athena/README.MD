@@ -14,5 +14,3 @@ Athena is a service to process the data in S3 using standard SQL queries. It's a
 
 1. Athena Federated Query
     - https://aws.amazon.com/blogs/big-data/query-any-data-source-with-amazon-athenas-new-federated-query/
-
-# TODO

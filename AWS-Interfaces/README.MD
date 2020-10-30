@@ -10,5 +10,3 @@ There are different ways of interfacing with AWS.
 
 3. Web Management Console (for anything else)
     - http://console.aws.amazon.com/
-
-# TODO

@@ -19,5 +19,3 @@
 
 1. Step Functions vs GCP Workflows
     - https://www.tbray.org/ongoing/When/202x/2020/09/21/AWS-Step-Functions-vs-GCP-Workflows
-
-# TODO

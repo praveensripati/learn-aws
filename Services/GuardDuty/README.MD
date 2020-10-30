@@ -24,5 +24,3 @@
 
 1. Tester with commands
     - https://github.com/awslabs/amazon-guardduty-tester
-
-# TODO

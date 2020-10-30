@@ -50,5 +50,3 @@ https://www.heidisql.com/
 
 1. Another way to connect using the IAM credentials. How do I allow users to connect to an Amazon RDS MySQL DB instance using their IAM credentials?
     - https://aws.amazon.com/premiumsupport/knowledge-center/users-connect-rds-iam/
-
-# TODO

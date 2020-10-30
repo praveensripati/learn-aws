@@ -8,8 +8,6 @@ AWS does provide a lot of services with very nice and interesting features. But,
 1. Bringing real-time machine learning-powered insights to rugby using Amazon SageMaker (**SAGEMAKER**)
 	- https://aws.amazon.com/blogs/machine-learning/bringing-real-time-machine-learning-powered-insights-to-rugby-using-amazon-sagemaker/
 
-1. 
-
 1. Integrate Power BI with Amazon Redshift for insights and analytics (**#REDSHIFT**, **#POWER-BI**)
 	- https://aws.amazon.com/blogs/big-data/integrate-power-bi-with-amazon-redshift-for-insights-and-analytics/
 

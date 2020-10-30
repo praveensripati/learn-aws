@@ -13,7 +13,7 @@ While talking to someone around AWS or while conducting trainings, some of the q
     - https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/
 
 1. EC2 Instance Types
-    - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.htmle
+    - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html
 
 1. How to create a username/password for EC2?
     - https://aws.amazon.com/premiumsupport/knowledge-center/ec2-password-login/
@@ -26,7 +26,7 @@ While talking to someone around AWS or while conducting trainings, some of the q
     - https://aws.amazon.com/ec2/dedicated-hosts/getting-started/
     - https://aws.amazon.com/ec2/dedicated-hosts/faqs/
 
-1. How to work with your own IP pool?\
+1. How to work with your own IP pool?
     - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html
 
 1. How to extend a existing EBS for Windows and Linux?
@@ -50,7 +50,7 @@ While talking to someone around AWS or while conducting trainings, some of the q
 1. Client IP and ELB Logs
     - https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/access-log-collection.html
 
-1. Add existing EC2 to the ASG?
+1. Add existing EC2 to the AutoScalingGroup?
     - https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-instance-asg.html
 
 1. How to do the IAM Federation?
@@ -113,16 +113,8 @@ While talking to someone around AWS or while conducting trainings, some of the q
 1. Limitations for S3 LifeCycle Policies
     - https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html
 
-1. Extending EBS
-    - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html
-
 1. Mounting EFS by IP address
     - https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-ip-addr.html
-
-1. HTTPS for ELB
-    - Classic - https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-https-load-balancers.html
-    - Network - https://aws.amazon.com/blogs/aws/new-tls-termination-for-network-load-balancers/
-    - Application - https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html
 
 1. EC2 accidental termination
     - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/terminating-instances.html#Using_ChangingDisableAPITermination
@@ -169,7 +161,7 @@ While talking to someone around AWS or while conducting trainings, some of the q
     - https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html
     - https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html
 
-1. AWS CLI 1 vs V2
+1. AWS CLI V1 vs V2
     - https://www.youtube.com/watch?v=U5y7JI_mHk8
 
 1. What is master key in KMS?
@@ -181,7 +173,7 @@ While talking to someone around AWS or while conducting trainings, some of the q
 1. Can we change the rotation duration for AWS Managed Keys? Depends on the type of key as mentioned in the below document.
     - https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html
 
-1. What is Envelope Encryption?\
+1. What is Envelope Encryption?
     - https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html
 
 1. Rotating Customer Master Keys
@@ -192,9 +184,6 @@ While talking to someone around AWS or while conducting trainings, some of the q
 
 1. How many versions can store in S3?
     - https://docs.amazonaws.cn/en_us/AmazonS3/latest/dev/list-obj-version-enabled-bucket.html
-
-1. What is the cost of storage gateway?
-    - https://aws.amazon.com/storagegateway/pricing/
 
 1. Getting started with storage gateway
     - https://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStarted.html
@@ -239,9 +228,6 @@ While talking to someone around AWS or while conducting trainings, some of the q
     - https://aws.amazon.com/about-aws/whats-new/2019/11/application-load-balancer-now-supports-least-outstanding-requests-algorithm-for-load-balancing-requests/
     - https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html
     - https://aws.amazon.com/blogs/aws/new-application-load-balancer-simplifies-deployment-with-weighted-target-groups/
-
-1. Creating ELB with HTTPS
-    - https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html
 
 1. Data Transfer Pricing
     - https://www.apptio.com/emerge/aws-data-transfer-costs/
@@ -357,6 +343,12 @@ While talking to someone around AWS or while conducting trainings, some of the q
 
 1. Use RSA private key to generate public key?
     - https://stackoverflow.com/a/5246045/614157
+
+1. Attaching a volume to multiple instances with Amazon EBS Multi-Attach
+    - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html
+
+1. How do I set up weighted target groups for my Application Load Balancer?
+    - https://aws.amazon.com/premiumsupport/knowledge-center/elb-make-weighted-target-groups-for-alb/
 
 # TODO
 

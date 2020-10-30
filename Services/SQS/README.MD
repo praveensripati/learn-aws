@@ -13,5 +13,3 @@
 
 1. Migrating from IBM MQ to Amazon MQ using a phased approach
     - https://aws.amazon.com/blogs/compute/migrating-from-ibm-mq-to-amazon-mq-using-a-phased-approach/
-
-# TODO

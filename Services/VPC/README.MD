@@ -4,6 +4,17 @@ VPC is nothing more than a **logically isolated network**. Any resource like an 
 
 VPC spans within a region, Subnet spans within a Availability Zone. When you create a VPC, it spans all the Availability Zones in the region. After creating a VPC, you can add one or more subnets in each Availability Zone.
 
+## Creating a VPC and EC2 in private/public subnets using the wizard
+
+1. Create a VPC (Public) using Wizard.
+	- Navigate to the VPC Management Console (https://console.aws.amazon.com/vpc/home?region=us-east-1)
+	- Create an `Elastic IP`.
+	- Click on `Launch VPC Wizard` in the `VPC Dashboard`.
+	- Select `VPC with Public and Private Subnets`. Click on `Select`.
+	- Give the VPC, Public and Private Subnet a name.
+	- Select the `Elastic IP`.
+	- Click on `Create VPC`.
+
 ## Creating a VPC and EC2 in private/public subnets manually
 
 1. Create VPC (VPC 10.0.0.0/16 - Subnet 10.0.1.0/24 and 10.0.2.0/24)
