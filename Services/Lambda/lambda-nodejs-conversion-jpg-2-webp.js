@@ -1,57 +1,77 @@
-const path = require('path')
-const AWS = require('aws-sdk')
+// dependencies
+const AWS = require('aws-sdk');
+const util = require('util');
+const sharp = require('sharp');
 
-const S3 = new AWS.S3({
-  signatureVersion: 'v4',
-})
-
-const Sharp = require('sharp')
-const BUCKET = 'some-bucket'
-const QUALITY = 75
+// get reference to S3 client
+const s3 = new AWS.S3();
+const QUALITY = 100
 
 exports.handler = async (event, context, callback) => {
-  const { request, response } = event.Records[0].cf
-  const { uri } = request
-  const headers = response.headers
 
-  if (path.extname(uri) === '.webp') {
-    if (response.status === 404) {
-      const format = reqeust.headers['original-resource-type'] && reqeust.headers['original-resource-type'][0]
-        ? request.headers['resource-type'][0].value.replace('image/', '')
-        : null
+    // Read options from the event parameter.
+    console.log("Reading options from event:\n", util.inspect(event, {depth: 5}));
+    const srcBucket = event.Records[0].s3.bucket.name;
+    // Object key may have spaces or unicode non-ASCII characters.
+    const srcKey    = decodeURIComponent(event.Records[0].s3.object.key.replace(/\+/g, " "));
+    const dstBucket = srcBucket;
+    const dstKey    = srcKey.replace('.jpg','.webp');
 
-      const key = uri.substring(1)
-      const s3key = key.replace('.webp', `.${format}`)
-
-      try {
-        const bucketResource = await S3.getObject({ Bucket: BUCKET, Key: s3key }).promise()
-        const sharpImageBuffer = await Sharp(bucketResource.Body)
-          .webp({ quality: +QUALITY })
-          .toBuffer()
-
-        await S3.putObject({
-          Body: sharpImageBuffer,
-          Bucket: BUCKET,
-          ContentType: 'image/webp',
-          CacheControl: 'max-age=31536000',
-          Key,
-          StorageClass: 'STANDARD'
-        }).promise()
-
-        response.status = 200
-        response.body = sharpImageBuffer.toString('base64')
-        response.bodyEncoding = 'base64'
-        response.headers['content-type'] = [{ key: 'Content-Type', value: 'image/webp' }]
-      } catch (error) {
-        console.error(error)
-      }
-    } else {
-      headers['content-type'] = [{
-        'value': 'image/webp',
-        'key': 'Content-Type'
-      }]
+    // Infer the image type from the file suffix.
+    const typeMatch = srcKey.match(/\.([^.]*)$/);
+    if (!typeMatch) {
+        console.log("Could not determine the image type.");
+        return;
     }
-  }
 
-  callback(null, response)
- }
+    // Check that the image type is supported  
+    const imageType = typeMatch[1].toLowerCase();
+    if (imageType != "jpg") {
+        console.log(`Unsupported image type: ${imageType}`);
+        return;
+    }
+
+    // Download the image from the S3 source bucket. 
+
+    try {
+        const params = {
+            Bucket: srcBucket,
+            Key: srcKey
+        };
+        var origimage = await s3.getObject(params).promise();
+
+    } catch (error) {
+        console.log(error);
+        return;
+    }
+
+    // Use the Sharp module to convert into the webp format.
+    try { 
+        var buffer = await sharp(origimage.Body)
+        .webp({ quality: +QUALITY })
+        .toBuffer()
+            
+    } catch (error) {
+        console.log(error);
+        return;
+    } 
+
+    // Upload the thumbnail image to the destination bucket
+    try {
+        const destparams = {
+            Bucket: dstBucket,
+            Key: dstKey,
+            Body: buffer,
+            ContentType: 'image/webp',
+        };
+
+        const putResult = await s3.putObject(destparams).promise(); 
+        
+    } catch (error) {
+        console.log(error);
+        return;
+    } 
+        
+    console.log('Successfully converted ' + srcBucket + '/' + srcKey +
+        ' and uploaded to ' + dstBucket + '/' + dstKey); 
+};
