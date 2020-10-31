@@ -1,19 +1,18 @@
-# Installing AWS CLI on Windows
-
-Once the installation is done, confirm the same by running the `aws --version` command.
+The AWS CLI can be installed on the EC2 and also on the non-EC2 (Laptop/Server etc). Both Windows and Linux OS are supported.
 
 ## AWS CLI for Windows
 
-1. Download and install the AWS CLI
+1. Download and install the AWS CLI as like any other software on Windows.
     - https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html#install-msi-on-windows
 
+1. Once the installation is done, confirm the same by running the `aws --version` command.
 
 ## AWS CLI for Ubuntu
 
 1. Create an Ubuntu EC2 instance and execute the below commands.
     >sudo apt-get update\
-    >sudo apt-get install python2.7 python-pip -y\
-    >pip install awscli --upgrade\
+    >sudo apt-get install python3 python3-pip -y\
+    >pip3 install awscli --upgrade\
     >export PATH="$PATH:/home/ubuntu/.local/bin/"
 
     https://docs.aws.amazon.com/cli/latest/userguide/install-linux.html
@@ -30,21 +29,23 @@ Once the installation is done, confirm the same by running the `aws --version` c
 
 ## For the **EC2** instances
 
-1. Create an IAM Role with the appropriate policy and attach the same to the EC2 instance.
+1. Create an IAM Role with the AdministrativeAccess policy and attach the same to the EC2 instance.
 
 1. Run the `aws configure` command to specify **only** the region (us-east-1 for North Virginia).
 
-## Commands to create AWS resources
+## Execute the below commands to interact with the AWS resources
 
 1. Create the Security Group and open port 22.
     >aws ec2 create-security-group --group-name ssh-access --description "allow ssh"
     >aws ec2 authorize-security-group-ingress --group-name ssh-access --protocol tcp --port 22 --cidr 0.0.0.0/0
 
-1. Get the subnets
+1. Get the subnets in the VPC
     >aws ec2 describe-subnets
 
 1. Terminate the instance (make sure to replace the instance-ids with an existing one)
     >aws ec2 terminate-instances --instance-ids i-032154634c23e4868
+
+1. Get more commands from the below CLI Reference Guide (v1) and try them out.
 
 # Further Reading
 

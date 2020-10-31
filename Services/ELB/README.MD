@@ -22,5 +22,6 @@
 1. How do I connect a public-facing load balancer to EC2 instances that have private IP addresses?
     - https://aws.amazon.com/premiumsupport/knowledge-center/public-load-balancer-private-ec2/
 
-1. Weighted Target Groups
+1. Fine-tuning blue/green deployments on application load balancer
+    - https://aws.amazon.com/blogs/devops/blue-green-deployments-with-application-load-balancer/
     - https://www.exampleloadbalancer.net/albwtg_demo.html

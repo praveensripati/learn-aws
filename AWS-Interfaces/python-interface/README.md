@@ -20,6 +20,14 @@
     >mkdir .aws\
     >echo -e "[default]\nregion=us-east-1" > .aws/config
 
+1. Create a Role in IAM Management Console for the with the AdministratorAccess.
+![](images/2020-10-31-20-33-53.png)
+
+1. Attach the IAM to the EC2 instance for giving the permissions to the applications on the EC2.
+![](images/2020-10-31-20-37-21.png)
+
+1. Execute the different programs in this folder and also from the below `Examples` section.
+
 # Further Reading
 
 1. Quick start guide
@@ -29,20 +37,6 @@
     - https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html
 
 1. Examples
-    - https://github.com/awsdocs/aws-doc-sdk-examples
+    - https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/python/example_code
     - https://boto3.amazonaws.com/v1/documentation/api/latest/guide/examples.html
-    - https://github.com/aws-samples/
-
-1. EC2 examples
-    - https://docs.aws.amazon.com/code-samples/latest/catalog/python-ec2-create_instance.py.html
-    - https://docs.aws.amazon.com/code-samples/latest/catalog/python-ec2-create_security_group.py.html
-    - https://docs.aws.amazon.com/code-samples/latest/catalog/python-ec2-create_keypair.py.html
-
-1. S3 examples
-    - https://docs.aws.amazon.com/code-samples/latest/catalog/python-s3-s3-python-example-create-bucket.py.html
-    - https://docs.aws.amazon.com/code-samples/latest/catalog/python-s3-put_object.py.html
-    - https://docs.aws.amazon.com/code-samples/latest/catalog/python-s3-list_objects.py.html
-
-1. SNS examples
-    - https://docs.aws.amazon.com/code-samples/latest/catalog/python-sns-sns-python-example-create-topic.py.html
-    - https://docs.aws.amazon.com/code-samples/latest/catalog/python-sns-sns-python-example-publish-to-topic.py.html
+    - https://docs.aws.amazon.com/code-samples/latest/catalog/code-catalog-python.html
