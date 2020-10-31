@@ -5,7 +5,7 @@ AWS does provide a lot of services with very nice and interesting features. But,
 1. Transforming Eat-In Restaurant Margarita’s to a Successful Delivery, Carry-Out Business Using Amazon Connect (#CONNECT, #LAMBDA, #DYNAMODB)
 	- https://aws.amazon.com/blogs/apn/transforming-eat-in-restaurant-margaritas-to-a-successful-delivery-carry-out-business-using-amazon-connect/
 
-1. Bringing real-time machine learning-powered insights to rugby using Amazon SageMaker (**SAGEMAKER**)
+1. Bringing real-time machine learning-powered insights to rugby using Amazon SageMaker (**#SAGEMAKER**)
 	- https://aws.amazon.com/blogs/machine-learning/bringing-real-time-machine-learning-powered-insights-to-rugby-using-amazon-sagemaker/
 
 1. Integrate Power BI with Amazon Redshift for insights and analytics (**#REDSHIFT**, **#POWER-BI**)
