@@ -2,6 +2,12 @@
 
 AWS does provide a lot of services with very nice and interesting features. But, combining the different AWS Services makes it much more interesting. This page is an attempt to consolidate such things (AWS and non AWS articles). Follow the detailed instructions in each one of them and get more familiar with AWS.
 
+1. Authenticate applications through facial recognition with Amazon Cognito and Amazon Rekognition
+	- https://aws.amazon.com/blogs/developer/authenticate-applications-through-facial-recognition-with-amazon-cognito-and-amazon-rekognition/
+
+1. Use Amazon Rekognition to Build an End-to-End Serverless Photo Recognition System
+	- https://aws.amazon.com/blogs/machine-learning/use-amazon-rekognition-to-build-an-end-to-end-serverless-photo-recognition-system/
+
 1. Transforming Eat-In Restaurant Margarita’s to a Successful Delivery, Carry-Out Business Using Amazon Connect (#CONNECT, #LAMBDA, #DYNAMODB)
 	- https://aws.amazon.com/blogs/apn/transforming-eat-in-restaurant-margaritas-to-a-successful-delivery-carry-out-business-using-amazon-connect/
 
@@ -51,7 +57,8 @@ AWS does provide a lot of services with very nice and interesting features. But,
 	- https://aws.amazon.com/blogs/mt/controlling-your-aws-costs-by-deleting-unused-amazon-ebs-volumes/
 
 1. AWS S3 Photo Thumbnail (**#S3, #LAMBDA**)
-	- https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html
+	- https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html (JS)
+	- https://levelup.gitconnected.com/resize-an-image-in-aws-s3-using-lambda-function-dc386afd4128 (Python)
 	- https://aws.amazon.com/solutions/implementations/serverless-image-handler/
 	- http://www.thecloudavenue.com/2017/08/photo-resizing-using-aws-lambda-serverless-architecture.html
 	
