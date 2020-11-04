@@ -16,7 +16,6 @@ While talking to someone around AWS or while conducting trainings, some of the q
     - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html
 
 1. How to create a username/password for EC2?
-    - https://aws.amazon.com/premiumsupport/knowledge-center/ec2-password-login/
     - http://stackoverflow.com/a/7696451/614157
 
 1. How to export AMI to another region?
