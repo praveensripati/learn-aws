@@ -16,6 +16,9 @@ High level steps for CloudFormation
 
 # Further Reading
 
+1. Handling Region parity with infrastructure as code
+	- https://aws.amazon.com/blogs/mt/handling-region-parity-with-infrastructure-as-code/
+
 1. AWS CloudFormation
 	- https://aws.amazon.com/cloudformation/
 
