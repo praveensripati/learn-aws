@@ -5,6 +5,7 @@ While talking to someone around AWS or while conducting trainings, some of the q
 
 1. Create and activate an AWS account
     - https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/
+    - https://aws.amazon.com/premiumsupport/plans/
 
 1. Connecting to Your Linux Instance if You Lose Your Private Key
     - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replacing-lost-key-pair.html

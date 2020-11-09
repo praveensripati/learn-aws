@@ -2,6 +2,12 @@
 
 It's easy to get confused :) Here we try to compare concepts related to the cloud.
 
+1. Amazon ECS vs Amazon EKS: making sense of AWS container services
+    - https://aws.amazon.com/blogs/containers/amazon-ecs-vs-amazon-eks-making-sense-of-aws-container-services/
+
+1. A comparison of EventBridge & Other AWS Services
+    - https://www.rajeshbhojwani.co.in/2019/12/a-comparison-of-eventbridge-other-aws.html
+
 1. EBS vs EFS vs S3
     - https://www.missioncloud.com/blog/resource-amazon-ebs-vs-efs-vs-s3-picking-the-best-aws-storage-option-for-your-business
     - https://dzone.com/articles/confused-by-aws-storage-options-s3-ebs-amp-efs-explained

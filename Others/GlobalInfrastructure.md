@@ -15,3 +15,6 @@
 
 1. Is it on AWS? To figure if a website has been built on AWS.
     - https://isitonaws.com/
+
+1. AWS Region in Hyderabad
+    - https://aws.amazon.com/blogs/aws/in-the-works-aws-region-in-hyderabad-india/

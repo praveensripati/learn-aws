@@ -4,6 +4,8 @@
 
 1. Define permissions to access AWS resources based on tags
 	- https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html
+	- https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html
+	- https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html
 
 1. AWS Networking, Environments and you (different approaches for isolating applications)
 	- https://charity.wtf/2016/03/23/aws-networking-environments-and-you/

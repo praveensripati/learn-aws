@@ -51,3 +51,6 @@ SNS, SQS, SES, S3 along with Lambda are a few AWS Services which follow the serv
 
 1. Choosing between AWS Lambda data storage options in web apps
     - https://aws.amazon.com/blogs/compute/choosing-between-aws-lambda-data-storage-options-in-web-apps/
+
+1. Auto generate the IAM policies for the Lambda (code is not updated much)
+    - https://github.com/puresec/serverless-puresec-cli
