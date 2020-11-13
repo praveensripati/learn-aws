@@ -2,6 +2,12 @@
 
 AWS and others provide a lot of interesting free courses / MOOC. This page is an attempt to consolidate all the interesting ones.
 
+1. AWS Security Fundamentals (Second Edition)
+    - https://www.aws.training/Details/eLearning?id=34259
+
+1. Deep Dive with Security: AWS Identity and Access Management (IAM)
+    - https://www.aws.training/Details/eLearning?id=53780
+
 1. AWS Developer Series Relaunched on edX
     - https://aws.amazon.com/about-aws/whats-new/2019/08/aws-developer-series-relaunched-on-edx/
 

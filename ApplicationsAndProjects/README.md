@@ -2,6 +2,13 @@
 
 AWS does provide a lot of services with very nice and interesting features. But, combining the different AWS Services makes it much more interesting. This page is an attempt to consolidate such things (AWS and non AWS articles). Follow the detailed instructions in each one of them and get more familiar with AWS.
 
+1. How to Identify and Block Fake Crawler Bots Using AWS WAF
+	- https://aws.amazon.com/blogs/architecture/field-notes-how-to-identify-and-block-fake-crawler-bots-using-aws-waf/
+
+1. Building serverlessland.com
+	- https://aws.amazon.com/blogs/compute/building-serverless-land-part-1-automating-content-aggregation/
+	- https://aws.amazon.com/blogs/compute/building-serverless-land-part-2-an-auto-building-static-site/
+
 1. Creating an intelligent ticket routing solution using Slack, Amazon AppFlow, and Amazon Comprehend (#APPFLOW, #COMPREHEND)
 	- https://aws.amazon.com/blogs/machine-learning/creating-an-intelligent-ticket-routing-solution-using-slack-amazon-appflow-and-amazon-comprehend/
 
