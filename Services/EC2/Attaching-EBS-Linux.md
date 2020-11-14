@@ -16,7 +16,7 @@
       >mkfs /dev/xvdf
 	
 	- Create a directory
-      >mkdir /mnt/disk100"
+      >mkdir /mnt/disk100
 	
 	- Map or mount the disk to the folder.
       >mount /dev/xvdf /mnt/disk100
