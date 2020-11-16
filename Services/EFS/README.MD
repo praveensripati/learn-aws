@@ -12,14 +12,14 @@
 
     >mkdir ~/efs-mount-point
 
-    >#Make sure to replace the IP with the IP address of the mount target\
+    >#Make sure to replace the IP with the IP address of the mount target from the same AZ where the EC2 has been created.\
     >mount -t nfs -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport **172.31.31.82**:/   ~/efs-mount-point
 
     > cd ~/efs-mount-point
 
 1. Create a file on the first EC2 and access the same from the second EC2 using the below commands.
 
-    >echo "Welcome to AWS" > somefile.txt
+    >echo "Welcome to AWS" > somefile.txt\
     >cat somefile.txt
 
 1. If the above works then we know that both the EC2 are using a common File System.

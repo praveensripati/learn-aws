@@ -16,22 +16,22 @@
    >sudo su 
 
 1. Putty into the EC2 instance and execute the below commands to install the prerequisies for WordPress.
-   >apt-get update
+   >apt-get update\
    >apt-get install apache2 php php-mysql php-curl mysql-client libapache2-mod-php unzip -y
 
 1. Again in Putty execute the below commands to download and extract the latest WordPress.
-   >cd /var/www/
-   >wget https://wordpress.org/latest.zip
+   >cd /var/www/\
+   >wget https://wordpress.org/latest.zip\
    >unzip latest.zip
 
 1. Make a copy of the wp-config-sample.php file as wp-config.php in Putty.
-   >cd wordpress
+   >cd wordpress\
    >cp wp-config-sample.php wp-config.php
 		
 1. Modify the wp-config.php to include the database details. The localhost should be replaced with the endpoint of the RDS database instance. Use the vi editor for the same.	
-   >define('DB_NAME', 'database_name_here');
-   >define('DB_USER', 'username_here');
-   >define('DB_PASSWORD', 'password_here');
+   >define('DB_NAME', 'database_name_here');\
+   >define('DB_USER', 'username_here');\
+   >define('DB_PASSWORD', 'password_here');\
    >define('DB_HOST', 'localhost');
 		
 1. By default the webserver expects the web pages in the /var/www/html folder, but the WordPress has been installed in the /var/www/wordpress folder. Modify the 000-default.conf file in the /etc/apache2/sites-enabled folder to change the DocumentRoot to /var/www/wordpress.
