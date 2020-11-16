@@ -21,7 +21,7 @@
 
 1. Again in Putty execute the below commands to download and extract the latest WordPress.
    >cd /var/www/\
-   >wget https://wordpress.org/latest.zip\
+   >wget https://wordpress.org/latest.zip  
    >unzip latest.zip
 
 1. Make a copy of the wp-config-sample.php file as wp-config.php in Putty.
