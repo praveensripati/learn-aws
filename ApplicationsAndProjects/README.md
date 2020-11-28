@@ -2,6 +2,12 @@
 
 AWS does provide a lot of services with very nice and interesting features. But, combining the different AWS Services makes it much more interesting. This page is an attempt to consolidate such things (AWS and non AWS articles). Follow the detailed instructions in each one of them and get more familiar with AWS.
 
+1. Automatically update security groups for Amazon CloudFront IP ranges using AWS Lambda
+	- https://aws.amazon.com/blogs/security/automatically-update-security-groups-for-amazon-cloudfront-ip-ranges-using-aws-lambda/
+
+1. Cloud Native Application Monitoring for AWS
+	- https://aws.amazon.com/blogs/mt/cloud-native-application-monitoring-aws/
+
 1. How to Identify and Block Fake Crawler Bots Using AWS WAF
 	- https://aws.amazon.com/blogs/architecture/field-notes-how-to-identify-and-block-fake-crawler-bots-using-aws-waf/
 
