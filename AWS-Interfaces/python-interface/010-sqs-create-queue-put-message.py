@@ -1,7 +1,10 @@
+# This program creates a Queue in SQS and puts a message in it
+# Observer the same message from the SQS Management Console
+
 import boto3
 
 # Create SQS client
-sqs = boto3.client('sqs')
+sqs = boto3.client('sqs', region_name='us-east-1')
 
 # Create a SQS queue
 response = sqs.create_queue(
