@@ -10,3 +10,6 @@ Fow what ever reason, there had been a few security breaches in the Cloud. This 
 
 1. Cisco WebEx Hack
     - https://www.zdnet.com/article/former-cisco-engineer-pleads-guilty-to-network-damage-wiping-16000-webex-teams-accounts/
+
+1. IT Contractor Sentenced to Two Years for Deleting Carlsbad Company’s Microsoft User Accounts
+    - https://www.justice.gov/usao-sdca/pr/it-contractor-sentenced-two-years-deleting-carlsbad-company-s-microsoft-user-accounts

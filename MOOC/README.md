@@ -2,6 +2,18 @@
 
 AWS and others provide a lot of interesting free courses / MOOC. This page is an attempt to consolidate all the interesting ones.
 
+1. Amazon Simple Storage Service (Amazon S3) Storage Classes Deep Dive
+    - https://www.aws.training/Details/eLearning?id=62372
+
+1. Auditing Amazon Simple Storage Service (Amazon S3) Security
+    - https://www.aws.training/Details/eLearning?id=64077
+
+1. Amazon Simple Storage Service (Amazon S3) Cost Optimization
+    - https://www.aws.training/Details/eLearning?id=68291
+
+1. Announcing Three New Digital Courses for AWS Snowcone
+    - https://aws.amazon.com/about-aws/whats-new/2020/11/announcing-three-new-digital-courses-for-aws-snowcone/
+
 1. AWS Security Fundamentals (Second Edition)
     - https://www.aws.training/Details/eLearning?id=34259
 
