@@ -73,7 +73,7 @@ AWS does provide a lot of services with very nice and interesting features. But,
 	- https://aws.amazon.com/blogs/mt/controlling-your-aws-costs-by-deleting-unused-amazon-ebs-volumes/
 
 1. AWS S3 Photo Thumbnail (**#S3, #LAMBDA**)
-	- https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html (JS)
+	- https://docs.aws.amazon.com/lambda/latest/dg/with-s3-tutorial.html (JS)
 	- https://levelup.gitconnected.com/resize-an-image-in-aws-s3-using-lambda-function-dc386afd4128 (Python)
 	- https://aws.amazon.com/solutions/implementations/serverless-image-handler/
 	- http://www.thecloudavenue.com/2017/08/photo-resizing-using-aws-lambda-serverless-architecture.html
