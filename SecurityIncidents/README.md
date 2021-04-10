@@ -13,3 +13,6 @@ Fow what ever reason, there had been a few security breaches in the Cloud. This 
 
 1. IT Contractor Sentenced to Two Years for Deleting Carlsbad Company’s Microsoft User Accounts
     - https://www.justice.gov/usao-sdca/pr/it-contractor-sentenced-two-years-deleting-carlsbad-company-s-microsoft-user-accounts
+
+1. A Far-Right Extremist Allegedly Plotted to Blow Up Amazon Data Centers
+    - https://www.wired.com/story/far-right-extremist-allegedly-plotted-blow-up-amazon-data-centers/
