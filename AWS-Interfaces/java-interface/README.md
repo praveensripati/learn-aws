@@ -6,8 +6,8 @@
     >sudo apt-get update\
     >sudo apt install maven java-common
 
-1. Download the latest Corretto (Java SDK from Amazon) using the wget command.\
-    >wget https://d3pxv6yz143wms.cloudfront.net/11.0.5.10.1/java-11-amazon-corretto-jdk_11.0.5.10-1_amd64.deb\
+1. Download the latest Corretto (Java SDK from Amazon) using the wget command.
+    >wget https://d3pxv6yz143wms.cloudfront.net/11.0.5.10.1/java-11-amazon-corretto-jdk_11.0.5.10-1_amd64.deb \
     >sudo dpkg --install java-11-amazon-corretto-jdk_11.0.5.10-1_amd64.deb
 
 1. Create an IAM Role with AmazonS3FullAccess policy attached.

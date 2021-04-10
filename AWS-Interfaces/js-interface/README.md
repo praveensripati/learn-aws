@@ -1,5 +1,7 @@
 # Installing Node.js SDK and execute programs.
 
+# TODO Include instructions to create IAM Role and attach the same to EC2
+
 1. Execute the below commands on the EC2 instance.
 
     >sudo apt update\
