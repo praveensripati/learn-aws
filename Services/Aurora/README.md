@@ -31,7 +31,7 @@
 
 ### Scaling
 
-1. Storage can be between 10GB to 128GB in 10GB increments.
+1. Storage can be between 10GB to 128TB in 10GB increments.
 
 1. Changing the instance type for Aurora RDS can lead to downtime and so is Serverless.
 

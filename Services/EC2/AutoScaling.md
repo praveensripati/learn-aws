@@ -33,3 +33,6 @@ AutoScaling is all about adding and removing the AWS resources automatically bas
 1. AutoScaling based on the SQS Queue depth.
     - https://aws.amazon.com/blogs/compute/running-cost-effective-queue-workers-with-amazon-sqs-and-amazon-ec2-spot-instances/
     - https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html
+
+1. Scaling your applications faster with EC2 Auto Scaling Warm Pools
+    - https://aws.amazon.com/blogs/compute/scaling-your-applications-faster-with-ec2-auto-scaling-warm-pools/

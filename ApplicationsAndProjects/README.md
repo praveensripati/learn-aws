@@ -2,6 +2,12 @@
 
 AWS does provide a lot of services with very nice and interesting features. But, combining the different AWS Services makes it much more interesting. This page is an attempt to consolidate such things (AWS and non AWS articles). Follow the detailed instructions in each one of them and get more familiar with AWS.
 
+1. How to auto-remediate internet accessible ports with AWS Config and AWS System Manager (#SECURITY, #CONFIG, #SYSTEMMANAGER)
+	- https://aws.amazon.com/blogs/security/how-to-auto-remediate-internet-accessible-ports-with-aws-config-and-aws-system-manager/
+
+1. Rust detection using machine learning on AWS
+	- https://aws.amazon.com/blogs/machine-learning/rust-detection-using-machine-learning-on-aws/
+
 1. Automatically update security groups for Amazon CloudFront IP ranges using AWS Lambda
 	- https://aws.amazon.com/blogs/security/automatically-update-security-groups-for-amazon-cloudfront-ip-ranges-using-aws-lambda/
 

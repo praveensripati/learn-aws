@@ -24,3 +24,6 @@
 
 1. Tester with commands
     - https://github.com/awslabs/amazon-guardduty-tester
+
+1. How you can use Amazon GuardDuty to detect suspicious activity within your AWS account
+    - https://aws.amazon.com/blogs/security/how-you-can-use-amazon-guardduty-to-detect-suspicious-activity-within-your-aws-account/
