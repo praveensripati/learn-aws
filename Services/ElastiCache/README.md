@@ -61,3 +61,6 @@
 1. Interfacing with Memcached
    - https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/nodes-connecting.html
    - https://www.tutorialspoint.com/memcached/memcached_add_data.htm
+
+1. Getting started with Redis and Java
+   - https://redislabs.com/lp/redis-java/
