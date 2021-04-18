@@ -2,6 +2,15 @@
 
 AWS does provide a lot of services with very nice and interesting features. But, combining the different AWS Services makes it much more interesting. This page is an attempt to consolidate such things (AWS and non AWS articles). Follow the detailed instructions in each one of them and get more familiar with AWS.
 
+1. Getting started with serverless for developers
+	- https://aws.amazon.com/blogs/compute/getting-started-with-serverless-for-developers-part-1/
+
+1. Use computer vision to detect crop disease through image analysis with Amazon Rekognition Custom Labels
+	- https://aws.amazon.com/blogs/machine-learning/plant-leaf-disease-detection-with-amazon-rekognition-custom-labels/
+
+1. Processing satellite imagery with serverless architecture
+	- https://aws.amazon.com/blogs/compute/processing-satellite-imagery-with-serverless-architecture/
+
 1. How to auto-remediate internet accessible ports with AWS Config and AWS System Manager (#SECURITY, #CONFIG, #SYSTEMMANAGER)
 	- https://aws.amazon.com/blogs/security/how-to-auto-remediate-internet-accessible-ports-with-aws-config-and-aws-system-manager/
 
