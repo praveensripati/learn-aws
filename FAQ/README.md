@@ -353,6 +353,13 @@ While talking to someone around AWS or while conducting trainings, some of the q
 1. How do I set up weighted target groups for my Application Load Balancer?
     - https://aws.amazon.com/premiumsupport/knowledge-center/elb-make-weighted-target-groups-for-alb/
 
+1. Connecting to Linux and Windows EC2 instances from Mac
+    - https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac (for Windows EC2 instances)
+    - https://docs.aws.amazon.com/quickstarts/latest/vmlaunch/step-2-connect-to-instance.html (For Linux EC2 instances)
+
+1. Hibernate EC2 instances
+    - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html
+
 # TODO
 
 1. Categorize the questions based on services. Makes it easy to find the appropriate question.
