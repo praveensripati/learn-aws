@@ -1,4 +1,4 @@
-# DynamoDB (NoSQL)
+# Auto Scaling
 
 AutoScaling is all about adding and removing the AWS resources automatically based on on a certain conditions using the average CPU usage, network usage or some application level metrics like the number of users logged into the application or number of transactions in the application.
 
