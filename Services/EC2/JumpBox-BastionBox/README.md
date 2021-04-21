@@ -10,11 +10,11 @@ We would be doing the demo on Linux instances, but the same thing can be mimiced
 Usually one would be in the Public and the other one in the Private Subnet. But, for the sake of the demo both of them can be created in the Public Subnet.
 ![](images/2021-04-21-15-35-44.png)
 
-1. Start the Pagent application and add the key in the ppk format.
+1. Start the Pagent application and add the key in the ppk format.  
 ![](images/2021-04-21-15-51-48.png)
 
 1. Connect to the EC2 names `JumpBox-BastionBox`. While connecting to the EC2 via Putty make sure to enable `Allow agent forwarding`. There is no need to specify the `Private key file for authentication`.  
-![](images/2021-04-21-15-49-35.png)
+![](images/2021-04-21-15-49-35.png)  
 ![](images/2021-04-21-15-37-03.png)
 
 1. The connection would be established as shown below.
