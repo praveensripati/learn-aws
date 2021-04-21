@@ -4,9 +4,9 @@
     - https://console.aws.amazon.com/iam/home?region=us-east-1#/security_credentials
 
 1. Create `%USERPROFILE%\.aws\credentials` file in Windows with the below content. Make sure to replace the Access Keys.
-    >>[dotnet-tutorials]  
-    >>aws_access_key_id = AKIAIOSFODNN7EXAMPLE  
-    >>aws_secret_access_key = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+    >[dotnet-tutorials]  
+    >aws_access_key_id = AKIAIOSFODNN7EXAMPLE  
+    >aws_secret_access_key = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 
 1. Install Microsoft Visual Studio if not from the below link.
     - https://visualstudio.microsoft.com/vs/
@@ -22,8 +22,8 @@
 1. Open a command prompt now and navigate to the folder that will contain the build output. This is typically something like S3CreateAndList\S3CreateAndList\bin\Debug\netcoreapp3.1, but will depend on our environment.
 
 1. In the command prompt, use the following.
-    >>set AWS_PROFILE=dotnet-tutorials  
-    >>set AWS_REGION=us-east-1  
+    >set AWS_PROFILE=dotnet-tutorials  
+    >set AWS_REGION=us-east-1  
 
 1. Execute the program without any parameters to get the list of buckets.
 
