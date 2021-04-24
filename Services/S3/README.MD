@@ -7,6 +7,10 @@ This is one of the oldest service from AWS and is also very widely used by the i
 1. Storage Classes
     - https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html
 
+1. S3 SLA
+    - https://aws.amazon.com/s3/sla/
+    - https://www.lastweekinaws.com/blog/s3s-durability-guarantees-arent-what-you-think/
+
 1. Versioning
     - https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html
 
