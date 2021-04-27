@@ -5,6 +5,7 @@ AWS does provide a lot of services with very nice and interesting features. But,
 1. Getting started with serverless for developers
 	- https://aws.amazon.com/blogs/compute/getting-started-with-serverless-for-developers-part-1/
 	- https://aws.amazon.com/blogs/compute/getting-started-with-serverless-for-developers-part-2-the-business-logic/
+	- https://aws.amazon.com/blogs/compute/getting-started-with-serverless-for-developers-part-3-the-front-door/
 
 1. Use computer vision to detect crop disease through image analysis with Amazon Rekognition Custom Labels
 	- https://aws.amazon.com/blogs/machine-learning/plant-leaf-disease-detection-with-amazon-rekognition-custom-labels/
