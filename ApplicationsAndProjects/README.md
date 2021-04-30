@@ -2,6 +2,9 @@
 
 AWS does provide a lot of services with very nice and interesting features. But, combining the different AWS Services makes it much more interesting. This page is an attempt to consolidate such things (AWS and non AWS articles). Follow the detailed instructions in each one of them and get more familiar with AWS.
 
+1. Integrating with Aarogya Setu Open API on AWS to ensure a safe workspace
+	- https://aws.amazon.com/blogs/devops/integrating-with-aarogya-setu-open-api-on-aws-to-ensure-a-safe-workspace/
+
 1. Getting started with serverless for developers
 	- https://aws.amazon.com/blogs/compute/getting-started-with-serverless-for-developers-part-1/
 	- https://aws.amazon.com/blogs/compute/getting-started-with-serverless-for-developers-part-2-the-business-logic/
