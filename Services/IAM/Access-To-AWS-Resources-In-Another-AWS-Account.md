@@ -1,6 +1,6 @@
 # Access to AWS resources in another AWS account
 
-Objective : Praveen (root account - trusting account) wants to give an sam (IAM User) in Aamir (root account - trusted account) permissions for S3-RO in Praveen (root account). Note that this exercise will require two AWS Accounts.
+**Objective:** Praveen (root account - trusting account) wants to give an sam (IAM User) in Aamir (root account - trusted account) permissions for S3-RO in Praveen (root account). Note that this exercise will require two AWS Accounts.
 
 1. Create an IAM User sam in Aamir (root account) with AWS Management Console Access and no other permissions. Specify the password and uncheck 'Require password reset'. Note down the URL this user has to login as.
 
