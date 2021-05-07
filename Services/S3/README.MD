@@ -49,3 +49,6 @@ This is one of the oldest service from AWS and is also very widely used by the i
 
 1. Optimizing Amazon S3 Performance
     - https://docs.aws.amazon.com/AmazonS3/latest/dev/optimizing-performance.html
+
+1. Uploading and copying objects using multipart upload
+    - https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html
