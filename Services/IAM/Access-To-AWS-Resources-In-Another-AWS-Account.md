@@ -2,11 +2,9 @@
 
 Objective : Praveen (root account - trusting account) wants to give an sam (IAM User) in Aamir (root account - trusted account) permissions for S3-RO in Praveen (root account). Note that this exercise will require two AWS Accounts.
 
-https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html
+1. Create an IAM User sam in Aamir (root account) with AWS Management Console Access and no other permissions. Specify the password and uncheck 'Require password reset'. Note down the URL this user has to login as.
 
--- Create an IAM User sam in Aamir (root account) with AWS Management Console Access and no other permissions. Specify the password and uncheck 'Require password reset'. Note down the URL this user has to login as.
-
--- In the Praveen (root account) create an IAM Role.
+1. In the Praveen (root account) create an IAM Role.
 	- Select 'Another AWS Account'
 	- Enter the Account ID of Aamir (root account).
 	- Attach the AmazonS3ReadOnlyAccess Policy.
@@ -15,7 +13,7 @@ https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-rol
 	- Click on 'Edit trust relationship'.
 	- Replace the arn with the arn of the IAM User created earlier.
 
--- In the Aamir (root account)
+1. In the Aamir (root account)
 	- Expand the user
 	- Click on 'Add inline policy'
 	- Select STS as the service and AssumeRole as the Action
@@ -24,7 +22,7 @@ https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-rol
 	- Click on 'Review policy'
 	- Give the policy 'sts-assume-role-policy' and click on 'Create policy'.
 
--- Try assuming the role
+1. Try assuming the role
 	- Login as the IAM user.
 	- Click on the name on the top right
 	- Select 'Switch Role'.
@@ -34,4 +32,12 @@ https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-rol
 	- On the top right the user name should change.
 	- Go to the S3 Management Console and the buckets in the Praveen (root account) should be visible for RO.
 
--- Clean the AWS Resources created earlier.
+1. Clean the AWS Resources created earlier.
+
+# Further Reading
+
+1. IAM roles
+	- https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html
+
+1. IAM tutorial: Delegate access across AWS accounts using IAM roles
+	- https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html
