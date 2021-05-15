@@ -23,3 +23,6 @@
 
 1. Cloud Patterns
     - https://docs.microsoft.com/en-us/azure/architecture/patterns/
+
+1. Serverless Patterns
+    - https://serverlessland.com/patterns

@@ -1,8 +1,8 @@
 # Elastic File System
 
-1. Create two EC2 instances (Ubuntu/t2.micro) with AllowSSH (inbound/SSH/22) and AllowNFS (inbound/NFS) Security Groups.
+1. Create two EC2 instances (Ubuntu/t2.micro) with AllowSSH (inbound/SSH/22) Security Group.
 
-1. Create EFS Volume with the mount target in the AZ as the EC2 instances and AllowEFS as the Security Group.
+1. Create EFS Volume with the mount target in the AZ as the EC2 instances and AllowEFS (inbound/NFS) as the Security Group.
 
 1. Execute the below commands to mount the EFS on both the EC2 instances.
 

@@ -2,6 +2,9 @@
 
 AWS and others provide a lot of interesting free courses / MOOC. This page is an attempt to consolidate all the interesting ones.
 
+1. Developing with Amazon DynamoDB
+    - https://www.aws.training/Details/Curriculum?id=65583
+
 1. Amazon Simple Storage Service (Amazon S3) Storage Classes Deep Dive
     - https://www.aws.training/Details/eLearning?id=62372
 
