@@ -16,6 +16,9 @@ High level steps for CloudFormation
 
 # Further Reading
 
+1. Introducing AWS CloudFormation Guard 2.0
+	- https://aws.amazon.com/blogs/mt/introducing-aws-cloudformation-guard-2-0/
+
 1. Handling Region parity with infrastructure as code
 	- https://aws.amazon.com/blogs/mt/handling-region-parity-with-infrastructure-as-code/
 
@@ -38,7 +41,7 @@ High level steps for CloudFormation
 
 1. Sample CloudFormation Templates
 	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/sample-templates-services-us-east-1.html
-	- https://github.com/widdix/aws-cf-templates
+	- https://cloudonaut.io/getting-started-with-aws-cf-templates/
 	- https://github.com/cfn-modules/docs
 
 1. Walkthroughs for auto generating the Template code 

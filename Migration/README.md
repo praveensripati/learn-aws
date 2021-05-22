@@ -64,6 +64,7 @@ Many are moving towards and some are moving away from the Cloud. This page is al
 
 1. AWS Services around Migration
 	- https://aws.amazon.com/cloud-data-migration/
+	- https://aws.amazon.com/dms/
 	- https://aws.amazon.com/server-migration-service/
 
 1. How does migration work from Mainframes to Cloud?

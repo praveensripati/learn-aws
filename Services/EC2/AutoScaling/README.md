@@ -99,3 +99,10 @@ AutoScaling is all about adding and removing the AWS resources automatically bas
 
 1. Scaling your applications faster with EC2 Auto Scaling Warm Pools
     - https://aws.amazon.com/blogs/compute/scaling-your-applications-faster-with-ec2-auto-scaling-warm-pools/
+
+1. How to create an Amazon EC2 Auto Scaling policy based on a memory utilization metric
+    - Linux - https://aws.amazon.com/blogs/mt/create-amazon-ec2-auto-scaling-policy-memory-utilization-metric-linux/
+    - Windows - https://aws.amazon.com/blogs/mt/create-amazon-ec2-auto-scaling-policy-memory-utilization-metric-windows/
+
+1. Predictive Scaling for EC2, Powered by Machine Learning
+    - https://aws.amazon.com/blogs/aws/new-predictive-scaling-for-ec2-powered-by-machine-learning/

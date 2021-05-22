@@ -1,6 +1,6 @@
 # WordPress Setup on AWS
 
-[WordPress](https://wordpress.org/) is a very popular CMS (Content Management System) and is widely used to build blogs, sites etc. This page is about setting up WordPress on AWS.
+[WordPress](https://wordpress.org/) is a very popular CMS (Content Management System) and is widely used to build blogs, sites etc. This page is about setting up WordPress on AWS. [Here](https://wordpress.com/notable-users/) are some of the notable WordPress users.
 
 **Option 1** : Install it using AWS Elastic BeanStalk as mentioned below. Note that this option is a bit costly than the other.
 
@@ -62,3 +62,8 @@
 1. Create a highly available website by using ELB.
 		
 1. Use CloudFormation for automation.
+
+## Further reading
+
+1. Running WordPress on Amazon ECS on AWS Fargate with Amazon EFS
+   - https://aws.amazon.com/blogs/containers/running-wordpress-amazon-ecs-fargate-ecs/

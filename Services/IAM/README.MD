@@ -2,6 +2,9 @@
 
 # Further Reading
 
+1. Connect on-premise Python application with AWS services using Roles
+	- https://lvthillo.medium.com/connect-on-premise-python-application-with-aws-services-using-roles-8b24ab4872e6
+
 1. Define permissions to access AWS resources based on tags
 	- https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html
 	- https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html

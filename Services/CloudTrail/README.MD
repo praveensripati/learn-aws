@@ -7,3 +7,6 @@
 
 1. AWS CloudTrail Best Practices
     - https://aws.amazon.com/blogs/mt/aws-cloudtrail-best-practices/
+
+1. Introducing: CloudTracker, an AWS CloudTrail Log Analyzer
+    - https://duo.com/blog/introducing-cloudtracker-an-aws-cloudtrail-log-analyzer

@@ -2,6 +2,12 @@
 
 AWS does provide a lot of services with very nice and interesting features. But, combining the different AWS Services makes it much more interesting. This page is an attempt to consolidate such things (AWS and non AWS articles). Follow the detailed instructions in each one of them and get more familiar with AWS.
 
+1. AWS security project ideas
+	- https://summitroute.com/blog/2021/02/16/aws_security_project_ideas/
+
+1. Translate All: Automating multiple file type batch translation with AWS CloudFormation
+	- https://aws.amazon.com/blogs/machine-learning/translate-all-automating-multiple-file-type-batch-translation-with-aws-cloudformation/
+
 1. Integrating with Aarogya Setu Open API on AWS to ensure a safe workspace
 	- https://aws.amazon.com/blogs/devops/integrating-with-aarogya-setu-open-api-on-aws-to-ensure-a-safe-workspace/
 
@@ -99,7 +105,7 @@ AWS does provide a lot of services with very nice and interesting features. But,
 	- http://www.thecloudavenue.com/2017/08/photo-resizing-using-aws-lambda-serverless-architecture.html
 	
 1. Analyzing the Airline Dataset using S3/Athena or EMR (**#S3, #ATHENA, #EMR**)
-	- http://stat-computing.org/dataexpo/2009/the-data.html
+	- https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HG7NV7
 	- http://www.thecloudavenue.com/2017/06/converting-airline-row-to-columnar-format.html
 	- http://www.thecloudavenue.com/2017/06/processing-airline-dataset-with-aws-athena.html
 
