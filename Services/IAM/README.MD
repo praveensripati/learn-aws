@@ -2,6 +2,12 @@
 
 # Further Reading
 
+1. Identity-based policies and resource-based policies
+    - https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html
+
+1. The state of ABAC on AWS
+	- https://summitroute.com/blog/2020/11/02/state_of_abac_on_aws/
+
 1. Connect on-premise Python application with AWS services using Roles
 	- https://lvthillo.medium.com/connect-on-premise-python-application-with-aws-services-using-roles-8b24ab4872e6
 
