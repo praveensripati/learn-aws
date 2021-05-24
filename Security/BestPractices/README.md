@@ -9,3 +9,6 @@
 
 1. Security best practices in IAM
     - https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html
+
+1. AWS CloudTrail Best Practices
+    - https://aws.amazon.com/blogs/mt/aws-cloudtrail-best-practices/
