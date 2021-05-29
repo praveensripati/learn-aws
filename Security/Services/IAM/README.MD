@@ -2,6 +2,9 @@
 
 # Further Reading
 
+1. IAM identifiers
+	- https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html
+
 1. Delegate Access Across AWS Accounts Using IAM Roles (**#SECURITY**)
 	- https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html
 

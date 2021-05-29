@@ -11,9 +11,6 @@ There are a good number of blogs on AWS and below are some of them I do follow o
 1. AWS Architecture Blog
     - https://aws.amazon.com/blogs/architecture/feed
 
-1. AWS Security Blog
-    - https://aws.amazon.com/blogs/security/feed
-
 1. Containers
     - https://aws.amazon.com/blogs/containers/feed
 

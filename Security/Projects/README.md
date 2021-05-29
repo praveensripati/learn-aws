@@ -1,6 +1,17 @@
 
 # Projects and interesting ideas around Security
 
+1. How to deploy the AWS Solution for Security Hub Automated Response and Remediation
+	- https://aws.amazon.com/blogs/security/how-to-deploy-the-aws-solution-for-security-hub-automated-response-and-remediation/
+
+1. Automatically block suspicious traffic with AWS Network Firewall and Amazon GuardDuty
+	- https://aws.amazon.com/blogs/security/automatically-block-suspicious-traffic-with-aws-network-firewall-and-amazon-guardduty/
+
+1. 3 Steps to Access AWS Resources with Google Sign-In
+	- https://blog.codecentric.de/en/2018/04/accessing-aws-resources-with-google-sign-in/
+	- https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html
+	- https://developers.google.com/identity/protocols/oauth2/openid-connect
+
 1. Connect on-premise Python application with AWS services using Roles (Uses STS and AssumeRole)
 	- https://lvthillo.medium.com/connect-on-premise-python-application-with-aws-services-using-roles-8b24ab4872e6
 
@@ -28,9 +39,6 @@
 		
 1. How to use Amazon GuardDuty and AWS Web Application Firewall to automatically block suspicious hosts
 	- https://aws.amazon.com/blogs/security/how-to-use-amazon-guardduty-and-aws-web-application-firewall-to-automatically-block-suspicious-hosts/
-	
-1. 3 Steps to Access AWS Resources with Google Sign-In
-	- https://blog.codecentric.de/en/2018/04/accessing-aws-resources-with-google-sign-in/
 	
 1. How to retroactively encrypt existing objects in Amazon S3 using S3 Inventory, Amazon Athena, and S3 Batch Operations
 	- https://aws.amazon.com/blogs/security/how-to-retroactively-encrypt-existing-objects-in-amazon-s3-using-s3-inventory-amazon-athena-and-s3-batch-operations/

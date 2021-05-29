@@ -7,6 +7,7 @@ Fow what ever reason, there had been a few security breaches in the Cloud. This 
 1. CapitalOne Hack
     - https://www.thecloudavenue.com/2019/08/how-capital-one-hack-was-achieved-in-aws.html
     - https://www.thecloudavenue.com/2019/11/changes-to-aws-ec2-instance-metadata-service.html
+    - https://www.securonix.com/web/wp-content/uploads/2019/08/Securonix_Threat_Research_Capital_One_Cyberattack.pdf
 
 1. Cisco WebEx Hack
     - https://www.zdnet.com/article/former-cisco-engineer-pleads-guilty-to-network-damage-wiping-16000-webex-teams-accounts/

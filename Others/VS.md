@@ -2,6 +2,9 @@
 
 It's easy to get confused :) Here we try to compare concepts related to the cloud.
 
+1. Aurora vs RDS
+    - https://www.lastweekinaws.com/blog/aurora-vs-rds-an-engineers-guide-to-choosing-a-database/
+
 1. Amazon ECS vs Amazon EKS: making sense of AWS container services
     - https://aws.amazon.com/blogs/containers/amazon-ecs-vs-amazon-eks-making-sense-of-aws-container-services/
 

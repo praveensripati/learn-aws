@@ -80,6 +80,7 @@ AutoScaling is all about adding and removing the AWS resources automatically bas
 
 1. Different AutoScaling Types.
     - https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html#as-scaling-types
+    - https://cloudonaut.io/choosing-the-best-way-to-scale-ec2-instances-on-demand/
 
 1. AutoScaling using Launch Templates.
     - https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html
