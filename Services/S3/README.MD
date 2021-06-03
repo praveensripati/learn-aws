@@ -36,9 +36,11 @@ This is one of the oldest service from AWS and is also very widely used by the i
 1. Snowball and Snowmobile
     - https://aws.amazon.com/snowcone/ (8TB)
     - https://aws.amazon.com/snowball/ (50TB and 80TB)
-    - https://aws.amazon.com/snowmobile/ (10 PB)
-    - https://www.youtube.com/watch?v=H3_ZqnqLyVo (CNBC Video)
-    - https://aws.amazon.com/blogs/publicsector/from-deserts-to-the-battlefield-aws-snowball-edge-brings-technology-to-the-tactical-edge/ (AWS Article)
+    - https://aws.amazon.com/snowmobile/ (100 PB)
+
+    - https://www.youtube.com/watch?v=H3_ZqnqLyVo
+    - https://aws.amazon.com/blogs/publicsector/from-deserts-to-the-battlefield-aws-snowball-edge-brings-technology-to-the-tactical-edge
+    - https://blog.maxar.com/earth-intelligence/2017/digitalglobe-moves-to-the-cloud-with-aws-snowmobile
 
 1. S3 Intelligent Tiering
     - https://aws.amazon.com/about-aws/whats-new/2018/11/s3-intelligent-tiering/

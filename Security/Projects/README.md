@@ -24,14 +24,14 @@
 1. Automatically update security groups for Amazon CloudFront IP ranges using AWS Lambda
 	- https://aws.amazon.com/blogs/security/automatically-update-security-groups-for-amazon-cloudfront-ip-ranges-using-aws-lambda/
 	
-1. How to automate incident response in the AWS Cloud for EC2 instances (**#EC2**)
+1. How to automate incident response in the AWS Cloud for EC2 instances (#EC2)
 	- https://aws.amazon.com/blogs/security/how-to-automate-incident-response-in-aws-cloud-for-ec2-instances/
 	
-1. Optimize Security Groups (**#SECURITY**)
+1. Optimize Security Groups
 	- https://aws.amazon.com/blogs/security/how-to-optimize-and-visualize-your-security-groups/
 	- https://aws.amazon.com/blogs/security/how-to-visualize-and-refine-your-networks-security-by-adding-security-group-ids-to-your-vpc-flow-logs/
 	
-1. Visualizing Amazon GuardDuty findings (**#SECURITY**)
+1. Visualizing Amazon GuardDuty findings
 	- https://aws.amazon.com/blogs/security/visualizing-amazon-guardduty-findings/
 	
 1. How to visualize Amazon GuardDuty findings: serverless edition
@@ -43,7 +43,7 @@
 1. How to retroactively encrypt existing objects in Amazon S3 using S3 Inventory, Amazon Athena, and S3 Batch Operations
 	- https://aws.amazon.com/blogs/security/how-to-retroactively-encrypt-existing-objects-in-amazon-s3-using-s3-inventory-amazon-athena-and-s3-batch-operations/
 	
-1. Uploading to Amazon S3 directly from a web or mobile application (**#S3)
+1. Uploading to Amazon S3 directly from a web or mobile application (#S3)
 	- https://aws.amazon.com/blogs/compute/uploading-to-amazon-s3-directly-from-a-web-or-mobile-application/
 	
 1. Analyzing Amazon S3 server access logs using Amazon ES

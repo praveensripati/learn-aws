@@ -26,3 +26,6 @@
 
 1. Serverless Patterns
     - https://serverlessland.com/patterns
+
+1. Mistakes to Avoid When Implementing Serverless Architecture with AWS Lambda
+    - https://aws.amazon.com/blogs/architecture/mistakes-to-avoid-when-implementing-serverless-architecture-with-lambda/
