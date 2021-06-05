@@ -14,7 +14,7 @@ r = redis.StrictRedis(host=redis_url, port=6379,
 
 if r.get(sys.argv[1]) is None:
 
-    print("The TUPLE is not there in ElastiCache")
+    print("The TUPLE is not there in Redis")
 
     # Connect to the RDS MySQL Instance
     mydb = mysql.connector.connect(
@@ -26,10 +26,10 @@ if r.get(sys.argv[1]) is None:
     myresult = mycursor.fetchone()
 
     if myresult is not None:
-        print("Got from the Database, so writing TUPLE to ElastiCache")
+        print("Got from the Database, so writing TUPLE to Redis")
         r.set(myresult[0], myresult[1])
     else:
         print("Not there in the Database")
 
 else:
-    print("The TUPLE is there in ElastiCache")
+    print("The TUPLE is there in Redis")

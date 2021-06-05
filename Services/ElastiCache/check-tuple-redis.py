@@ -7,6 +7,6 @@ r = redis.StrictRedis(host=redis_url, port=6379,
                       charset="utf-8", decode_responses=True)
 
 if r.get(sys.argv[1]) is None:
-    print("The TUPLE is not there in ElastiCache")
+    print("The TUPLE is not there in Redis")
 else:
-    print("The TUPLE is there in ElastiCache")
+    print("The TUPLE is there in Redis")

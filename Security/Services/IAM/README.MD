@@ -53,6 +53,15 @@
 1. How to use trust policies with IAM roles
 	- https://aws.amazon.com/blogs/security/how-to-use-trust-policies-with-iam-roles/
 
+1. AWS CLI and MFA
+
+	- How do I use an MFA token to authenticate access to my AWS resources through the AWS CLI? - https://aws.amazon.com/premiumsupport/knowledge-center/authenticate-mfa-cli/
+	- How can I enforce MFA authentication for IAM users that use the AWS CLI? - https://aws.amazon.com/premiumsupport/knowledge-center/mfa-iam-user-aws-cli/
+	- AWS: Allows specific access using MFA within specific dates - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_aws_mfa-dates.html
+	- aws:MultiFactorAuthPresent - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html
+	- Boolean Condition - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html#Conditions_Boolean
+	- IfExists condition - https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html#Conditions_IfExists
+
 # All about writing IAM policies
 
 1. An explicit deny statement takes precedence over allow statements.
