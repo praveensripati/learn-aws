@@ -45,10 +45,6 @@ This is one of the oldest service from AWS and is also very widely used by the i
 1. S3 Intelligent Tiering
     - https://aws.amazon.com/about-aws/whats-new/2018/11/s3-intelligent-tiering/
 
-1. Permissions in S3 (IAM vs Bucket Policy vs ACL)
-    - https://cloudonaut.io/s3-security-best-practice/
-    - https://aws.amazon.com/blogs/security/iam-policies-and-bucket-policies-and-acls-oh-my-controlling-access-to-s3-resources/
-
 1. Optimizing Amazon S3 Performance
     - https://docs.aws.amazon.com/AmazonS3/latest/dev/optimizing-performance.html
 

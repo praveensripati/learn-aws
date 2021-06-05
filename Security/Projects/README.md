@@ -1,6 +1,9 @@
 
 # Projects and interesting ideas around Security
 
+1. Automate Amazon EC2 instance isolation by using tags
+	- https://aws.amazon.com/blogs/security/automate-amazon-ec2-instance-isolation-by-using-tags/
+
 1. How to deploy the AWS Solution for Security Hub Automated Response and Remediation
 	- https://aws.amazon.com/blogs/security/how-to-deploy-the-aws-solution-for-security-hub-automated-response-and-remediation/
 

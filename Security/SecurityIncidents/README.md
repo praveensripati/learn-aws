@@ -17,3 +17,7 @@ Fow what ever reason, there had been a few security breaches in the Cloud. This 
 
 1. A Far-Right Extremist Allegedly Plotted to Blow Up Amazon Data Centers
     - https://www.wired.com/story/far-right-extremist-allegedly-plotted-blow-up-amazon-data-centers/
+
+1. Amazon Web Services' DNS systems knackered by hours-long cyber-attack
+    - https://www.theregister.com/2019/10/22/aws_dns_ddos/
+    - https://www.theregister.com/2019/10/28/amazon_ddos_attack/

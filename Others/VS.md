@@ -43,6 +43,3 @@ It's easy to get confused :) Here we try to compare concepts related to the clou
 1. Comparing Memcached and Redis
    - https://aws.amazon.com/elasticache/redis-vs-memcached/
    - https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html
-
-1. Identity-based policies and resource-based policies
-    - https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html
