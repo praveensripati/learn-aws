@@ -30,9 +30,6 @@ High level steps for CloudFormation
 	- https://ryaneschinger.com/blog/aws-cloudformation-vs-terraform/
 	- https://www.thecloudavenue.com/2020/09/aws-infrastructure-provisioning-with-ansible.html
 
-1. List of AWS Resources Supported
-	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html
-
 1. AWS resource and property types reference
 	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html
 

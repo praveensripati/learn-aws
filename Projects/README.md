@@ -2,6 +2,12 @@
 
 AWS does provide a lot of services with very nice and interesting features. But, combining the different AWS Services makes it much more interesting. This page is an attempt to consolidate such things (AWS and non AWS articles). Follow the detailed instructions in each one of them and get more familiar with AWS.
 
+1. Project Ideas (**#GENERAL**)
+	- https://aws.amazon.com/getting-started/hands-on/
+
+1. Solution Implementations (**#GENERAL**)
+	- https://aws.amazon.com/solutions/implementations/
+
 1. Automate weed detection in farm crops using Amazon Rekognition Custom Labels
 	- https://aws.amazon.com/blogs/machine-learning/automate-weed-detection-in-farm-crops-using-amazon-rekognition-custom-labels/
 
@@ -27,9 +33,6 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 1. Cloud Native Application Monitoring for AWS
 	- https://aws.amazon.com/blogs/mt/cloud-native-application-monitoring-aws/
-
-1. How to Identify and Block Fake Crawler Bots Using AWS WAF
-	- https://aws.amazon.com/blogs/architecture/field-notes-how-to-identify-and-block-fake-crawler-bots-using-aws-waf/
 
 1. Building serverlessland.com
 	- https://aws.amazon.com/blogs/compute/building-serverless-land-part-1-automating-content-aggregation/
@@ -59,9 +62,6 @@ AWS does provide a lot of services with very nice and interesting features. But,
 1. Time series forecasting using unstructured data with Amazon Forecast and the Amazon SageMaker Neural Topic Model (**#FORECAST, #SAGEMAKER**)
 	- https://aws.amazon.com/blogs/machine-learning/time-series-forecasting-using-unstructured-data-with-amazon-forecast-and-the-amazon-sagemaker-neural-topic-model/
 
-1. Performing batch fraud predictions using Amazon Fraud Detector, Amazon S3, and AWS Lambda (**#FRAUDDETECTOR, #S3, #LAMBDA**)
-	- https://aws.amazon.com/blogs/machine-learning/performing-batch-fraud-predictions-using-amazon-fraud-detector-amazon-s3-and-aws-lambda/
-
 1. Using serverless backends to iterate quickly on web apps (**#SERVERLESS**)
 	- https://aws.amazon.com/blogs/compute/using-serverless-backends-to-iterate-quickly-on-web-apps-part-1/
 	- https://aws.amazon.com/blogs/compute/using-serverless-backends-to-iterate-quickly-on-web-apps-part-2/
@@ -75,15 +75,9 @@ AWS does provide a lot of services with very nice and interesting features. But,
 1. Projects in the intersection of Big Data and AWS Services (**#BIGDATA**)
 	- https://registry.opendata.aws/usage-examples/
 
-1. Solution Implementations (**#GENERAL**)
-	- https://aws.amazon.com/solutions/implementations/
-
 1. Architect an Airline Booking Application, End-to-End (**#SERVERLESS**)
 	- https://pages.awscloud.com/GLOBAL-devstrategy-OE-BuildOnServerless-2019-reg-event.html
 	- https://www.youtube.com/playlist?list=PLJV9303TMVKzFk1CNV_bStVZd3ZhW8dNz
-
-1. Project Ideas (**#GENERAL**)
-	- https://aws.amazon.com/getting-started/hands-on/
 
 1. Controlling your AWS costs by deleting unused Amazon EBS volumes (**#COST**)
 	- https://aws.amazon.com/blogs/mt/controlling-your-aws-costs-by-deleting-unused-amazon-ebs-volumes/
@@ -111,8 +105,6 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 1. Creating an Amazon Rekognition Lambda Function (**#LAMBDA, #REKOGNITION**)
 	- https://docs.aws.amazon.com/rekognition/latest/dg/stored-video-lambda.html
-
-1. Analysis of the Wiki data to calculate the PageRank and to create and Index.
 
 1. Build a Serverless Web Application using Lambda, API Gateway, S3, DynamoDB, Cognito (**#LAMBDA, #APIGATEWAY, #S3, #DYNAMODB, #COGNITO**)
 	- https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/
@@ -165,9 +157,6 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 1. Building a lawn monitor and weed detection solution with AWS machine learning and IoT services
 	- https://aws.amazon.com/blogs/machine-learning/building-a-lawn-monitor-and-weed-detection-solution-with-aws-machine-learning-and-iot-services/
-
-1. Catching fraud faster by building a proof of concept in Amazon Fraud Detector (**#SECURITY**)
-	- https://aws.amazon.com/blogs/machine-learning/catching-fraud-faster-by-building-a-proof-of-concept-in-amazon-fraud-detector/
 
 1. Build an end to end, automated inventory forecasting capability with AWS Lake Formation and Amazon Forecast
 	- https://aws.amazon.com/blogs/big-data/build-an-end-to-end-automated-inventory-forecasting-capability-with-aws-lake-formation-and-amazon-forecast/
