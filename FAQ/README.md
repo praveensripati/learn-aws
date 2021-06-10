@@ -3,6 +3,9 @@
 
 While talking to someone around AWS or while conducting trainings, some of the questions pop up again and again. This page is an attempt to consolidate all such questions. These FAQ are also very good for the sake of interviews.
 
+1. How do I attach a new EBS volume to a running Amazon EC2 Windows instance?
+    - https://aws.amazon.com/premiumsupport/knowledge-center/attach-ebs-running-windows/
+
 1. Why are S3 and Google Storage bucket names a global namespace?
     - https://stackoverflow.com/questions/24112647/why-are-s3-and-google-storage-bucket-names-a-global-namespace
 
