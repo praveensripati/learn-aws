@@ -1,5 +1,11 @@
 # Elastic File System
 
+What is a EFS mount target?
+
+https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html#how-it-works-conceptual
+
+A mount target provides an IP address for an NFSv4 endpoint at which you can mount an Amazon EFS file system. You mount your file system using its Domain Name Service (DNS) name, which resolves to the IP address of the EFS mount target in the same Availability Zone as your EC2 instance. You can create one mount target in each Availability Zone in an AWS Region. If there are multiple subnets in an Availability Zone in your VPC, you create a mount target in one of the subnets. Then all EC2 instances in that Availability Zone share that mount target.
+
 1. Create two EC2 instances (Ubuntu/t2.micro) with AllowSSH (inbound/SSH/22) Security Group.
 
 1. Create EFS Volume with the mount target in the AZ as the EC2 instances and AllowEFS (inbound/NFS) as the Security Group.
