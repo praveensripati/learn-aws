@@ -1,4 +1,7 @@
 
+1. Zero Trust architectures: An AWS perspective
+    - https://aws.amazon.com/blogs/security/zero-trust-architectures-an-aws-perspective/
+
 1. How do I report abuse of AWS resources?
     - https://aws.amazon.com/premiumsupport/knowledge-center/report-aws-abuse/
 
