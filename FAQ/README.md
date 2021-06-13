@@ -3,6 +3,12 @@
 
 While talking to someone around AWS or while conducting trainings, some of the questions pop up again and again. This page is an attempt to consolidate all such questions. These FAQ are also very good for the sake of interviews.
 
+1. How many EC2's can be attached to a single EBS volume?
+    - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html
+
+1. Auto Scaling groups with multiple instance types and purchase options
+    - https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html
+
 1. How do I attach a new EBS volume to a running Amazon EC2 Windows instance?
     - https://aws.amazon.com/premiumsupport/knowledge-center/attach-ebs-running-windows/
 
