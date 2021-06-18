@@ -34,3 +34,36 @@
 6. Check if the file created earlier is present - "cat /mnt/disk100/file.txt"
 
 7. Terminate the EC2 instance and delete the EBS volume.
+
+# Further Reading
+
+1. How many EBS can be attached to EC2?
+    - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html
+
+1. How to attach EBS to Windows EC2?
+    - https://aws.amazon.com/premiumsupport/knowledge-center/attach-ebs-running-windows/
+
+1. How many EC2's can be attached to a single EBS volume?
+    - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html
+
+1. How to extend a existing EBS for Windows and Linux?
+    - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html
+    - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/recognize-expanded-volume-windows.html
+    - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html
+
+1. Using EBS Snapshot in some other regions
+    - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html
+
+1. Attach a root EBS Volume to a new EC2
+    - https://www.youtube.com/watch?v=C6lSCAVggFE
+    - https://stackoverflow.com/questions/6377669/can-i-change-the-root-ebs-device-of-my-amazon-ec2-instance
+
+1. EBS Mirroring can be done using RAID
+    - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/raid-config.html
+    - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/raid-config.html
+
+1. How can I automate Amazon EBS snapshot management using Amazon Data Lifecycle Manager?
+    - https://aws.amazon.com/premiumsupport/knowledge-center/ebs-snapshot-data-lifecycle-manager/
+
+1. Attaching a volume to multiple instances with Amazon EBS Multi-Attach
+    - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html

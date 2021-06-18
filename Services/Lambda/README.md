@@ -16,9 +16,6 @@ SNS, SQS, SES, S3 along with Lambda are a few AWS Services which follow the serv
 
 # Further Reading
 
-1. Home Page
-    - https://aws.amazon.com/lambda/
-
 1. AWS Serverless
     - https://aws.amazon.com/serverless/
 
@@ -54,3 +51,6 @@ SNS, SQS, SES, S3 along with Lambda are a few AWS Services which follow the serv
 
 1. Auto generate the IAM policies for the Lambda (code is not updated much)
     - https://github.com/puresec/serverless-puresec-cli
+
+1. Lambda functions as targets for Application ELB
+    - https://docs.aws.amazon.com/elasticloadbalancing/latest/application/lambda-functions.html

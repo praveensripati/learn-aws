@@ -93,6 +93,19 @@ VPC spans within a region, Subnet spans within a Availability Zone. When you cre
 
 # Further Reading
 
+1. NAT Instance vs Gateway
+    - https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html
+
+1. Data Transfer Pricing
+    - https://www.apptio.com/emerge/aws-data-transfer-costs/
+    - https://aws.amazon.com/ec2/pricing/on-demand/
+
+1. What is the least CIDR that we can use in AWS VPC?
+    - https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#VPC_Sizing
+
+1. VPC Resize
+    - https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html#vpc-resize
+
 1. Default VPC and default subnets
 	- https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html
 
@@ -108,3 +121,6 @@ VPC spans within a region, Subnet spans within a Availability Zone. When you cre
 1. VPC Flow Logs
 	- https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html
 	- https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-logs-fields
+
+1. Different ways of connecting the on-premise network to the AWS network
+     - https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.html

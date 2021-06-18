@@ -118,3 +118,6 @@
 
 1. Loading the data from S3 to Aurora
     - https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.LoadFromS3.html
+
+1. Can Aurora DB have multiple writer nodes?
+    - https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-multi-master.html

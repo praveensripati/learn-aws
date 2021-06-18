@@ -28,6 +28,11 @@
 1. Write Consistency (Eventual and Strong)
     - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html
 
+1. How to auto increment in DynamoDB?
+    - https://stackoverflow.com/a/45899308/614157
+    - https://martinstapel.com/how-to-autoincrement-in-dynamo-db-if-you-really-need-to/
+    - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html#WorkingWithItems.ConditionalUpdate
+
 # Backup and Restore
 
 1. On-Demand Backup and Restore for DynamoDB

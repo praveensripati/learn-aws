@@ -2,7 +2,7 @@
 
 AutoScaling is all about adding and removing the AWS resources automatically based on on a certain conditions using the average CPU usage, network usage or some application level metrics like the number of users logged into the application or number of transactions in the application.
 
-Scaling hotstar.com for 25 million concurrent viewers
+# Scaling hotstar.com for 25 million concurrent viewers
 
 ![](images/2021-06-18-14-06-33.png)
 
@@ -70,6 +70,16 @@ Scaling hotstar.com for 25 million concurrent viewers
 
 # Further Reading
 
+1. Where do we specify the termination policy?
+    - https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html
+
+1. AutoScaling using Custom Metrics
+    - https://medium.com/qbits/autoscaling-using-custom-metrics-5f977903bc45
+    - https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html
+
+1. Auto Scaling groups with multiple instance types and purchase options
+    - https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html
+
 1. To increase the CPU on a Linux EC2 instance. The same can be checked using the top command.
    >dd if=/dev/urandom | bzip2 -9 >> /dev/null
 
@@ -114,3 +124,9 @@ Scaling hotstar.com for 25 million concurrent viewers
 
 1. Predictive Scaling for EC2, Powered by Machine Learning
     - https://aws.amazon.com/blogs/aws/new-predictive-scaling-for-ec2-powered-by-machine-learning/
+
+1. Add existing EC2 to the AutoScalingGroup?
+    - https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-instance-asg.html
+
+1. Replacing Auto Scaling instances based on an instance refresh
+    - https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html

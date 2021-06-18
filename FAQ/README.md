@@ -12,6 +12,12 @@ While talking to someone around AWS or while conducting trainings, some of the q
 1. AWS Documentation is Now Open Source and on GitHub
     - https://aws.amazon.com/blogs/aws/aws-documentation-is-now-open-source-and-on-github/
 
+1. AWS Products and Services by Regions
+    - https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/
+
+1. Region Codes
+    - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html
+
 ## Everything Else
 
 1. How many EC2's can be attached to a single EBS volume?
@@ -31,9 +37,6 @@ While talking to someone around AWS or while conducting trainings, some of the q
 
 1. How to work with windows EC2?
     - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/EC2_GetStarted.html
-
-1. AWS Products and Services by Regions
-    - https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/
 
 1. EC2 Instance Types
     - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html
@@ -85,9 +88,6 @@ While talking to someone around AWS or while conducting trainings, some of the q
 1. Where do we specify the termination policy?
     - https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html
 
-1. Region Codes
-    - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html
-
 1. Resource Groups
     - https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html
 
@@ -124,11 +124,6 @@ While talking to someone around AWS or while conducting trainings, some of the q
 1. UI on Suse and RedHat
     - https://www.nomachine.com/accessing-your-remote-linux-desktop-on-amazon-elastic-compute-cloud-via-NoMachine
     - https://aws.amazon.com/premiumsupport/knowledge-center/ec2-linux-2-install-gui/
-
-1. General getting started with IT
-    - Programming Language - https://www.tutorialspoint.com/python/index.htm
-    - Database - https://www.tutorialspoint.com/mysql/index.htm
-    - Linux - https://www.tutorialspoint.com/unix/index.htm
 
 1. Limits of the ELB
     - https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html

@@ -34,3 +34,15 @@ A mount target provides an IP address for an NFSv4 endpoint at which you can mou
 
 1. Mount the Amazon EFS File System on the EC2 Instance and Test
     - https://docs.aws.amazon.com/efs/latest/ug/wt1-test.html
+
+1. What are the IP address for after creation of the EFS
+    - https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-ip-addr.html
+
+1. EFS access around multiple multiple regions and VPC
+    - https://aws.amazon.com/about-aws/whats-new/2018/10/amazon-efs-now-supports-aws-vpn-and-inter-region-vpc-peering/
+    - https://docs.aws.amazon.com/efs/latest/ug/efs-different-vpc
+    - https://docs.aws.amazon.com/efs/latest/ug/manage-fs-access-vpc-peering.html
+    
+1. How to mount EFS to EC2 for cross region?
+    - https://aws.amazon.com/about-aws/whats-new/2018/10/amazon-efs-now-supports-aws-vpn-and-inter-region-vpc-peering/
+    - 

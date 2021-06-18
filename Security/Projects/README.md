@@ -72,7 +72,3 @@
 	
 1. Catching fraud faster by building a proof of concept in Amazon Fraud Detector
 	- https://aws.amazon.com/blogs/machine-learning/catching-fraud-faster-by-building-a-proof-of-concept-in-amazon-fraud-detector/
-
-1. S3 Ransomware
-	- https://rhinosecuritylabs.com/aws/s3-ransomware-part-1-attack-vector/
-	- https://rhinosecuritylabs.com/aws/s3-ransomware-part-2-prevention-and-defense/

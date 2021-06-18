@@ -46,6 +46,9 @@
 
 # Docker and K8S
 
+1. The 17 Ways to Run Containers on AWS
+    - https://www.lastweekinaws.com/blog/the-17-ways-to-run-containers-on-aws/
+
 1. Docker Base Image OS Size Comparison
     - https://www.brianchristner.io/docker-image-base-os-size-comparison/
 

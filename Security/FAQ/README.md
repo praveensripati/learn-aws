@@ -62,9 +62,6 @@
     - Gateway VPC Endpoints - https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html
     - AWS New York Summit 2018 - AWS PrivateLink: Fundamentals (SRV211) - AWS New York Summit 2018 - AWS PrivateLink: Fundamentals (SRV211)
 	
-1. How to replace CMK Key for EBS Volumes? Without recreating the volumes.
-     - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html
-	 
 1. Can we change the rotation duration for AWS Managed Keys? Depends on the type of key as mentioned in the below document.
     - https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html
 

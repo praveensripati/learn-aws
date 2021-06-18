@@ -4,6 +4,12 @@ This is one of the oldest service from AWS and is also very widely used by the i
 
 # Further Reading
 
+1. How many versions can store in S3?
+    - https://docs.amazonaws.cn/en_us/AmazonS3/latest/dev/list-obj-version-enabled-bucket.html
+
+1. Why are S3 and Google Storage bucket names a global namespace?
+    - https://stackoverflow.com/questions/24112647/why-are-s3-and-google-storage-bucket-names-a-global-namespace
+
 1. Storage Classes
     - https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html
 
@@ -50,3 +56,21 @@ This is one of the oldest service from AWS and is also very widely used by the i
 
 1. Uploading and copying objects using multipart upload
     - https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html
+
+1. Getting started with storage gateway
+    - https://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStarted.html
+
+1. S3 Demo around Tagging
+    - https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html
+    - https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-configuration-examples.html#lifecycle-config-ex1
+
+1. Supported S3 transitions and related constraints
+    - https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html
+
+1. Snow device pricing
+    - https://aws.amazon.com/snowcone/pricing/
+    - https://aws.amazon.com/snowball/pricing/
+    - https://aws.amazon.com/snowmobile/pricing/
+
+1. S3 Multi Part Upload
+    - https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html

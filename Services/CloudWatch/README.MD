@@ -14,3 +14,6 @@
 
 1. How to monitor EC2 instances with Datadog?
     - https://www.datadoghq.com/blog/monitoring-ec2-instances-with-datadog/
+
+1. Difference between LogGroup and LogStream in CloudWatch Logs
+    - https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html
