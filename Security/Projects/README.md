@@ -67,8 +67,12 @@
 1. How to Identify and Block Fake Crawler Bots Using AWS WAF
 	- https://aws.amazon.com/blogs/architecture/field-notes-how-to-identify-and-block-fake-crawler-bots-using-aws-waf/
 
-1. Performing batch fraud predictions using Amazon Fraud Detector, Amazon S3, and AWS Lambda (**#FRAUDDETECTOR, #S3, #LAMBDA**)
+1. Performing batch fraud predictions using Amazon Fraud Detector, Amazon S3, and AWS Lambda
 	- https://aws.amazon.com/blogs/machine-learning/performing-batch-fraud-predictions-using-amazon-fraud-detector-amazon-s3-and-aws-lambda/
 	
-1. Catching fraud faster by building a proof of concept in Amazon Fraud Detector (**#SECURITY**)
+1. Catching fraud faster by building a proof of concept in Amazon Fraud Detector
 	- https://aws.amazon.com/blogs/machine-learning/catching-fraud-faster-by-building-a-proof-of-concept-in-amazon-fraud-detector/
+
+1. S3 Ransomware
+	- https://rhinosecuritylabs.com/aws/s3-ransomware-part-1-attack-vector/
+	- https://rhinosecuritylabs.com/aws/s3-ransomware-part-2-prevention-and-defense/

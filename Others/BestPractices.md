@@ -15,12 +15,6 @@
 1. Well-Architected Tool
     - https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html
 
-1. This is my Architecture
-    - https://www.youtube.com/playlist?list=PLhr1KZpdzukdeX8mQ2qO73bg6UKQHYsHb
-
-1. How Amazon builds and operates software
-    - https://aws.amazon.com/builders-library/
-
 1. Cloud Patterns
     - https://docs.microsoft.com/en-us/azure/architecture/patterns/
 

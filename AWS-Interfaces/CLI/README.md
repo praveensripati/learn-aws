@@ -61,3 +61,6 @@ The AWS CLI can be installed on the EC2 and also on the non-EC2 (Laptop/Server e
 
 1. s3 vs s3api commands
     - https://aws.amazon.com/blogs/developer/leveraging-the-s3-and-s3api-commands/
+
+1. Controlling command output from the AWS CLI
+    - https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-output.html

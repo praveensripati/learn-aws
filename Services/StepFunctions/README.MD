@@ -2,6 +2,9 @@
 
 # Further Reading
 
+1. AWS Step Functions Workflow Studio – A Low-Code Visual Tool for Building State Machines
+    - https://aws.amazon.com/blogs/aws/new-aws-step-functions-workflow-studio-a-low-code-visual-tool-for-building-state-machines/
+
 1. Creating a Lambda State Machine
     - https://docs.aws.amazon.com/step-functions/latest/dg/tutorial-creating-lambda-state-machine.html
 

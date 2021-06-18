@@ -9,3 +9,12 @@
 
 1. Identity-based policies and resource-based policies
     - https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html
+
+1. AWS Parameter Store vs. AWS Secrets Manager
+    - https://www.1strategy.com/blog/2019/02/28/aws-parameter-store-vs-aws-secrets-manager/
+
+1. Comparing symmetric and asymmetric CMKs
+    - https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-compare.html
+
+1. AWS KMS Key Policies vs Grants
+    - https://ystoneman.medium.com/aws-kms-key-policies-vs-grants-41212f83f88c

@@ -21,3 +21,9 @@ Fow what ever reason, there had been a few security breaches in the Cloud. This 
 1. Amazon Web Services' DNS systems knackered by hours-long cyber-attack
     - https://www.theregister.com/2019/10/22/aws_dns_ddos/
     - https://www.theregister.com/2019/10/28/amazon_ddos_attack/
+
+1. AWS Access Keys Leak in GitHub Repository and Some Improvements in Amazon Reaction
+    - https://medium.com/swlh/aws-access-keys-leak-in-github-repository-and-some-improvements-in-amazon-reaction-cc2e20e89003
+
+1. Yet another S3 leak? Why there are still so many victims?
+    - https://medium.com/securing/yet-another-s3-leak-why-there-are-still-so-many-victims-7cebcb8f1c8a

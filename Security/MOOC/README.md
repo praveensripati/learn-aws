@@ -3,6 +3,9 @@
 
 AWS and others provide a lot of interesting free courses / MOOC. This page is an attempt to consolidate all the interesting ones.
 
+1. AWS Security Workshops
+    - https://awssecworkshops.com/workshops/
+
 1. Improve Code Quality with Amazon CodeGuru Reviewer
     - https://www.aws.training/Details/eLearning?id=73961
 

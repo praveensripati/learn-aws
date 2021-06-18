@@ -3,6 +3,17 @@
 
 While talking to someone around AWS or while conducting trainings, some of the questions pop up again and again. This page is an attempt to consolidate all such questions. These FAQ are also very good for the sake of interviews.
 
+## First Things First
+
+1. Create and activate an AWS account
+    - https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/
+    - https://aws.amazon.com/premiumsupport/plans/
+
+1. AWS Documentation is Now Open Source and on GitHub
+    - https://aws.amazon.com/blogs/aws/aws-documentation-is-now-open-source-and-on-github/
+
+## Everything Else
+
 1. How many EC2's can be attached to a single EBS volume?
     - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html
 
@@ -17,13 +28,6 @@ While talking to someone around AWS or while conducting trainings, some of the q
 
 1. The 17 Ways to Run Containers on AWS
     - https://www.lastweekinaws.com/blog/the-17-ways-to-run-containers-on-aws/
-
-1. AWS Documentation is Now Open Source and on GitHub
-    - https://aws.amazon.com/blogs/aws/aws-documentation-is-now-open-source-and-on-github/
-
-1. Create and activate an AWS account
-    - https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/
-    - https://aws.amazon.com/premiumsupport/plans/
 
 1. How to work with windows EC2?
     - https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/EC2_GetStarted.html
@@ -56,7 +60,7 @@ While talking to someone around AWS or while conducting trainings, some of the q
     - https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-mount-cmd-ip-addr.html
 
 1. How is the Spot Instance termination is handled?
-     - https://aws.amazon.com/about-aws/whats-new/2018/01/amazon-ec2-spot-two-minute-warning-is-now-available-via-amazon-cloudwatch-events/
+    - https://aws.amazon.com/about-aws/whats-new/2018/01/amazon-ec2-spot-two-minute-warning-is-now-available-via-amazon-cloudwatch-events/
     - https://aws.amazon.com/blogs/aws/new-ec2-spot-instance-termination-notices/
 
 1. Application Load Balancers and Classic Load Balancers support X-Forwarded-For, X-Forwarded-Proto, and X-Forwarded-Port headers.

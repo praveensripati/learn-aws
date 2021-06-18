@@ -2,6 +2,13 @@
 
 AutoScaling is all about adding and removing the AWS resources automatically based on on a certain conditions using the average CPU usage, network usage or some application level metrics like the number of users logged into the application or number of transactions in the application.
 
+Scaling hotstar.com for 25 million concurrent viewers
+
+![](images/2021-06-18-14-06-33.png)
+
+- https://www.youtube.com/watch?v=QjvyiyH4rr0  
+- https://docs.google.com/presentation/d/1IYLsySe_thA6qeztnL4Tmhszdu2Wd5-3CKKLm26m-9Y/edit?usp=sharing (Slides)
+
 # Practice
 
 1. In the EC2 Management Console navigate to and create a Launch Template. Make sure to enable the detailed monitoring.
