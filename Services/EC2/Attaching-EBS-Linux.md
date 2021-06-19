@@ -67,3 +67,6 @@
 
 1. Attaching a volume to multiple instances with Amazon EBS Multi-Attach
     - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html
+
+1. Downloading and Exploring AWS EBS Snapshots
+    - https://rhinosecuritylabs.com/aws/exploring-aws-ebs-snapshots/

@@ -9,8 +9,18 @@ While talking to someone around AWS or while conducting trainings, some of the q
     - https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/
     - https://aws.amazon.com/premiumsupport/plans/
 
+1. AWS Documentation
+    - https://docs.aws.amazon.com/
+
 1. AWS Documentation is Now Open Source and on GitHub
     - https://aws.amazon.com/blogs/aws/aws-documentation-is-now-open-source-and-on-github/
+
+1. AWS Free tier
+    - https://aws.amazon.com/free/
+
+1. AWS Infrastructure
+    - https://aws.amazon.com/about-aws/global-infrastructure/
+    - https://aws.amazon.com/cloudfront/features/
 
 1. AWS Products and Services by Regions
     - https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/

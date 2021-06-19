@@ -70,6 +70,12 @@ AutoScaling is all about adding and removing the AWS resources automatically bas
 
 # Further Reading
 
+1. To increase the CPU on a Linux EC2 instance. The same can be checked using the top command.
+   >dd if=/dev/urandom | bzip2 -9 >> /dev/null
+
+    A few other ways are mentioned in the below StackOverflow post.\
+    http://stackoverflow.com/questions/2925606/how-to-create-a-cpu-spike-with-a-bash-command
+
 1. Where do we specify the termination policy?
     - https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html
 
@@ -79,12 +85,6 @@ AutoScaling is all about adding and removing the AWS resources automatically bas
 
 1. Auto Scaling groups with multiple instance types and purchase options
     - https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html
-
-1. To increase the CPU on a Linux EC2 instance. The same can be checked using the top command.
-   >dd if=/dev/urandom | bzip2 -9 >> /dev/null
-
-    A few other ways are mentioned in the below StackOverflow post.\
-    http://stackoverflow.com/questions/2925606/how-to-create-a-cpu-spike-with-a-bash-command
 
 1. How the instances are terminated.
     - http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html

@@ -11,6 +11,7 @@ This is one of the oldest service from AWS and is also very widely used by the i
     - https://stackoverflow.com/questions/24112647/why-are-s3-and-google-storage-bucket-names-a-global-namespace
 
 1. Storage Classes
+    - https://aws.amazon.com/s3/storage-classes/
     - https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html
 
 1. S3 SLA
@@ -49,7 +50,7 @@ This is one of the oldest service from AWS and is also very widely used by the i
     - https://blog.maxar.com/earth-intelligence/2017/digitalglobe-moves-to-the-cloud-with-aws-snowmobile
 
 1. S3 Intelligent Tiering
-    - https://aws.amazon.com/about-aws/whats-new/2018/11/s3-intelligent-tiering/
+    - https://aws.amazon.com/s3/storage-classes/#Unknown_or_changing_access
 
 1. Optimizing Amazon S3 Performance
     - https://docs.aws.amazon.com/AmazonS3/latest/dev/optimizing-performance.html
@@ -66,11 +67,6 @@ This is one of the oldest service from AWS and is also very widely used by the i
 
 1. Supported S3 transitions and related constraints
     - https://docs.aws.amazon.com/AmazonS3/latest/dev/lifecycle-transition-general-considerations.html
-
-1. Snow device pricing
-    - https://aws.amazon.com/snowcone/pricing/
-    - https://aws.amazon.com/snowball/pricing/
-    - https://aws.amazon.com/snowmobile/pricing/
 
 1. S3 Multi Part Upload
     - https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html
