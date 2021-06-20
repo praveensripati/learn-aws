@@ -5,7 +5,7 @@ This is one of the oldest service from AWS and is also very widely used by the i
 # Further Reading
 
 1. How many versions can store in S3?
-    - https://docs.amazonaws.cn/en_us/AmazonS3/latest/dev/list-obj-version-enabled-bucket.html
+    - AWS doesn't put any limitations on how many versions can be stored for a particular object in S3.
 
 1. Why are S3 and Google Storage bucket names a global namespace?
     - https://stackoverflow.com/questions/24112647/why-are-s3-and-google-storage-bucket-names-a-global-namespace

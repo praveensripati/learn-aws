@@ -42,6 +42,9 @@ The AWS CLI can be installed on the EC2 and also on the non-EC2 (Laptop/Server e
 1. Get the subnets in the VPC
     >aws ec2 describe-subnets
 
+1. Launch an EC2 from Templates
+    >aws ec2 run-instances --launch-template --query "Instances[0].State.Name" LaunchTemplateId=lt-0cba5fc90111d5cc6,Version=1
+
 1. Terminate the instance (make sure to replace the instance-ids with an existing one)
     >aws ec2 terminate-instances --instance-ids i-032154634c23e4868
 

@@ -1,6 +1,6 @@
 # Comparing different concepts around cloud.
 
-It's easy to get confused :) Here we try to compare concepts related to the cloud.
+It's easy to get confused :) Here I try to compare concepts related to the cloud.
 
 1. Aurora vs RDS
     - https://www.lastweekinaws.com/blog/aurora-vs-rds-an-engineers-guide-to-choosing-a-database/
@@ -16,10 +16,6 @@ It's easy to get confused :) Here we try to compare concepts related to the clou
     - https://dzone.com/articles/confused-by-aws-storage-options-s3-ebs-amp-efs-explained
     - https://medium.com/awesome-cloud/aws-difference-between-efs-and-ebs-8c0d72a348ad
     - Cost (EFS > EBS > S3)
-
-1. URL for comparing GCP, AWS and Azure
-    - https://www.datamation.com/cloud-computing/aws-vs-azure-vs-google-cloud-comparison.html
-    - http://comparecloud.in/
 
 1. Security Groups vs NACL
     - https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html#VPC_Security_Comparison

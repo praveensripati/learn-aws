@@ -86,9 +86,6 @@ AutoScaling is all about adding and removing the AWS resources automatically bas
 1. Auto Scaling groups with multiple instance types and purchase options
     - https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html
 
-1. How the instances are terminated.
-    - http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html
-
 1. Lifecycle Hooks.
     - http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html
 

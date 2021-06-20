@@ -9,17 +9,11 @@ AWS had been there for quite some time and there are lot of articles around the 
 1. AWS Documentation.
     - https://docs.aws.amazon.com/
 
+1. AWS Official YouTube Channels
+    - Amazon Web Services  - https://www.youtube.com/channel/UCd6MoB9NC6uYN2grvUNT-Zg
+    - AWS Events - https://www.youtube.com/channel/UCdoadna9HFHsxXWhafhNvKw
+    - AWS Online Tech Talks - https://www.youtube.com/channel/UCT-nPlVzJI-ccQXlxjSvJmw
+
 1. Tools to ease information explosion.
     - Pocket - https://getpocket.com/
     - Inoreader - https://www.inoreader.com/
-
-1. AWS Official YouTube Channels
-    - https://www.youtube.com/channel/UCd6MoB9NC6uYN2grvUNT-Zg
-    - https://www.youtube.com/channel/UCdoadna9HFHsxXWhafhNvKw
-    - https://www.youtube.com/channel/UCT-nPlVzJI-ccQXlxjSvJmw
-
-1. The Amazon Builders' Library (How Amazon builds and operates software).
-    - https://aws.amazon.com/builders-library/
-
-1. This Is My Architecture.
-    - https://aws.amazon.com/this-is-my-architecture/
