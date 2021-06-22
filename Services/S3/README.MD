@@ -70,3 +70,6 @@ This is one of the oldest service from AWS and is also very widely used by the i
 
 1. S3 Multi Part Upload
     - https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html
+
+1. Using presigned URLs
+    - https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html

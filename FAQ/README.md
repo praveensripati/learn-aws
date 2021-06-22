@@ -30,6 +30,9 @@ While talking to someone around AWS or while conducting trainings, some of the q
 
 ## Everything Else
 
+1. Why is CloudFront serving outdated content from Amazon S3?
+    - https://aws.amazon.com/premiumsupport/knowledge-center/cloudfront-serving-outdated-content-s3/
+
 1. How many EC2's can be attached to a single EBS volume?
     - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html
 

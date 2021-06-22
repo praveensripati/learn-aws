@@ -16,6 +16,9 @@ High level steps for CloudFormation
 
 # Further Reading
 
+1. Using the AWS CloudFormation registry
+	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html
+
 1. Introducing AWS CloudFormation Guard 2.0
 	- https://aws.amazon.com/blogs/mt/introducing-aws-cloudformation-guard-2-0/
 

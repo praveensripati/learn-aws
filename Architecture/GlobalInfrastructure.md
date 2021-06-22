@@ -1,4 +1,8 @@
 
+![](images/2021-06-20-19-24-48.png)
+
+![](images/2021-06-20-19-25-34.png)
+
 1. AWS Global Infrastructure
     - https://aws.amazon.com/about-aws/global-infrastructure/ (Regions and Availability Zones)
     - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html (has codes)

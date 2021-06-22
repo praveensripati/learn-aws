@@ -36,7 +36,7 @@ The AWS CLI can be installed on the EC2 and also on the non-EC2 (Laptop/Server e
 ## Execute the below commands to interact with the AWS resources
 
 1. Create the Security Group and open port 22.
-    >aws ec2 create-security-group --group-name ssh-access --description "allow ssh"
+    >aws ec2 create-security-group --group-name ssh-access --description "allow ssh"  
     >aws ec2 authorize-security-group-ingress --group-name ssh-access --protocol tcp --port 22 --cidr 0.0.0.0/0
 
 1. Get the subnets in the VPC
