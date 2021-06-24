@@ -124,3 +124,6 @@ VPC spans within a region, Subnet spans within a Availability Zone. When you cre
 
 1. Different ways of connecting the on-premise network to the AWS network
      - https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/network-to-amazon-vpc-connectivity-options.html
+
+1. How Netflix is able to enrich VPC Flow Logs at Hyper Scale to provide Network Insight
+    - https://netflixtechblog.com/hyper-scale-vpc-flow-logs-enrichment-to-provide-network-insight-e5f1db02910d

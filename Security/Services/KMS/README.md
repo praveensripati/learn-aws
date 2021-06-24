@@ -9,3 +9,6 @@
 
 1. Encrypt global data client-side with AWS KMS multi-Region keys
     - https://aws.amazon.com/blogs/security/encrypt-global-data-client-side-with-aws-kms-multi-region-keys/
+
+1. CloudHSM best practices to maximize performance and avoid common configuration pitfalls
+    - https://aws.amazon.com/blogs/security/cloudhsm-best-practices-to-maximize-performance-and-avoid-common-configuration-pitfalls/1

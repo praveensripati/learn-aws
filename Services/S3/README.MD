@@ -4,6 +4,9 @@ This is one of the oldest service from AWS and is also very widely used by the i
 
 # Further Reading
 
+1. Celebrating 15 years with Amazon S3 (good end-2-end videos on S3)
+    - https://www.youtube.com/playlist?list=PL2yQDdvlhXf8vAnQB10dCPIeWUKdHUgOP
+
 1. How many versions can store in S3?
     - AWS doesn't put any limitations on how many versions can be stored for a particular object in S3.
 
