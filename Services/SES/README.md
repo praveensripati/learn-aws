@@ -12,6 +12,9 @@ AWS SES is a service for sending emails without bothering about setting up a SMT
 1. Sending email using Boto3 (AWS Python SDK)
     - https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-using-sdk-python.html
 
+1. Receiving email with Amazon SES
+    - https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html
+
 1. Configuration sets
     - https://docs.aws.amazon.com/ses/latest/DeveloperGuide/using-configuration-sets.html
 

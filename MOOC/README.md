@@ -2,6 +2,10 @@
 
 AWS and others provide a lot of interesting free courses / MOOC. This page is an attempt to consolidate all the interesting ones.
 
+1. Improve your code using Amazon CodeGuru
+    - https://www.udemy.com/course/aws-improve-python-code-amazon-codeguru/
+    - https://www.udemy.com/course/aws-improve-java-code-amazon-codeguru/
+
 1. Free Trainings from AWS
     - https://www.aws.training/LearningLibrary?filters=language%3A1&filters=digital%3A1&search=&tab=view_all
 

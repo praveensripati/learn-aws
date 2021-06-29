@@ -73,3 +73,11 @@ Many are moving towards and some are moving away from the Cloud. This page is al
 
 1. Papers
 	- https://www.infosys.com/modernization/insights/Pages/accelerate-mainframe-migration-aws.aspx
+
+1. How to Migrate your Virtual Machines to AWS using the AWS Server Migration Service
+	- https://www.youtube.com/watch?v=_SpRpC2Ez9c
+
+# VS
+
+1. Choosing a Rehost Migration Tool – CloudEndure or AWS SMS
+	- https://aws.amazon.com/blogs/architecture/field-notes-choosing-a-rehost-migration-tool-cloudendure-or-aws-sms/

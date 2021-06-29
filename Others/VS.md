@@ -39,3 +39,6 @@ It's easy to get confused :) Here I try to compare concepts related to the cloud
 1. Comparing Memcached and Redis
    - https://aws.amazon.com/elasticache/redis-vs-memcached/
    - https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html
+
+1. Choosing a Rehost Migration Tool – CloudEndure or AWS SMS
+	- https://aws.amazon.com/blogs/architecture/field-notes-choosing-a-rehost-migration-tool-cloudendure-or-aws-sms/

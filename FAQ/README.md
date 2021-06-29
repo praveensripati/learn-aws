@@ -30,6 +30,9 @@ While talking to someone around AWS or while conducting trainings, some of the q
 
 ## Everything Else
 
+1. Receiving email with Amazon SES
+    - https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html
+
 1. Why is CloudFront serving outdated content from Amazon S3?
     - https://aws.amazon.com/premiumsupport/knowledge-center/cloudfront-serving-outdated-content-s3/
 
