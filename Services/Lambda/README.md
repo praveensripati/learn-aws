@@ -54,3 +54,7 @@ SNS, SQS, SES, S3 along with Lambda are a few AWS Services which follow the serv
 
 1. Lambda functions as targets for Application ELB
     - https://docs.aws.amazon.com/elasticloadbalancing/latest/application/lambda-functions.html
+
+1. AWS Lambda Extensions
+    - https://aws.amazon.com/lambda/aws-learning-path-lambda-extensions/
+    - https://pages.awscloud.com/Integrating-AWS-Lambda-with-Your-Favorite-Tools_2021_0614-SRV_OD.html

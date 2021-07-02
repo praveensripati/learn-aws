@@ -2,6 +2,10 @@
 
 AWS and others provide a lot of interesting free courses / MOOC. This page is an attempt to consolidate all the interesting ones.
 
+1. AWS Lambda Extensions
+    - https://aws.amazon.com/lambda/aws-learning-path-lambda-extensions/
+    - https://pages.awscloud.com/Integrating-AWS-Lambda-with-Your-Favorite-Tools_2021_0614-SRV_OD.html
+
 1. Improve your code using Amazon CodeGuru
     - https://www.udemy.com/course/aws-improve-python-code-amazon-codeguru/
     - https://www.udemy.com/course/aws-improve-java-code-amazon-codeguru/
