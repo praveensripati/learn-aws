@@ -32,6 +32,9 @@ A mount target provides an IP address for an NFSv4 endpoint at which you can mou
 
 # Further Reading
 
+1. Metering: How Amazon EFS reports file system and object sizes
+    - https://docs.aws.amazon.com/efs/latest/ug/metered-sizes.html
+
 1. Mount the Amazon EFS File System on the EC2 Instance and Test
     - https://docs.aws.amazon.com/efs/latest/ug/wt1-test.html
 
