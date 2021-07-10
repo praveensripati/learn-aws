@@ -2,6 +2,9 @@
 
 AWS and others provide a lot of interesting free courses / MOOC. This page is an attempt to consolidate all the interesting ones.
 
+1. Amazon S3 Business Continuity and Disaster Recovery
+    - https://www.aws.training/Details/eLearning?id=78563
+
 1. AWS Lambda Extensions
     - https://aws.amazon.com/lambda/aws-learning-path-lambda-extensions/
     - https://pages.awscloud.com/Integrating-AWS-Lambda-with-Your-Favorite-Tools_2021_0614-SRV_OD.html
