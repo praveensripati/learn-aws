@@ -43,7 +43,7 @@ This is one of the oldest service from AWS and is also very widely used by the i
     - https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html
     - https://aws.amazon.com/about-aws/whats-new/2019/09/amazon-s3-introduces-same-region-replication/
 
-1. Snowball and Snowmobile
+1. Snow Devices
     - https://aws.amazon.com/snowcone/ (8TB)
     - https://aws.amazon.com/snowball/ (50TB and 80TB)
     - https://aws.amazon.com/snowmobile/ (100 PB)

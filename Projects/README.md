@@ -2,6 +2,9 @@
 
 AWS does provide a lot of services with very nice and interesting features. But, combining the different AWS Services makes it much more interesting. This page is an attempt to consolidate such things (AWS and non AWS articles). Follow the detailed instructions in each one of them and get more familiar with AWS.
 
+1. AWS Workshop (**#GENERAL**)
+	- https://workshops.aws/
+
 1. Project Ideas (**#GENERAL**)
 	- https://aws.amazon.com/getting-started/hands-on/
 

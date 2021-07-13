@@ -1,6 +1,12 @@
 
 # Projects and interesting ideas around Security
 
+1. AWS Workshop (**#GENERAL**)
+	- https://workshops.aws/
+
+1. Automatically update AWS WAF IP sets with AWS IP ranges
+	- https://aws.amazon.com/blogs/security/automatically-update-aws-waf-ip-sets-with-aws-ip-ranges/
+
 1. AWS security project ideas
 	- https://summitroute.com/blog/2021/02/16/aws_security_project_ideas/
 

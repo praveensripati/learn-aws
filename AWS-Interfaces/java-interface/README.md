@@ -4,7 +4,7 @@
 
 1. Execute the below commands to install maven and java-common.
     >sudo apt-get update\
-    >sudo apt install maven java-common
+    >sudo apt install maven java-common -y
 
 1. Download the latest Corretto (Java SDK from Amazon) using the wget command.
     >wget https://d3pxv6yz143wms.cloudfront.net/11.0.5.10.1/java-11-amazon-corretto-jdk_11.0.5.10-1_amd64.deb \
@@ -23,7 +23,7 @@ Attach the IAM Role to the EC2.
     >rm App.java\
     >Copy the code from java-aws-sdk-code/S3Sample.java\
     >cd ~/myapp\
-    >mvn clean compile exec:java\
+    >mvn clean compile exec:java
 
 1. Note from the S3 Management Console that a bucket with the name starting with `my-first-s3-bucket-` will be created a file uploaded to it.
 

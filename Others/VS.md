@@ -42,3 +42,6 @@ It's easy to get confused :) Here I try to compare concepts related to the cloud
 
 1. Choosing a Rehost Migration Tool – CloudEndure or AWS SMS
 	- https://aws.amazon.com/blogs/architecture/field-notes-choosing-a-rehost-migration-tool-cloudendure-or-aws-sms/
+
+1. Should I Run my Containers on AWS Fargate, AWS Lambda, or Both?
+    - https://aws.amazon.com/blogs/architecture/should-i-run-my-containers-on-aws-fargate-aws-lambda-or-both/
