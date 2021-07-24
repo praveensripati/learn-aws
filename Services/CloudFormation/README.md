@@ -16,6 +16,12 @@ High level steps for CloudFormation
 
 # Further Reading
 
+1. CloudFormation Workshop
+	- https://cfn101.workshop.aws/
+
+1. Exporting stack output values
+	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html
+
 1. Using the AWS CloudFormation registry
 	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html
 
@@ -25,8 +31,8 @@ High level steps for CloudFormation
 1. Handling Region parity with infrastructure as code
 	- https://aws.amazon.com/blogs/mt/handling-region-parity-with-infrastructure-as-code/
 
-1. AWS CloudFormation
-	- https://aws.amazon.com/cloudformation/
+1. Using AWS CloudFormation macros to perform custom processing on templates
+	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html
 
 1. Comparing CloudFormation with other similar tools
 	- https://cloudonaut.io/cloudformation-vs-terraform/
@@ -54,6 +60,7 @@ High level steps for CloudFormation
 	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html
 
 1. Change Sets (previewing the changes when updating a Stack)
+	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html
 	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html
 
 1. Detect drift on an entire CloudFormation stack

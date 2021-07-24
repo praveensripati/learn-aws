@@ -2,6 +2,9 @@
 
 # Further Reading
 
+1. Amazon Simple Queue Service (SQS) – 15 Years and Still Queueing!
+    - Amazon Simple Queue Service (SQS) – 15 Years and Still Queueing!
+
 1. How Amazon SQS works
     - https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-how-it-works.html
 
