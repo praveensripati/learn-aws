@@ -10,4 +10,4 @@ Also, I have written a good number of blogs/articles on Big Data, AWS and Kubern
 
 Feel free to submit any **issues** or **pull requests** for any changes to the documentation and the code. At the end of the README.md files and others, I have listed down the **TODO** tasks which I would be interested in getting some help around.
 
-**Good Luck !!!** asd
+**Good Luck !!!**
