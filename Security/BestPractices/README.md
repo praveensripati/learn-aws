@@ -1,6 +1,9 @@
 
 # Best practices
 
+1. Strengthen the security of sensitive data stored in Amazon S3 by using additional AWS services
+    - https://aws.amazon.com/blogs/security/strengthen-the-security-of-sensitive-data-stored-in-amazon-s3-by-using-additional-aws-services
+
 1. Top Recommendations for Working with IAM from Our AWS Heroes
     - https://aws.amazon.com/blogs/apn/iam-10th-anniversary-top-recommendations-for-working-with-iam-from-our-aws-heroes-part-1/
     - https://aws.amazon.com/blogs/apn/top-recommendations-for-working-with-iam-from-our-aws-heroes-part-2-the-visual-editor-and-federation/

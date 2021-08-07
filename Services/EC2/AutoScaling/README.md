@@ -77,9 +77,6 @@ AutoScaling is all about adding and removing the AWS resources automatically bas
     A few other ways are mentioned in the below StackOverflow post.\
     http://stackoverflow.com/questions/2925606/how-to-create-a-cpu-spike-with-a-bash-command
 
-1. Where do we specify the termination policy?
-    - https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html
-
 1. AutoScaling using Custom Metrics
     - https://medium.com/qbits/autoscaling-using-custom-metrics-5f977903bc45
     - https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html

@@ -71,3 +71,7 @@ High level steps for CloudFormation
 
 1. Linter
 	- https://github.com/aws-cloudformation/cfn-python-lint
+
+1. CloudFormation Registry
+	- https://aws.amazon.com/blogs/aws/introducing-a-public-registry-for-aws-cloudformation/
+	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html

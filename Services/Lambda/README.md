@@ -19,6 +19,18 @@ SNS, SQS, SES, S3 along with Lambda are a few AWS Services which follow the serv
 1. AWS Serverless
     - https://aws.amazon.com/serverless/
 
+1. How do I give internet access to a Lambda function that's connected to an Amazon VPC?
+    - https://aws.amazon.com/premiumsupport/knowledge-center/internet-access-lambda-function/
+
+1. Configuring interface VPC endpoints for Lambda
+    - https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc-endpoints.html
+
+1. Configuring a Lambda function to access resources in a VPC
+    - https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html
+
+1. AWS Lambda execution environment
+    - https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html
+
 1. Firecracker (VM technology for Fargate and Lambda) and BottleRocket (Container OS for K8S for customers)
     - https://aws.amazon.com/blogs/aws/firecracker-lightweight-virtualization-for-serverless-computing/
     - https://aws.amazon.com/about-aws/whats-new/2018/11/firecracker-lightweight-virtualization-for-serverless-computing/

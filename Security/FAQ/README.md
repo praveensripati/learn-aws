@@ -1,4 +1,7 @@
 
+1. What is AWS Hyperplane?
+    - https://www.youtube.com/watch?v=dfEcd3zqPOA&t=4661s
+
 1. Zero Trust architectures: An AWS perspective
     - https://aws.amazon.com/blogs/security/zero-trust-architectures-an-aws-perspective/
 

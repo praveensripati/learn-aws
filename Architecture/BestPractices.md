@@ -23,3 +23,6 @@
 
 1. Mistakes to Avoid When Implementing Serverless Architecture with AWS Lambda
     - https://aws.amazon.com/blogs/architecture/mistakes-to-avoid-when-implementing-serverless-architecture-with-lambda/
+
+1. The Amazon Builders' Library
+    - https://aws.amazon.com/builders-library/

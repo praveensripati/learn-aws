@@ -93,6 +93,12 @@ VPC spans within a region, Subnet spans within a Availability Zone. When you cre
 
 # Further Reading
 
+1. Control access to services with VPC endpoints
+	- https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html
+
+1. Interface endpoint properties and limitations
+	- https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-interface.html#vpce-interface-limitations
+
 1. NAT Instance vs Gateway
     - https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-comparison.html
 

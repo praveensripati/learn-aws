@@ -133,8 +133,9 @@ AWS does provide a lot of services with very nice and interesting features. But,
 1. Building a serverless weather bot with two-way SMS, AWS SAM, and AWS Lambda (**#SERVERLESS, #SAM, #LAMBDA**)
 	- https://aws.amazon.com/blogs/compute/building-a-serverless-weather-bot-with-two-way-sms-aws-sam-and-aws-lambda/
 
-1. How to analyze and reduce S3 storage usage? (**#S3, #COST**)
+1. How to analyze and reduce S3 storage usage costs? (**#S3, #COST**)
 	- https://cloudonaut.io/how-to-analyze-and-reduce-s3-storage-usage/
+	- https://aws.amazon.com/blogs/architecture/expiring-amazon-s3-objects-based-on-last-accessed-date-to-decrease-costs/
 
 1. Building a Raspberry Pi telepresence robot using serverless (**#SERVERLESS**)
 	- https://aws.amazon.com/blogs/compute/building-a-raspberry-pi-telepresence-robot-using-serverless-part-1/

@@ -2,6 +2,9 @@
 
 It's easy to get confused :) Here I try to compare concepts related to the cloud.
 
+1. Kinesis vs. Kafka: Which Stream Processor Comes Out on Top?
+    - https://www.lastweekinaws.com/blog/kinesis-vs-kafka-which-stream-processor-comes-out-on-top/
+
 1. Aurora vs RDS
     - https://www.lastweekinaws.com/blog/aurora-vs-rds-an-engineers-guide-to-choosing-a-database/
 

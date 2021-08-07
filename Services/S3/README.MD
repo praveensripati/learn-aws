@@ -76,3 +76,6 @@ This is one of the oldest service from AWS and is also very widely used by the i
 
 1. Using presigned URLs
     - https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html
+
+1. Strengthen the security of sensitive data stored in Amazon S3 by using additional AWS services
+    - https://aws.amazon.com/blogs/security/strengthen-the-security-of-sensitive-data-stored-in-amazon-s3-by-using-additional-aws-services/
