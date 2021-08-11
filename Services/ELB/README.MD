@@ -2,6 +2,9 @@
 
 # Further Reading
 
+1. How do I attach backend instances with private IP addresses to my internet-facing load balancer in ELB?
+    - https://aws.amazon.com/premiumsupport/knowledge-center/public-load-balancer-private-ec2/
+
 1. How ELB routing works?
     - https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#request-routing
 

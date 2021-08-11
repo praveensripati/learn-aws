@@ -9,3 +9,6 @@ Architecture diagrams helps us to convey the concepts better.
 1. 3rd party solutions
     - https://cloudcraft.co/
     - https://app.diagrams.net/
+
+1. Freehand AWS Diagrams
+    - https://www.awsgeek.com/

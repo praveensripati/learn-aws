@@ -2,6 +2,9 @@
 
 It's easy to get confused :) Here I try to compare concepts related to the cloud.
 
+1. Migrating from Lambda@Edge to CloudFront Functions
+    - https://dev.to/aws-builders/migrating-from-lambda-edge-to-cloudfront-functions-3k7k
+
 1. Kinesis vs. Kafka: Which Stream Processor Comes Out on Top?
     - https://www.lastweekinaws.com/blog/kinesis-vs-kafka-which-stream-processor-comes-out-on-top/
 

@@ -4,6 +4,9 @@
 1. AWS Workshop (**#GENERAL**)
 	- https://workshops.aws/
 
+1. How to restrict IAM roles to access AWS resources from specific geolocations using AWS Client VPN
+	- https://aws.amazon.com/blogs/security/how-to-restrict-iam-roles-to-access-aws-resources-from-specific-geolocations-using-aws-client-vpn/
+
 1. Automatically update AWS WAF IP sets with AWS IP ranges
 	- https://aws.amazon.com/blogs/security/automatically-update-aws-waf-ip-sets-with-aws-ip-ranges/
 

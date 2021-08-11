@@ -14,3 +14,6 @@
 
 1. I changed DNS settings, but they haven't taken effect
     - https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/troubleshooting-new-dns-settings-not-in-effect.html
+
+1. Using VPC Endpoints in Multi-Region Architectures with Route 53 Resolver
+    - https://aws.amazon.com/blogs/architecture/using-vpc-endpoints-in-multi-region-architectures-with-route-53-resolver/

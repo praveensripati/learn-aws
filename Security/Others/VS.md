@@ -18,3 +18,6 @@
 
 1. AWS KMS Key Policies vs Grants
     - https://ystoneman.medium.com/aws-kms-key-policies-vs-grants-41212f83f88c
+
+1. VPC Endpoint Interface vs Gateway
+    - https://acloud.guru/forums/aws-csa-2019/discussion/-LbnjIbr3jdqQdRSRa7s/VPC%20Endpoint%20Interface%20vs%20Gateway

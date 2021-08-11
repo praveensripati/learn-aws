@@ -113,3 +113,6 @@
 
 1. Using Amazon ECR images with Amazon ECS
     - https://docs.aws.amazon.com/AmazonECR/latest/userguide/ECR_on_ECS.html
+
+1. Theoretical cost optimization by Amazon ECS launch type: Fargate vs EC2
+    - https://aws.amazon.com/blogs/containers/theoretical-cost-optimization-by-amazon-ecs-launch-type-fargate-vs-ec2/

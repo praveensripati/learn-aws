@@ -19,6 +19,9 @@ SNS, SQS, SES, S3 along with Lambda are a few AWS Services which follow the serv
 1. AWS Serverless
     - https://aws.amazon.com/serverless/
 
+1. Migrating from Lambda@Edge to CloudFront Functions
+    - https://dev.to/aws-builders/migrating-from-lambda-edge-to-cloudfront-functions-3k7k
+
 1. How do I give internet access to a Lambda function that's connected to an Amazon VPC?
     - https://aws.amazon.com/premiumsupport/knowledge-center/internet-access-lambda-function/
 

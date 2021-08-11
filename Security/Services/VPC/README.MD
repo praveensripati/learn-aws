@@ -93,6 +93,9 @@ VPC spans within a region, Subnet spans within a Availability Zone. When you cre
 
 # Further Reading
 
+1. Enabling New SaaS Strategies with AWS PrivateLink
+	- https://aws.amazon.com/blogs/apn/enabling-new-saas-strategies-with-aws-privatelink/
+
 1. Control access to services with VPC endpoints
 	- https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html
 

@@ -106,6 +106,9 @@ AutoScaling is all about adding and removing the AWS resources automatically bas
 1. Controlling Which Auto Scaling Instances Terminate During Scale In.
     - https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#custom-termination-policy
 
+1. Creating a custom termination policy with Lambda
+    - https://docs.aws.amazon.com/autoscaling/ec2/userguide/lambda-custom-termination-policy.html
+
 1. AutoScaling based on the SQS Queue depth.
     - https://aws.amazon.com/blogs/compute/running-cost-effective-queue-workers-with-amazon-sqs-and-amazon-ec2-spot-instances/
     - https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-using-sqs-queue.html
