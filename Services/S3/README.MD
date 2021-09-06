@@ -4,6 +4,9 @@ This is one of the oldest service from AWS and is also very widely used by the i
 
 # Further Reading
 
+1. Choosing Your VPC Endpoint Strategy for Amazon S3
+    - https://aws.amazon.com/blogs/architecture/choosing-your-vpc-endpoint-strategy-for-amazon-s3/
+
 1. Celebrating 15 years with Amazon S3 (good end-2-end videos on S3)
     - https://www.youtube.com/playlist?list=PL2yQDdvlhXf8vAnQB10dCPIeWUKdHUgOP
 

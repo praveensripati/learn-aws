@@ -11,6 +11,9 @@ AWS does provide a lot of services with very nice and interesting features. But,
 1. Solution Implementations (**#GENERAL**)
 	- https://aws.amazon.com/solutions/implementations/
 
+1. Preventing Free Trial Abuse with AWS Managed Services
+	- https://aws.amazon.com/blogs/architecture/preventing-free-trial-abuse-with-aws-managed-services/
+
 1. Automate weed detection in farm crops using Amazon Rekognition Custom Labels
 	- https://aws.amazon.com/blogs/machine-learning/automate-weed-detection-in-farm-crops-using-amazon-rekognition-custom-labels/
 

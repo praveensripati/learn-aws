@@ -116,3 +116,6 @@
 
 1. Theoretical cost optimization by Amazon ECS launch type: Fargate vs EC2
     - https://aws.amazon.com/blogs/containers/theoretical-cost-optimization-by-amazon-ecs-launch-type-fargate-vs-ec2/
+
+1. ECS Deployment Options - From rolling updates to blue-green and canary
+    - https://cloudonaut.io/ecs-deployment-options/

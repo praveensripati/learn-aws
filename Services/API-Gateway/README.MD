@@ -73,11 +73,23 @@ REST services take actions corresponding to the HTTP request verb. These four ar
 
 # Further Reading
 
+1. Understanding VPC links in Amazon API Gateway private integrations
+    - https://aws.amazon.com/blogs/compute/understanding-vpc-links-in-amazon-api-gateway-private-integrations/
+
 1. Build a Serverless Web Application with AWS Lambda, Amazon API Gateway, Amazon S3, Amazon DynamoDB, and Amazon Cognito
     - https://aws.amazon.com/getting-started/projects/build-serverless-web-app-lambda-apigateway-s3-dynamodb-cognito/
 
 1. Using AWS Lambda with Amazon API Gateway (Uses the AWS CLI)
     - https://docs.aws.amazon.com/lambda/latest/dg/with-on-demand-https-example.html
+
+1. Choosing between HTTP APIs and REST APIs
+    - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vs-rest.html
+
+1. Creating a private API in Amazon API Gateway
+    - https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-private-apis.html
+
+1. Using serverless to load test Amazon API Gateway with authorization
+    - https://aws.amazon.com/blogs/compute/using-serverless-to-load-test-amazon-api-gateway-with-authorization/
 
 # TODO
 

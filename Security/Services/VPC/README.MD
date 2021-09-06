@@ -1,4 +1,4 @@
-# Virtual Private Cloud
+33# Virtual Private Cloud
 
 VPC is nothing more than a **logically isolated network**. Any resource like an EC2 in a VPC by default won't be able to talk to another VPC, unless we setup [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) across them. VPC can bes used to isolate Prod/Dev environments, Applications, Customers etc.
 
@@ -92,6 +92,12 @@ VPC spans within a region, Subnet spans within a Availability Zone. When you cre
 1. Finally delete the VPC
 
 # Further Reading
+
+1. Centralize access using VPC interface endpoints to access AWS services across multiple VPCs
+	- https://aws.amazon.com/blogs/networking-and-content-delivery/centralize-access-using-vpc-interface-endpoints/
+
+1. Choosing Your VPC Endpoint Strategy for Amazon S3
+    - https://aws.amazon.com/blogs/architecture/choosing-your-vpc-endpoint-strategy-for-amazon-s3/
 
 1. Enabling New SaaS Strategies with AWS PrivateLink
 	- https://aws.amazon.com/blogs/apn/enabling-new-saas-strategies-with-aws-privatelink/

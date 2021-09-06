@@ -2,6 +2,9 @@
 
 # Further Reading
 
+1. Restricting access to Application Load Balancers
+    - https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/restrict-access-to-load-balancer.html
+
 1. How do I attach backend instances with private IP addresses to my internet-facing load balancer in ELB?
     - https://aws.amazon.com/premiumsupport/knowledge-center/public-load-balancer-private-ec2/
 
