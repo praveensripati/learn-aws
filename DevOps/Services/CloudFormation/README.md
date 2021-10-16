@@ -28,9 +28,6 @@ High level steps for CloudFormation
 1. Exporting stack output values
 	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-exports.html
 
-1. Using the AWS CloudFormation registry
-	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html
-
 1. Introducing AWS CloudFormation Guard 2.0
 	- https://aws.amazon.com/blogs/mt/introducing-aws-cloudformation-guard-2-0/
 
@@ -81,3 +78,6 @@ High level steps for CloudFormation
 1. CloudFormation Registry
 	- https://aws.amazon.com/blogs/aws/introducing-a-public-registry-for-aws-cloudformation/
 	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html
+
+1. Accelerate infrastructure as code development with open source Former2
+	- https://aws.amazon.com/blogs/opensource/accelerate-infrastructure-as-code-development-with-open-source-former2/

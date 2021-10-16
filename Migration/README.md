@@ -77,6 +77,9 @@ Many are moving towards and some are moving away from the Cloud. This page is al
 1. How to Migrate your Virtual Machines to AWS using the AWS Server Migration Service
 	- https://www.youtube.com/watch?v=_SpRpC2Ez9c
 
+1. Migrate Resources Between AWS Accounts
+	- https://aws.amazon.com/blogs/architecture/migrate-resources-between-aws-accounts/
+
 # VS
 
 1. Choosing a Rehost Migration Tool – CloudEndure or AWS SMS

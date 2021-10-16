@@ -14,3 +14,6 @@
 
 1. Building Netflix’s Distributed Tracing Infrastructure
     - https://netflixtechblog.com/building-netflixs-distributed-tracing-infrastructure-bb856c319304
+
+1. AquaSecurity/cloudsploit
+    - https://github.com/aquasecurity/cloudsploit
