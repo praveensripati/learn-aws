@@ -16,6 +16,9 @@ High level steps for CloudFormation
 
 # Further Reading
 
+1. AWS CloudFormation: IaC at Enterprise Scale
+	- https://www.singlestoneconsulting.com/blog/aws-cloudformation-iac-at-enterprise-scale/
+
 1. CloudFormation Workshop
 	- https://cfn101.workshop.aws/
 

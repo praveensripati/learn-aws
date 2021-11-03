@@ -48,4 +48,3 @@ A mount target provides an IP address for an NFSv4 endpoint at which you can mou
     
 1. How to mount EFS to EC2 for cross region?
     - https://aws.amazon.com/about-aws/whats-new/2018/10/amazon-efs-now-supports-aws-vpn-and-inter-region-vpc-peering/
-    - 

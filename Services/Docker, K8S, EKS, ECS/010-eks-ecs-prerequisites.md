@@ -27,7 +27,7 @@
     >sudo mv /tmp/eksctl /usr/local/bin\
     >eksctl version
 
-1. Install `kubectl`.
+1. Install `kubectl`. Get the latest kubectl URL from [here](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html).
     >curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.9/2020-11-02/bin/linux/amd64/kubectl  
     >chmod +x ./kubectl\
     >sudo mv ./kubectl /usr/local/bin\
