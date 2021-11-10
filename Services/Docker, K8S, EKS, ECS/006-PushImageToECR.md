@@ -2,6 +2,8 @@
 
 **Make sure to replace the region with the appropriate region in all the below commands**
 
+1. Make sure that the AWS CLI is installed on the EC2.
+
 1. Create a repository in ECR.
     >aws ecr create-repository --repository-name hello-world --region us-east-1
 
