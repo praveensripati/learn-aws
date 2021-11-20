@@ -54,3 +54,6 @@ It's easy to get confused :) Here I try to compare concepts related to the cloud
 
 1. Choosing between HTTP APIs and REST APIs
     - https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vs-rest.html
+
+1. Storing Apache Hadoop Data on the Cloud - HDFS vs. S3
+    - https://www.xplenty.com/blog/storing-apache-hadoop-data-cloud-hdfs-vs-s3/

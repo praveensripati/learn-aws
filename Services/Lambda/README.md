@@ -73,3 +73,8 @@ SNS, SQS, SES, S3 along with Lambda are a few AWS Services which follow the serv
 1. AWS Lambda Extensions
     - https://aws.amazon.com/lambda/aws-learning-path-lambda-extensions/
     - https://pages.awscloud.com/Integrating-AWS-Lambda-with-Your-Favorite-Tools_2021_0614-SRV_OD.html
+
+1. Deploying Lambda using AWS Development Tools
+    - https://docs.aws.amazon.com/codedeploy/latest/userguide/tutorial-lambda-sam.html
+    - https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-steps-lambda.html
+    - https://www.youtube.com/watch?v=aGI4Wlm5c9U

@@ -11,10 +11,10 @@
        >apt-get update
 
     1. Install python and pip
-       >apt-get install python2.7 python-pip -y
+       >apt-get install python3 python3-pip -y
 
     1. Install the redis connector for python\
-       >pip install redis
+       >pip3 install redis
 
 1. Create an ElastiCache Cluster (cache.t2.micro) and get the endpoint once the cluster has been created. Make sure to attach the appropriate Security Group to the ElastiCache Cluster. 
 
