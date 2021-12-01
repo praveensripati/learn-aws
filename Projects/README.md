@@ -87,6 +87,7 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 1. Controlling your AWS costs by deleting unused Amazon EBS volumes (**#COST**)
 	- https://aws.amazon.com/blogs/mt/controlling-your-aws-costs-by-deleting-unused-amazon-ebs-volumes/
+	- https://aws.amazon.com/blogs/aws/new-recycle-bin-for-ebs-snapshots/
 
 1. AWS S3 Photo Thumbnail (**#S3, #LAMBDA**)
 	- https://docs.aws.amazon.com/lambda/latest/dg/with-s3-tutorial.html (JS)
