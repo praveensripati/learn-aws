@@ -17,7 +17,7 @@ In this illustration, both serviceA and serviceB are discoverable through the ap
 App Mesh can help you do this without changing any application code or registered service names. If you use App Mesh with this example application, then your mesh might look like the following illustration.
 
 ![](images/appmesh-application.png)
-![](images/app-mesh-components.png)
+![](images/appmesh-components.png)
 
 App Mesh benefits (https://www.appmeshworkshop.com/introduction/appmesh_benefits/)\
     - End-to-end visibility\
@@ -31,11 +31,22 @@ App Mesh benefits (https://www.appmeshworkshop.com/introduction/appmesh_benefits
 1. What Is AWS App Mesh?
     - https://docs.aws.amazon.com/app-mesh/latest/userguide/what-is-app-mesh.html
 
-1. AWS App Mesh Examples
-    - https://github.com/aws/aws-app-mesh-examples
+1. App Mesh best practices
+    - https://docs.aws.amazon.com/app-mesh/latest/userguide/best-practices.html
 
 1. Getting started with App Mesh
     - https://docs.aws.amazon.com/app-mesh/latest/userguide/getting-started.html
 
+# App Mesh in Practice
+
+1. AWS App Mesh Examples
+    - https://github.com/aws/aws-app-mesh-examples
+
+1. Getting started with AWS App Mesh and Amazon EKS (uses the above git code)
+    - https://aws.amazon.com/blogs/containers/getting-started-with-app-mesh-and-eks/
+
 1. App Mesh Workshop
     - https://www.appmeshworkshop.com/
+
+1. AWS App Mesh VS. Istio
+    - https://vedcraft.com/architecture/aws-appmesh-vs-istio-comparison-of-service-mesh/

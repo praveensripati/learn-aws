@@ -2,14 +2,21 @@
 
 AWS does provide a lot of services with very nice and interesting features. But, combining the different AWS Services makes it much more interesting. This page is an attempt to consolidate such things (AWS and non AWS articles). Follow the detailed instructions in each one of them and get more familiar with AWS.
 
+## Aggregation Of Projects
+
 1. AWS Workshop (**#GENERAL**)
 	- https://workshops.aws/
 
 1. Project Ideas (**#GENERAL**)
 	- https://aws.amazon.com/getting-started/hands-on/
 
+1. Projects in the intersection of Big Data and AWS Services (**#BIGDATA**)
+	- https://registry.opendata.aws/usage-examples/
+
 1. Solution Implementations (**#GENERAL**)
 	- https://aws.amazon.com/solutions/implementations/
+
+## Individual Projects
 
 1. Preventing Free Trial Abuse with AWS Managed Services
 	- https://aws.amazon.com/blogs/architecture/preventing-free-trial-abuse-with-aws-managed-services/
@@ -77,9 +84,6 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 1. Configure Sub-Domain in AWS SES to Receive Mails (**#SES**)
 	- https://blog.cloudthat.com/configure-sub-domain-in-aws-ses-to-receive-mails/
-
-1. Projects in the intersection of Big Data and AWS Services (**#BIGDATA**)
-	- https://registry.opendata.aws/usage-examples/
 
 1. Architect an Airline Booking Application, End-to-End (**#SERVERLESS**)
 	- https://pages.awscloud.com/GLOBAL-devstrategy-OE-BuildOnServerless-2019-reg-event.html

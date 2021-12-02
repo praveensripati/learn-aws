@@ -2,6 +2,9 @@
 
 It's easy to get confused :) Here I try to compare concepts related to the cloud.
 
+1. AWS App Mesh VS. Istio
+    - https://vedcraft.com/architecture/aws-appmesh-vs-istio-comparison-of-service-mesh/
+
 1. Migrating from Lambda@Edge to CloudFront Functions
     - https://dev.to/aws-builders/migrating-from-lambda-edge-to-cloudfront-functions-3k7k
 

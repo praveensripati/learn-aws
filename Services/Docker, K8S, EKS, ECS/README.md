@@ -52,6 +52,9 @@
 1. Docker Base Image OS Size Comparison
     - https://www.brianchristner.io/docker-image-base-os-size-comparison/
 
+1. Docker diagnostics
+    - https://docs.amazonaws.cn/en_us/AmazonECS/latest/developerguide/docker-diags.html
+
 1. Amazon Linux container image
     - https://docs.aws.amazon.com/AmazonECR/latest/userguide/amazon_linux_container_image.html
 
