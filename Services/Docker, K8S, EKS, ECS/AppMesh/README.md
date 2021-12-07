@@ -50,3 +50,11 @@ App Mesh benefits (https://www.appmeshworkshop.com/introduction/appmesh_benefits
 
 1. AWS App Mesh VS. Istio
     - https://vedcraft.com/architecture/aws-appmesh-vs-istio-comparison-of-service-mesh/
+
+1. Microservices with AWS ECS (Includes Fargate/AppMesh/XRay) (is a bit patchy, but has the console screens)
+    - https://medium.com/swlh/microservices-with-aws-ecs-58dd5006ab2e
+    - https://medium.com/swlh/microservices-and-aws-app-mesh-f4c7cab9ddca
+    - https://medium.com/swlh/monitor-microservices-using-aws-x-ray-c472916ac0bd
+
+1. Create a pipeline with canary deployments for Amazon ECS using AWS App Mesh
+    - https://aws.amazon.com/blogs/containers/create-a-pipeline-with-canary-deployments-for-amazon-ecs-using-aws-app-mesh/

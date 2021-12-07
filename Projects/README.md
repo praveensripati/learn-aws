@@ -18,6 +18,9 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 ## Individual Projects
 
+1. Automatically Tag EC2 instance with the user who created it
+	- https://medium.com/awsblogs/tag-ec2-instance-with-the-user-who-created-it-99ddedb223a8
+
 1. Preventing Free Trial Abuse with AWS Managed Services
 	- https://aws.amazon.com/blogs/architecture/preventing-free-trial-abuse-with-aws-managed-services/
 

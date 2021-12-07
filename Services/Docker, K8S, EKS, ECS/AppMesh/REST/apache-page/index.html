@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>XML http request</title>
+    <script>
+      async function getUsers() {
+        let response = await fetch(
+          "http://nodejs-rest-server-service.person.com/person/all"
+        );
+        let data = await response.json();
+        return data;
+      }
+      getUsers().then(data => document.write(JSON.stringify(data)));
+    </script>
+  </head>
+
+  <body></body>
+</html>

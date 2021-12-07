@@ -1,0 +1,111 @@
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  NodeJsRestClientNode:
+    Type: 'AWS::AppMesh::VirtualNode'
+    Properties:
+      MeshName: MyAppMesh
+      VirtualNodeName: NodeJsRestClientNode
+      Spec:
+        Backends:
+          - VirtualService:
+              VirtualServiceName: nodejs-rest-server-service.person.com
+        Listeners:
+          - PortMapping:
+              Port: 80
+              Protocol: http
+        ServiceDiscovery:
+          DNS:
+            Hostname: nodejs-rest-client-service.person.com
+    DependsOn:
+      - NodeJSRestServerService
+      - MyAppMesh
+  NodeJsRestServerNode:
+    Type: 'AWS::AppMesh::VirtualNode'
+    Properties:
+      MeshName: MyAppMesh
+      VirtualNodeName: NodeJsRestServerNode
+      Spec:
+        Listeners:
+          - PortMapping:
+              Port: 80
+              Protocol: http
+        ServiceDiscovery:
+          DNS:
+            Hostname: nodejs-rest-server-service.person.com
+    DependsOn:
+      - MyAppMesh
+  NodeJsRestServerV2Node:
+    Type: 'AWS::AppMesh::VirtualNode'
+    Properties:
+      MeshName: MyAppMesh
+      VirtualNodeName: NodeJsRestServerV2Node
+      Spec:  
+        Listeners:
+          - PortMapping:
+              Port: 80
+              Protocol: http
+        ServiceDiscovery:
+          DNS:
+            Hostname: nodejs-rest-server-v2-service.person.com
+    DependsOn:
+      - MyAppMesh
+  NodeJsRestServerRouter:
+    Type: 'AWS::AppMesh::VirtualRouter'
+    Properties:
+      MeshName: MyAppMesh
+      VirtualRouterName: NodeJsRestServerRouter
+      Spec:
+        Listeners:
+          - PortMapping:
+              Port: 80
+              Protocol: http
+    DependsOn:
+      - NodeJsRestServerV2Node
+      - NodeJsRestServerNode
+  NodeJsRestServerRoute:
+    Type: 'AWS::AppMesh::Route'
+    Properties:
+      MeshName: MyAppMesh
+      RouteName: NodeJsRestServerRoute
+      VirtualRouterName: NodeJsRestServerRouter
+      Spec:
+        HttpRoute:
+          Action:
+            WeightedTargets:
+              - VirtualNode: NodeJsRestServerNode
+                Weight: 1
+              - VirtualNode: NodeJsRestServerV2Node
+                Weight: 1
+          Match:
+            Method: GET
+    DependsOn:
+      - NodeJsRestServerRouter
+  NodeJSRestClientService:
+    Type: 'AWS::AppMesh::VirtualService'
+    Properties:
+      MeshName: MyAppMesh
+      VirtualServiceName: nodejs-rest-client-service.person.com
+      Spec:
+        Provider:
+          VirtualNode:
+            VirtualNodeName: NodeJsRestClientNode
+    DependsOn:
+      - NodeJsRestClientNode
+  NodeJSRestServerService:
+    Type: 'AWS::AppMesh::VirtualService'
+    Properties:
+      MeshName: MyAppMesh
+      VirtualServiceName: nodejs-rest-server-service.person.com
+      Spec:
+        Provider:
+          VirtualRouter:
+            VirtualRouterName: NodeJsRestServerRouter
+    DependsOn:
+      - NodeJsRestServerRouter
+  MyAppMesh:
+    Type: 'AWS::AppMesh::Mesh'
+    Properties:
+      MeshName: MyAppMesh
+      Spec:
+        EgressFilter:
+          Type: DROP_ALL
