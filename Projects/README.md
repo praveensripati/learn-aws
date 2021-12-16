@@ -18,6 +18,9 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 ## Individual Projects
 
+1. Calculating data transfer leveraging Amazon VPC flow logs
+	- https://aws.amazon.com/blogs/networking-and-content-delivery/calculating-data-transfer-leveraging-amazon-vpc-flow-logs/
+
 1. Automatically Tag EC2 instance with the user who created it
 	- https://medium.com/awsblogs/tag-ec2-instance-with-the-user-who-created-it-99ddedb223a8
 
