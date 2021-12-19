@@ -28,6 +28,9 @@ While talking to someone around AWS or while conducting trainings, some of the q
 1. Region Codes
     - https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html
 
+1. How do I convert a .pem file into a .ppk, and vice versa, on Windows and Linux?
+    - https://aws.amazon.com/premiumsupport/knowledge-center/ec2-ppk-pem-conversion/
+
 ## Everything Else
 
 1. Receiving email with Amazon SES
