@@ -18,6 +18,9 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 ## Individual Projects
 
+1. Use machine learning to filter user-generated content and protect your brand
+	- https://aws.amazon.com/blogs/media/using-ml-to-filter-user-generated-content-to-protect-your-brand/
+
 1. Calculating data transfer leveraging Amazon VPC flow logs
 	- https://aws.amazon.com/blogs/networking-and-content-delivery/calculating-data-transfer-leveraging-amazon-vpc-flow-logs/
 

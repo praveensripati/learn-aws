@@ -122,3 +122,6 @@
 
 1. ECS Deployment Options - From rolling updates to blue-green and canary
     - https://cloudonaut.io/ecs-deployment-options/
+
+1. ECS Network Security Best Practices
+    - https://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/security-network.html

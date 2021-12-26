@@ -4,6 +4,9 @@
 1. AWS Workshop (**#GENERAL**)
 	- https://workshops.aws/
 
+1. Find Public IPs of Resources – Use AWS Config for Vulnerability Assessment
+	- https://aws.amazon.com/blogs/architecture/find-public-ips-of-resources-use-aws-config-for-vulnerability-assessment/
+
 1. How to restrict IAM roles to access AWS resources from specific geolocations using AWS Client VPN
 	- https://aws.amazon.com/blogs/security/how-to-restrict-iam-roles-to-access-aws-resources-from-specific-geolocations-using-aws-client-vpn/
 

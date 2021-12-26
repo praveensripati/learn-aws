@@ -1,3 +1,5 @@
+1. Public Key Infrastructure Explained | Everything you need to know
+    - https://www.altaro.com/hyper-v/public-key-infrastructure/
 
 1. What is AWS Hyperplane?
     - https://www.youtube.com/watch?v=dfEcd3zqPOA&t=4661s
