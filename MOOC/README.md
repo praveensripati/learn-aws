@@ -2,6 +2,9 @@
 
 AWS and others provide a lot of interesting free courses / MOOC. This page is an attempt to consolidate all the interesting ones.
 
+1. AWS Elastic Load Balancer Demos
+    - https://www.exampleloadbalancer.com/
+
 1. Amazon S3 Business Continuity and Disaster Recovery
     - https://www.aws.training/Details/eLearning?id=78563
 

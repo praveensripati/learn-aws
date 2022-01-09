@@ -3,7 +3,7 @@ The AWS CLI can be installed on the EC2 and also on the non-EC2 (Laptop/Server e
 ## AWS CLI for Windows
 
 1. Download and install the AWS CLI as like any other software on Windows.
-    - https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html#install-msi-on-windows
+    - https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
 1. Once the installation is done, confirm the same by running the `aws --version` command.
 
