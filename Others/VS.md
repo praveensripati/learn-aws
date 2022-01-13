@@ -60,3 +60,6 @@ It's easy to get confused :) Here I try to compare concepts related to the cloud
 
 1. Storing Apache Hadoop Data on the Cloud - HDFS vs. S3
     - https://www.xplenty.com/blog/storing-apache-hadoop-data-cloud-hdfs-vs-s3/
+
+1. Leveraging the s3 and s3api Commands
+    - https://aws.amazon.com/blogs/developer/leveraging-the-s3-and-s3api-commands/

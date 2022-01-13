@@ -93,6 +93,9 @@ VPC spans within a region, Subnet spans within a Availability Zone. When you cre
 
 # Further Reading
 
+1. VPC Ingress Routing – Simplifying Integration of Third-Party Appliances
+	- https://aws.amazon.com/blogs/aws/new-vpc-ingress-routing-simplifying-integration-of-third-party-appliances/
+
 1. Amazon VPC Routing Enhancements Allow You to Inspect Traffic Between Subnets In a VPC
 	- https://aws.amazon.com/blogs/aws/inspect-subnet-to-subnet-traffic-with-amazon-vpc-more-specific-routing/
 

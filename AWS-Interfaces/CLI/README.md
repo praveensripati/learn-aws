@@ -59,6 +59,9 @@ The AWS CLI can be installed on the EC2 and also on the non-EC2 (Laptop/Server e
 1. AWS CLI v1 vs v2
     - https://www.youtube.com/watch?v=U5y7JI_mHk8
 
+1. Leveraging the s3 and s3api Commands
+    - https://aws.amazon.com/blogs/developer/leveraging-the-s3-and-s3api-commands/
+
 1. Configure Auto Completion with the CLI
     - https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html
 
