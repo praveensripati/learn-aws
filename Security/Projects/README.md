@@ -4,6 +4,9 @@
 1. AWS Workshop (**#GENERAL**)
 	- https://workshops.aws/
 
+1. How to create a security group allowing traffic from CloudFront only?
+	- https://cloudonaut.io/cloudfront-prefix-list-security-group/
+
 1. Find Public IPs of Resources – Use AWS Config for Vulnerability Assessment
 	- https://aws.amazon.com/blogs/architecture/find-public-ips-of-resources-use-aws-config-for-vulnerability-assessment/
 

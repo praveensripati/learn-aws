@@ -78,3 +78,11 @@ SNS, SQS, SES, S3 along with Lambda are a few AWS Services which follow the serv
     - https://docs.aws.amazon.com/codedeploy/latest/userguide/tutorial-lambda-sam.html
     - https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-steps-lambda.html
     - https://www.youtube.com/watch?v=aGI4Wlm5c9U
+
+1. Lambda multiple invocations
+    - https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html
+    
+    For asynchronous invocation, Lambda adds events to a queue before sending them to your function. If your function does not have enough capacity to keep up with the queue, events may be lost. Occasionally, your function may receive the same event multiple times, even if no error occurs. To retain events that were not processed, configure your function with a dead-letter queue.
+
+1. Comparing Lambda invocation modes
+    - https://docs.aws.amazon.com/lambda/latest/operatorguide/invocation-modes.html

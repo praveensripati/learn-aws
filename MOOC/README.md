@@ -2,6 +2,9 @@
 
 AWS and others provide a lot of interesting free courses / MOOC. This page is an attempt to consolidate all the interesting ones.
 
+1. Amazon DynamoDB session videos from AWS re:Invent 2021
+    - https://aws.amazon.com/blogs/database/amazon-dynamodb-session-videos-from-aws-reinvent-2021/
+
 1. AWS Elastic Load Balancer Demos
     - https://www.exampleloadbalancer.com/
 

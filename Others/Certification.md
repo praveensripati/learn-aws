@@ -28,3 +28,6 @@
 
 1. Discount on the exam
     - https://medium.com/@quinn.richard/14-lessons-learned-from-taking-8-aws-certification-tests-in-4-weeks-b10b2c296c14
+
+1. Cloud certification FAQs: AWS vs Azure vs Google Cloud certs compared
+    - https://acloudguru.com/blog/engineering/cloud-certification-faqs-aws-vs-azure-vs-google-cloud-certs-compared

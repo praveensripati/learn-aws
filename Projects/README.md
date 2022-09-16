@@ -18,6 +18,9 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 ## Individual Projects
 
+1. Enable the visually impaired to hear documents using Amazon Textract and Amazon Polly
+	- https://aws.amazon.com/blogs/machine-learning/enable-the-visually-impaired-to-hear-documents-using-amazon-textract-and-amazon-polly/
+
 1. Update your Amazon CloudWatch dashboards automatically using Amazon EventBridge and AWS Lambda
 	- https://aws.amazon.com/blogs/mt/update-your-amazon-cloudwatch-dashboards-automatically-using-amazon-eventbridge-and-aws-lambda/
 
