@@ -14,6 +14,9 @@
 1. How to know if DynamoDB is appropriate?
     - https://aws.amazon.com/blogs/database/how-to-determine-if-amazon-dynamodb-is-appropriate-for-your-needs-and-then-plan-your-migration/
 
+1. The five most visited Amazon DynamoDB blog posts of 2022
+    - https://aws.amazon.com/blogs/database/the-five-most-visited-amazon-dynamodb-blog-posts-of-2022/
+
 1. DynamoDB Core Components?
     - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html
 

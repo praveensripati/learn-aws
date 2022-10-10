@@ -1,14 +1,15 @@
 # Best practices around AWS
 
-1. The five pillars
+1. The six pillars
     1. Operational Excellence
     1. Security
     1. Reliability
     1. Performance Efficiency
     1. Cost Optimization
+    1. Sustainability
 
-1. The 5 Pillars of the AWS Well-Architected Framework
-    - https://aws.amazon.com/blogs/apn/the-5-pillars-of-the-aws-well-architected-framework/
+1. The 6 Pillars of the AWS Well-Architected Framework
+    - https://aws.amazon.com/blogs/apn/the-6-pillars-of-the-aws-well-architected-framework/
     - https://aws.amazon.com/architecture/well-architected/
     - https://wellarchitectedlabs.com/
 
