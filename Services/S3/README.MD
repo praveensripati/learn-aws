@@ -4,6 +4,12 @@ This is one of the oldest service from AWS and is also very widely used by the i
 
 # Further Reading
 
+1. How USAA built an Amazon S3 malware scanning solution
+    - https://aws.amazon.com/blogs/architecture/how-usaa-built-an-amazon-s3-malware-scanning-solution/
+
+1. Virus scan S3 buckets with a serverless ClamAV based CDK construct
+    - https://aws.amazon.com/blogs/developer/virus-scan-s3-buckets-with-a-serverless-clamav-based-cdk-construct/
+
 1. Choosing Your VPC Endpoint Strategy for Amazon S3
     - https://aws.amazon.com/blogs/architecture/choosing-your-vpc-endpoint-strategy-for-amazon-s3/
 

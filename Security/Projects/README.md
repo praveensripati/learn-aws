@@ -4,6 +4,12 @@
 1. AWS Workshop (**#GENERAL**)
 	- https://workshops.aws/
 
+1. How USAA built an Amazon S3 malware scanning solution
+    - https://aws.amazon.com/blogs/architecture/how-usaa-built-an-amazon-s3-malware-scanning-solution/
+
+1. Virus scan S3 buckets with a serverless ClamAV based CDK construct
+    - https://aws.amazon.com/blogs/developer/virus-scan-s3-buckets-with-a-serverless-clamav-based-cdk-construct/
+
 1. How to create a security group allowing traffic from CloudFront only?
 	- https://cloudonaut.io/cloudfront-prefix-list-security-group/
 

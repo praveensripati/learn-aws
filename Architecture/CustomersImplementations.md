@@ -4,6 +4,9 @@
 1. This is my Architecture
     - https://www.youtube.com/playlist?list=PLhr1KZpdzukdeX8mQ2qO73bg6UKQHYsHb
 
+1. AWS Solutions Library
+    - https://aws.amazon.com/solutions/
+
 # Amazon
 
 1. How Amazon builds and operates software
