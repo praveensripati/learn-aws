@@ -18,6 +18,9 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 ## Individual Projects
 
+1. Predict lung cancer survival status using multimodal data on Amazon SageMaker JumpStart
+	- https://aws.amazon.com/blogs/machine-learning/predict-lung-cancer-survival-status-using-multimodal-data-on-amazon-sagemaker-jumpstart/
+
 1. Enable the visually impaired to hear documents using Amazon Textract and Amazon Polly
 	- https://aws.amazon.com/blogs/machine-learning/enable-the-visually-impaired-to-hear-documents-using-amazon-textract-and-amazon-polly/
 
