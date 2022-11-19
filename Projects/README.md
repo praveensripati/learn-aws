@@ -18,6 +18,12 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 ## Individual Projects
 
+1. Predicting diabetic patient readmission using multi-model training on Amazon SageMaker Pipelines
+	- https://aws.amazon.com/blogs/publicsector/predict-diabetic-patient-readmission-using-multi-model-training-amazon-sagemaker-pipelines/
+
+1. Brain tumor segmentation at scale using AWS Inferentia
+	- https://aws.amazon.com/blogs/machine-learning/brain-tumor-segmentation-at-scale-using-aws-inferentia/
+
 1. Predict lung cancer survival status using multimodal data on Amazon SageMaker JumpStart
 	- https://aws.amazon.com/blogs/machine-learning/predict-lung-cancer-survival-status-using-multimodal-data-on-amazon-sagemaker-jumpstart/
 
