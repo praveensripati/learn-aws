@@ -2,6 +2,14 @@
 
 # Further Reading
 
+1. DynamoDB Guide (Incomplete but good)
+    - https://www.dynamodbguide.com/what-is-dynamo-db
+
+1. DynamoDB Paper
+    - https://www.usenix.org/system/files/atc22-elhemali.pdf
+    - https://brooker.co.za/blog/2022/07/12/dynamodb.html
+    - https://www.alexdebrie.com/posts/dynamodb-paper/
+
 1. Amazon Prime Infrastructure (including DynamoDB)
     - https://aws.amazon.com/blogs/aws/how-aws-powered-amazons-biggest-day-ever/
     - https://aws.amazon.com/blogs/aws/amazon-prime-day-2019-powered-by-aws/
@@ -63,6 +71,10 @@
     - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/workbench.html
 
 1. SQL on DynamoDB
+
+    - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ql-reference.html
+    - https://aws.amazon.com/blogs/opensource/announcing-partiql-one-query-language-for-all-your-data/
+
     - https://github.com/fsprojects/DynamoDb.SQL
     - https://www.simba.com/products/DynamoDB/doc/ODBC_InstallGuide/win/content/odbc/dy/features/sqlinterface.htm
     - https://www.razorsql.com/features/dynamodb_sql_editor.html
