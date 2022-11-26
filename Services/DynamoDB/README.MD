@@ -84,6 +84,11 @@
 1. WCU and RCU Pricing
     - https://aws.amazon.com/dynamodb/pricing/provisioned/
 
+# Use cases
+
+1. How OLX optimized their Amazon DynamoDB costs by scaling their query patterns
+    - read://https_aws.amazon.com/?url=https%3A%2F%2Faws.amazon.com%2Fblogs%2Fdatabase%2Fhow-olx-optimized-their-amazon-dynamodb-costs-by-scaling-their-query-patterns
+
 # TODO
 
 1. Need to categorize them.

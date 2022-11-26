@@ -60,3 +60,16 @@ Note down the execution time and amount of data scanned
 */
 
 select Origin, count(*) as delayed from ontime_parquet_snappy where DepTime > CRSDepTime group by Origin order by delayed desc;
+
+/*
+Create a view on the ontime_parquet_snappy table.
+*/
+
+CREATE VIEW origin_delays_by_year_view AS
+select Origin, Year, count(*) as Delay from ontime_parquet_snappy where DepTime > CRSDepTime group by Origin, Year order by Origin, Year;
+
+/*
+In the PowerBI use thecloudavenue-cur as the DSN(Data Source Name)
+Select the above View.
+Drag the “year” field to the “X axis” and the “delay” field to the “Value”.
+*/
