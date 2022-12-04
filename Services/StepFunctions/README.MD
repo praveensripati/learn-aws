@@ -2,6 +2,9 @@
 
 # Further Reading
 
+1. Step Functions Distributed Map – A Serverless Solution for Large-Scale Parallel Data Processing
+    - https://aws.amazon.com/blogs/aws/step-functions-distributed-map-a-serverless-solution-for-large-scale-parallel-data-processing/
+
 1. AWS Step Functions Workflow Studio – A Low-Code Visual Tool for Building State Machines
     - https://aws.amazon.com/blogs/aws/new-aws-step-functions-workflow-studio-a-low-code-visual-tool-for-building-state-machines/
 

@@ -8,6 +8,9 @@ Athena is a service to process the data in S3 using standard SQL queries. It's a
 
 # Further Reading
 
+1. Explore your data lake using Amazon Athena for Apache Spark
+    - https://aws.amazon.com/blogs/big-data/explore-your-data-lake-using-amazon-athena-for-apache-spark/
+
 1. Athena uses Presto (https://prestosql.io/), RedShift uses PostgeSQL.
     - https://blog.openbridge.com/how-is-aws-redshift-spectrum-different-than-aws-athena-9baa2566034b
     - https://stackoverflow.com/questions/50250114/athena-vs-redshift-spectrum
