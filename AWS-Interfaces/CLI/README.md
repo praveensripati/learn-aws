@@ -12,11 +12,11 @@ The AWS CLI can be installed on the EC2 and also on the non-EC2 (Laptop/Server e
 1. Create an Ubuntu EC2 instance and execute the below commands.
     >sudo apt install unzip
 
-    >curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-    >unzip awscliv2.zip
-    >sudo ./aws/install
+    >curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"  
+    >unzip awscliv2.zip  
+    >sudo ./aws/install  
 
-    >rm awscliv2.zip
+    >rm awscliv2.zip  
     >rm -rf aws
 
     >export PATH="$PATH:/usr/local/bin/
