@@ -6,6 +6,8 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 1. AWS Workshop (**#GENERAL**)
 	- https://workshops.aws/
+	- https://awssecworkshops.com/workshops/
+	- https://aws.amazon.com/getting-started/hands-on/
 
 1. Project Ideas (**#GENERAL**)
 	- https://aws.amazon.com/getting-started/hands-on/
