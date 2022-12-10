@@ -23,7 +23,7 @@
 1. Attach the below IAM Policies to the above IAM Role.
 	- AmazonSQSFullAccess
 	- AmazonDynamoDBFullAccess
-	- AWSLambdaBasicExecutionRole
+	- AWSLambdaRole
 
 1. Goto to StepFunctions Console and create a `State Machine` with the default options.
 
