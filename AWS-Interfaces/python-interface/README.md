@@ -10,10 +10,10 @@
     >apt-get update
 
     >#Install Python and pip\
-    >apt-get install python2.7 python-pip -y
+    >apt-get install python3 python3-pip -y
 
     >#Install Python AWS SDK\
-    >pip install boto3
+    >pip3 install boto3
 
     >#Configure the SDK\
     >exit\

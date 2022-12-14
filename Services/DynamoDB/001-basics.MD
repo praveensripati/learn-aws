@@ -41,6 +41,7 @@
 
   
 ## Condition expressions
+<b>Condition expressions</b> are used when manipulating individual items to only change an item when certain conditions are true.<br/>
 <pre>
 aws dynamodb put-item \
     --table-name UsersTable \
@@ -61,6 +62,7 @@ aws dynamodb get-item \
     }'</pre>
 	
 ## Projection expressions
+<b>Projection expressions</b> are used to specify a subset of attributes you want to receive when reading Items. We used these in our GetItem calls in the previous lesson.<br/>
 <pre>
 aws dynamodb get-item \
     --table-name UsersTable \
@@ -70,6 +72,7 @@ aws dynamodb get-item \
     }'</pre>
 
 ## Update expressions
+<b>Update expressions</b> are used to update a particular attribute in an existing Item.<br/>
 When using the update expression, you must include one of four update clauses. These clauses are:
 
 1. SET: Used to add an attribute to an Item or modify an existing attribute;
