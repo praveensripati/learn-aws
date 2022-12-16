@@ -11,11 +11,11 @@ Amazon DynamoDB is designed for scale and performance. In most cases, the Dynamo
     - Create a new `subnet group`.
     - Give a name for the `subnet group` as `DAXSubnetGroup`.
     - Go with the default `VPC` and select a `subnet`.
-    - Choose the default `Security Group`.
+    - Choose the AllowAll `Security Group`.
     - For the `Availability Zones (AZ)` select `Automatic`.
     - Click `Next`.
 
-    - For the `IAM Permissions` select `Create new` and give a name `DAXtoDynamoDBRole`.
+    - For the `IAM Permissions` select `Create new` and give a name `DAXtoDynamoDBRole` to the Role.
     - Select `Create policy` with `Read/write` and give a name `DAXFullAccess-DAXtoDynamoDBRole`.
     - For the `Access to DynamoDB tables` select `All tables`.
     - Click `Next`.
@@ -36,15 +36,13 @@ Amazon DynamoDB is designed for scale and performance. In most cases, the Dynamo
     >sudo pip3 install amazon-dax-client
 
 1. Create table and put data.
-    >python3 01-create-table.py  
-    >python3 02-write-data.py
+    >python3 create-table.py  
+    >python3 write-data.py
 
 1. Run the following Python programs. Take note of the timing information—the number of milliseconds required for the Scan test.
     >python3 scan-test.py
 
     ![](images/2022-12-13-22-51-50.png)
-1. Get the endpoint of the DAX Cluster.
-    >aws dax describe-clusters --query "Clusters[*].ClusterDiscoveryEndpoint"
 
 1. Run the program again, but this time, specify the cluster endpoint as a command line parameter.
     >python3 scan-test.py dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com
