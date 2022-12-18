@@ -4,8 +4,8 @@ print('Loading function')
 
 SENDER = "xyz@gmail.com"
 RECIPIENT = "abc@gmail.com"
-SUBJECT = "New User"
-BODY_TEXT = "Hurray a new user has been created !!!!"
+SUBJECT = "Welcome to AWS !!!"
+BODY_TEXT = "AWS is obviously cool."
 
 AWS_REGION = "us-east-1"
 CHARSET = "UTF-8"

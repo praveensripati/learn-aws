@@ -1,4 +1,4 @@
-33# Virtual Private Cloud
+# Virtual Private Cloud
 
 VPC is nothing more than a **logically isolated network**. Any resource like an EC2 in a VPC by default won't be able to talk to another VPC, unless we setup [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) across them. VPC can bes used to isolate Prod/Dev environments, Applications, Customers etc.
 
@@ -92,6 +92,9 @@ VPC spans within a region, Subnet spans within a Availability Zone. When you cre
 1. Finally delete the VPC
 
 # Further Reading
+
+1. IPv4 Subnet Creator
+	- https://network00.com/NetworkTools/IPv4SubnetCreator/
 
 1. VPC Ingress Routing – Simplifying Integration of Third-Party Appliances
 	- https://aws.amazon.com/blogs/aws/new-vpc-ingress-routing-simplifying-integration-of-third-party-appliances/
