@@ -2,6 +2,11 @@
 
 It's easy to get confused :) Here I try to compare concepts related to the cloud.
 
+1. Dedicated Hosts vs Dedicated Instance
+    - https://aws.amazon.com/ec2/dedicated-hosts/
+    - https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html#dh-di-diffs
+    - https://www.jasoncoelho.com/2022/04/aws-dedicated-host-vs-dedicated-instance.html
+
 1. AWS App Mesh VS. Istio
     - https://vedcraft.com/architecture/aws-appmesh-vs-istio-comparison-of-service-mesh/
 

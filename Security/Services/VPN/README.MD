@@ -21,6 +21,7 @@
 
 1. Getting Started with Site-to-Site VPN
     - https://docs.aws.amazon.com/vpn/latest/s2svpn/SetUpVPNConnections.html
+    - https://aws.amazon.com/blogs/networking-and-content-delivery/simulating-site-to-site-vpn-customer-gateways-strongswan/
 
 1. Building a VPN Between GCP and AWS with Terraform
     - https://cloud.google.com/solutions/automated-network-deployment-multicloud
