@@ -20,6 +20,9 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 ## Individual Projects
 
+1. Detecting solar panel damage with Amazon Rekognition Custom Labels
+	- https://aws.amazon.com/blogs/architecture/detecting-solar-panel-damage-with-amazon-rekognition-custom-labels/
+
 1. Predicting diabetic patient readmission using multi-model training on Amazon SageMaker Pipelines
 	- https://aws.amazon.com/blogs/publicsector/predict-diabetic-patient-readmission-using-multi-model-training-amazon-sagemaker-pipelines/
 

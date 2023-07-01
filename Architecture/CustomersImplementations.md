@@ -7,6 +7,9 @@
 1. AWS Solutions Library
     - https://aws.amazon.com/solutions/
 
+1. “Avatar: The Way of Water” and the future of filmmaking
+    - https://aws.amazon.com/blogs/media/avatar-the-way-of-water-and-the-future-of-filmmaking/
+
 # Amazon
 
 1. How Amazon builds and operates software
