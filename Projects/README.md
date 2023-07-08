@@ -20,6 +20,12 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 ## Individual Projects
 
+1. Predict customer churn with no-code machine learning using Amazon SageMaker Canvas
+	- https://aws.amazon.com/blogs/machine-learning/predicting-customer-churn-with-no-code-machine-learning-using-amazon-sagemaker-canvas/
+
+1. Build ML Model with No Code Using Sagemaker Canvas
+	- https://catalog.us-east-1.prod.workshops.aws/workshops/63069e26-921c-4ce1-9cc7-dd882ff62575/en-US/lab8
+
 1. Detecting solar panel damage with Amazon Rekognition Custom Labels
 	- https://aws.amazon.com/blogs/architecture/detecting-solar-panel-damage-with-amazon-rekognition-custom-labels/
 
