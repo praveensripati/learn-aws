@@ -11,7 +11,7 @@
     - https://www.alexdebrie.com/posts/dynamodb-paper/
 
 1. Amazon Prime Day Infrastructure (including DynamoDB)
-    - https://aws.amazon.com/blogs/aws/amazon-prime-day-2022-aws-for-the-win/
+    - https://aws.amazon.com/blogs/aws/prime-day-2023-powered-by-aws-all-the-numbers/
 
 1. Migration Complete
     - https://aws.amazon.com/blogs/aws/migration-complete-amazons-consumer-business-just-turned-off-its-final-oracle-database/
