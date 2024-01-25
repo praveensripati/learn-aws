@@ -20,6 +20,12 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 ## Individual Projects
 
+1. Build a vaccination verification solution using the Queries feature in Amazon Textract
+	- https://aws.amazon.com/blogs/machine-learning/build-a-vaccination-verification-solution-using-the-queries-feature-in-amazon-textract/
+
+1. Ball position tracking in the cloud with the PGA TOUR
+	- https://aws.amazon.com/blogs/machine-learning/ball-position-tracking-in-the-cloud-with-the-pga-tour/
+
 1. Predict customer churn with no-code machine learning using Amazon SageMaker Canvas
 	- https://aws.amazon.com/blogs/machine-learning/predicting-customer-churn-with-no-code-machine-learning-using-amazon-sagemaker-canvas/
 
