@@ -31,6 +31,9 @@
 1. Best Practices for DynamoDB
     - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/best-practices.html
 
+1. DynamoDB Scan vs Query - Everything You Need To Know
+    - https://dynobase.dev/dynamodb-scan-vs-query/
+
 1. Fine-Grained access Control
     - https://aws.amazon.com/blogs/aws/fine-grained-access-control-for-amazon-dynamodb/
 
