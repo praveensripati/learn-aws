@@ -45,6 +45,9 @@
     - https://martinstapel.com/how-to-autoincrement-in-dynamo-db-if-you-really-need-to/
     - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html#WorkingWithItems.ConditionalUpdate
 
+1. Single-table vs. multi-table design in Amazon DynamoDB
+    - https://aws.amazon.com/blogs/database/single-table-vs-multi-table-design-in-amazon-dynamodb/
+
 # Backup and Restore
 
 1. On-Demand Backup and Restore for DynamoDB
