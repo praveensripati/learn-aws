@@ -1,0 +1,428 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:.5in .5in .5in .5in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>Use Case</span></b></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><br>
+In one of the previous use cases we explored SQS (Simple Queue Service) which
+is a managed Queue Service from AWS. SQS is used to build highly available and
+scalable applications. AWS recommends SQS for new applications. But, for
+existing applications using </span><span lang=EN-IN><a
+href="https://activemq.apache.org/"><span style='font-size:12.0pt;line-height:
+115%;font-family:"Verdana",sans-serif'>Apache ActiveMQ</span></a></span><span
+lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'>
+AWS recommends using Amazon MQ Service. </span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>Porting existing applications using Apache
+ActiveMQ to Amazon MQ requires very minimal changes to the application. Only
+the end point must be changed and we would be able to take all the advantages
+of Apache ActiveMQ. By using “Amazon MQ Services” AWS will automatically take
+care of the infrastructure, installing, high availability of Apache ActiveMQ.
+The developer can focus more on the application.<br>
+<br>
+Amazon MQ is free to try. The AWS Free Tier includes up to 750 hours of a
+single-instance mq.t2.micro or mq.t3.micro broker per month, and up to 5GB of
+durability optimized storage per month for one year. Amazon MQ also supports
+both single-instance brokers, suitable for evaluation and testing, and active/standby
+brokers for high availability in production.<br>
+<br>
+Apache ActiveMQ supports a range of libraries in different languages for
+developing applications. Also, it also supports different protocols like AMQP,
+MQTT, OpenWire and STOMP.<br>
+<br>
+<br>
+<img border=0 width=606 height=137 id="Picture 1"
+src="009-UseCase-ActiveMQ_files/image001.png"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Create an EC2 instance with the below
+details and connect to it via Putty.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>     -- Ubuntu<br>
+     -- t2.micro<br>
+     -- Security Group with inbound Port 22 allowed</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=697 height=337
+id="Picture 17" src="009-UseCase-ActiveMQ_files/image002.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- On the EC2 execute the below commands to
+install JDK and maven.<br>
+<br>
+sudo apt update<br>
+sudo apt install default-jdk maven -y<br clear=all style='page-break-before:
+always'>
+</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Create a Security Group called AllowMQ as
+shown below with Port 61617 allowed in the inbound. This Security Group will be
+attached to Amazon MQ Broker to allow the connection to it later on.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=697 height=337
+id="Picture 22" src="009-UseCase-ActiveMQ_files/image003.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=697 height=337
+id="Picture 23" src="009-UseCase-ActiveMQ_files/image004.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Go to the Amazon MQ Management Console and
+click on “Get started” to create a Amazon MQ Broker.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=697 height=337
+id="Picture 24" src="009-UseCase-ActiveMQ_files/image005.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><br>
+-- Make sure to select “Single-instance broker’ and “Durability optimized” to
+make sure it falls under the AWS free tier. Click on Next.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=697 height=337
+id="Picture 25" src="009-UseCase-ActiveMQ_files/image006.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Enter the broker name as MySalesBroker and
+select the instance type as mq.t3.micro as it falls under the AWS free tier.
+Enter the username and password for the broker.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=697 height=337
+id="Picture 26" src="009-UseCase-ActiveMQ_files/image007.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- In the same screen expand “Additional
+settings” and select “Select existing security groups” and select the “AllowMQ”
+security group which has been created in the previous step.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=697 height=337
+id="Picture 27" src="009-UseCase-ActiveMQ_files/image008.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=697 height=337
+id="Picture 28" src="009-UseCase-ActiveMQ_files/image009.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Click on “Create Broker”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=697 height=337
+id="Picture 29" src="009-UseCase-ActiveMQ_files/image010.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><br>
+-- Initially the Broker will be in a “Creation in progress” status.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=697 height=337
+id="Picture 30" src="009-UseCase-ActiveMQ_files/image011.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Click on the Broker name to get more
+details about the same.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=697 height=337
+id="Picture 31" src="009-UseCase-ActiveMQ_files/image012.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- It will take about 10 minutes for the
+status to change to Running. Now the Amazon MQ Broker is ready to be used.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=697 height=337
+id="Picture 32" src="009-UseCase-ActiveMQ_files/image013.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- From the same screen note down the
+OpenWire Endpoint, the same would be used to connect to the Amazon MQ Broker
+from Java program on EC2.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=697 height=337
+id="Picture 33" src="009-UseCase-ActiveMQ_files/image014.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- On the EC2 execute the below command to
+create a maven project.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>mvn -B archetype:generate \<br>
+  -DarchetypeGroupId=org.apache.maven.archetypes \<br>
+  -DgroupId=org.example.basicapp \<br>
+  -DartifactId=my-mq-app</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=422
+id="Picture 34" src="009-UseCase-ActiveMQ_files/image015.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Change to the “my-mq-app/src/main/java” folder
+by executing the below command. Also, delete the org folder.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>cd my-mq-app/src/main/java<br>
+rm -rf org</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Create a file AmazonMQExample.java in the
+EC2 with the attached code in the my-mq-app/src/main/java folder.</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-IN
+style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><img
+border=0 width=165 height=55 src="009-UseCase-ActiveMQ_files/image016.png"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=422
+id="Picture 35" src="009-UseCase-ActiveMQ_files/image017.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Make sure to change the EndPoint, Username
+and Password staring from line 25. The Username and the Password are provided
+while creating the Amazon MQ Broker. The EndPoint is got once the Amazon MQ
+Broker has been created from the Management Console.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=420
+id="Picture 36" src="009-UseCase-ActiveMQ_files/image018.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- In the Java program sendMessage and
+receiveMessage methods are invoked in lines 36 and 37 respectively.
+sendMessage() puts a message in the Queue and the receiveMessage() gets the
+message from the Queue and prints the same to the Console. These two lines can
+be commented/uncommented to perform only of the operation.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=697 height=420
+id="Picture 37" src="009-UseCase-ActiveMQ_files/image019.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- In the folder my-my-app, remove the
+pom.xml (rm pom.xml) and create a new one with the attached file. This has all
+the dependencies for the Java program to be compiled and executed.</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-IN
+style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><img
+border=0 width=59 height=55 src="009-UseCase-ActiveMQ_files/image020.png"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=697 height=420
+id="Picture 38" src="009-UseCase-ActiveMQ_files/image021.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Execute the below command to compile,
+package and finally execute the Java program.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>mvn clean compile exec:java</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=422
+id="Picture 39" src="009-UseCase-ActiveMQ_files/image022.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- If the program executes successfully, then
+the below messages would be displayed towards the end in the console output.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>Message sent.<br>
+Message received: Hello from Amazon MQ!</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=419
+id="Picture 40" src="009-UseCase-ActiveMQ_files/image023.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>Voila !!!! We are able to successfully put
+and get messages from Amazon MQ.</span></p>
+
+</div>
+
+</body>
+
+</html>

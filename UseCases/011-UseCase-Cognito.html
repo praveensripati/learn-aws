@@ -1,0 +1,646 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:.5in .5in .5in .5in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Use Case</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>In the `serverless` way of
+doing things, we don’t need to think about servers. And so, the capacity
+planning, scaling, high availability and fault tolerance are automatically
+taken care by the Cloud provider, in this case AWS. There are multiple services
+from AWS which follow the serverless model including but not limited to SNS,
+SQS, Lambda, SES etc. In each of these services we simply need to use them and
+there is no need to think about servers, we can focus more on the business.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Very often different
+companies take feedback from their customers. A book publishing company make
+take the feed back on the newly published book, a cosmetic company on the newly
+launched product and so on. Once the gather the feedback, they would be using
+the same thing to tweak the product or how they would be marketing the product.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Till now taking the
+feedback required creating an EC2 instance, RDS Database etc. But, in this use
+case we would be using the `serverless` technologies to build up a feedback
+website. These are services being used and their purpose.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-top:0in;margin-right:0in;
+margin-bottom:0in;margin-left:.75in;text-indent:-.25in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-family:"Verdana",sans-serif'>S3 –
+For storing the web pages</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:0in;margin-left:.75in;text-indent:-.25in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-family:"Verdana",sans-serif'>DynamoDB
+– For storing the feedback results</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-top:0in;margin-right:0in;
+margin-bottom:0in;margin-left:.75in;text-indent:-.25in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-family:"Verdana",sans-serif'>Cognito
+– To provide the website access to the backend Database</span></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-top:0in;margin-right:0in;
+margin-bottom:0in;margin-left:.75in;text-indent:-.25in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-IN style='font-family:"Verdana",sans-serif'>IAM –
+To specify what permissions to be given</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=642 height=297 id="Picture 1" src="011-UseCase-Cognito_files/image001.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>As an extension to this use
+case, we could have also used AWS QuickSight to do some visualizations using
+the AWS QuickSight. Maybe we can draw a pie chart on how many customers are
+thinking about the product in a positive/negative way. AWS QuickSight has
+already been addressed in one of the previous demos, so we would be leaving it
+out of the use case.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Serverless is the way to go
+and the Cloud providers are including a lot of services/features around it,
+But, as with any other software, it would take some time for them to become
+mature and gain wide adoption in the industry.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>AWS Services: </span></b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>S3, Cognito, IAM, DynamoDB</span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Navigate to the DynamoDB
+Management Console and click on `Create table`.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 2" src="011-UseCase-Cognito_files/image002.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Enter the Table name as `survey`,
+Partition key as `email` and the Sort key as `city`. Click on `Create`.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 3" src="011-UseCase-Cognito_files/image003.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- A table would be created
+in DynamoDB as shown below with no items.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 4" src="011-UseCase-Cognito_files/image004.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Navigate to the `Amazon
+Cognito` Management Console and click on `Manage Identity Pools`.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 5" src="011-UseCase-Cognito_files/image005.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Enter the pool name and
+check `Enable access to unauthorized identities` and click on `Create Pool`.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 6" src="011-UseCase-Cognito_files/image006.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Click on `Allow`.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=698 height=347
+id="Picture 7" src="011-UseCase-Cognito_files/image007.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Change the platform to
+JavaScript, note down the `IdentityPoolId`.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 8" src="011-UseCase-Cognito_files/image008.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Navigate to the IAM
+Management Console and click on Roles tab. Filter for the Cognito rules and
+click on the Role which ends with `PoolUnauth_Role`.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 9" src="011-UseCase-Cognito_files/image009.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Click on `Attach
+policies`.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 10" src="011-UseCase-Cognito_files/image010.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Select the
+`AmazonDynamoDBFullAccess` Policy and click on `Attach policy`.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 11" src="011-UseCase-Cognito_files/image011.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- The Role would have the
+policies attached as shown below.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 12" src="011-UseCase-Cognito_files/image012.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Navigate to S3
+Management Console and create a Bucket.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 13" src="011-UseCase-Cognito_files/image013.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Go to the `Properties`
+tab.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 14" src="011-UseCase-Cognito_files/image014.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Towards the end of the
+page click on Edit for `Static website hosting`.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 15" src="011-UseCase-Cognito_files/image015.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Select Enable for `Static
+website hosting`. For the `Index document` enter `survey.html` and for the
+Error document` enter `error.html`.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 16" src="011-UseCase-Cognito_files/image016.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Click on `Save changes`.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 17" src="011-UseCase-Cognito_files/image017.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Note down the URL at the
+end. We would be using this to access the web pages in S3 via the browser
+later.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 18" src="011-UseCase-Cognito_files/image018.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Go to the `Permissions`
+tab. Click on Edit for `Block public access (bucket settings).</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 19" src="011-UseCase-Cognito_files/image019.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><br>
+-- Uncheck all the options as shown below and click on `Save changes`.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=698 height=347
+id="Picture 20" src="011-UseCase-Cognito_files/image020.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Enter `confirm` for the
+sake of confirmation.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 21" src="011-UseCase-Cognito_files/image021.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- In the same page, click
+on Edit for the `Bucket policy`.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 22" src="011-UseCase-Cognito_files/image022.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Enter the JSON from the
+attached file into the policy. Make sure to replace the S3 bucket name with the
+bucket name created in one of the previous step.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN><img width=102 height=66
+src="011-UseCase-Cognito_files/image023.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 23" src="011-UseCase-Cognito_files/image024.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Click on the Objects
+tab. Upload the survey.html and the error.html to the S3 bucket. Make sure the
+`IdentityPoolId` is modified in the survey.html. Use the one got from the
+Cognito Console while creating the Identity pool.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN><img width=102 height=66
+src="011-UseCase-Cognito_files/image025.png"><img width=102 height=66
+src="011-UseCase-Cognito_files/image026.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 24" src="011-UseCase-Cognito_files/image027.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Use the browser and
+navigate to the URL which was got from the S3 Management Console. Enter the
+email, City and feedback. Click on Submit.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 25" src="011-UseCase-Cognito_files/image028.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 26" src="011-UseCase-Cognito_files/image029.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+If everything works fine, then the message `Thanks for helping with the survey`
+should be displayed.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 27" src="011-UseCase-Cognito_files/image030.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Navigate to the DynamoDB
+Management Console and check for the new Item under the Items tab as shown
+below. If for some reason if the Item doesn’t appear click on the Refresh
+button. The survey which we have entered in the feedback form should appear in
+the DynamoDB for further processing.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 28" src="011-UseCase-Cognito_files/image031.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Conclusion</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>We have observed how to use
+the Serverless technologies to create a feedback form and the results were
+stored in DynamoDB for further analysis. In the entire scenario we never talked
+about talked about EC2 and so called the Serverless architecture.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

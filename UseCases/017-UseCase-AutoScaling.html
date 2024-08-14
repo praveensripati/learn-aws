@@ -1,0 +1,1055 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:.5in .5in .5in .5in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>Use Case</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>Let’s take
+the case of Hotstar (video streaming service). The more the users connected and
+streaming to that service, Hotstar needs more resources in terms of servers
+(EC2 in AWS). This way the load is distributed across different servers and leads
+to jitter free experience to the customers while watching the videos.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>Another
+example is Amazon Prime Day where a lot of customers would be accessing the
+amazon.com site. Depending on the number of customers logging into the
+amazon.com site, Amazon would like to add more servers and remove the servers
+for better customer experience.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>Both the
+above actions lead to increased customer satisfaction and finally to increased
+profits to the company. This feature of adding and removing servers is called
+Dynamic Scaling and is a very important property of the Cloud, which makes it
+unique. Users of the Cloud can scale to thousands of servers and scale down
+when appropriate and pay for what they use.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>The same
+is not possible with the on-premise server where there is a fixed cost and the
+number of servers is also fixed. Also, during the slack time a lot of resources
+are under-utilized which is a wastage of CAPEX.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>One way of
+adding and deleting the EC2 instances is to do it manually which leads to
+additional manual effort and expenses, may also not be accurate. Another
+approach is to use Auto Scaling to manage the EC2 instances automatically.  Also,
+as Auto Scaling adds more EC2 instances the software/application installation
+and configuration can be automated using the AMI (Amazon Machine Images).</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>In the
+previous use case, we have seen how to capture custom metrics (number of users
+logged in) in the Cloud Watch. Here we would the same metric to manage
+(add/delete) the EC2 instances depending on the number of users logged into the
+website.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>AWS
+Services: </span></b><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>CloudWatch,
+Auto Scaling, EC2</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=591 height=277 id="Picture 1"
+src="017-UseCase-AutoScaling_files/image001.png"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>This use case is a continuation of the
+previous use case and we would be going with the assumption that the previous
+use case has been completed successfully and it’s still there to continue with
+this use case. If not, please complete the previous use case and come to this
+use case.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>In the previous use case, we have seen how to
+capture custom metrics (number of users logged into the ecommerce application)
+using CloudWatch and create a dashboard out of it. In this use case we will
+leverage the same custom metric to spawn up additional EC2 instances
+automatically using EC2 AutoScalingGroups (ASG) when the metric crosses the
+threshold of 500 logged in users.</span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Connect to the EC2 instance and execute
+the “python insert-into-dynamodb.py 200”. This will update the table to 200. We
+don’t want to trigger the new EC2 instance immediately, so we need to have a
+value of less than 500 in the table.</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=698 height=430 id="Picture 2"
+src="017-UseCase-AutoScaling_files/image002.jpg"></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 3"
+src="017-UseCase-AutoScaling_files/image003.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>- Create
+and EC2 instance with the below details. We would be creating an AMI out of it,
+which will be used by the ASG to spun up new EC2 instances.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>        -
+Ubuntu 16.04</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>        -
+t2.micro</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>        -
+SecurityGroup with SSH/22 and HTTP/80 allowed</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>- Execute
+the below commands to install apache2 and create a web page.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>#become a
+root</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>sudo su</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>#get the
+list of softwares</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>apt-get
+update</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>#install
+the apache2 webserver</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>apt-get install
+apache2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'># start
+apache2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>service
+apache2 start</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>#move to
+the default html folder</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>cd
+/var/www/html</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>#delete
+the existing index.html</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>rm
+index.html</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>#create a
+new index.html</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>echo
+&quot;I am WS&quot; &gt; index.html</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 4"
+src="017-UseCase-AutoScaling_files/image004.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Access the webpage by typing the IP address
+of the EC2 in the browser. It should display “I am WS”, which is the content of
+the webpage.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Now let’s create an AMI out of it. Make
+sure to select the EC2 and go to “Actions -&gt; Image -&gt; Create Image”.</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 6"
+src="017-UseCase-AutoScaling_files/image005.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Enter
+the name of the image and some description and click on click on “Create
+image”. Make sure to specify the date in the name/description, makes it clear
+when the image was created.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 7"
+src="017-UseCase-AutoScaling_files/image006.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Go to
+the AMI tab in the EC2 Management Console. Initially the image would be in a
+pending Status, within a few minutes the Status would change to available for
+the AMI to be used.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 9"
+src="017-UseCase-AutoScaling_files/image007.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 10"
+src="017-UseCase-AutoScaling_files/image008.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- The EC2
+which was launched for creating the AMI is no more required and so can be
+terminated.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 11"
+src="017-UseCase-AutoScaling_files/image009.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Go to
+the Launch Templates tab and click on “Create launch template”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 12"
+src="017-UseCase-AutoScaling_files/image010.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Specify
+the launch template name “MyUbuntuTemplateForASG” with some description.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 13"
+src="017-UseCase-AutoScaling_files/image011.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Select
+the AMI which was created in the previous step, select the instance type as t2.
+micro and select keypair to be used along with the EC2 instance.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 14"
+src="017-UseCase-AutoScaling_files/image012.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Under
+the Security groups, select the one which allow the access to the SSH/22 and
+HTTP/80 traffic inbound. If there are no such Security groups, create one.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 15"
+src="017-UseCase-AutoScaling_files/image013.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Go to the Advanced details and enable
+“Detailed CloudWatch monitoring”. This will enable for the EC2 to send the
+metrics to the CloudWatch every 5 minutes instead of the default 1 minute.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 16"
+src="017-UseCase-AutoScaling_files/image014.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Click
+on “Create launch template” to create one which will be later used along with
+the ASG.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 17"
+src="017-UseCase-AutoScaling_files/image015.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Go to
+the “Auto Scaling Groups” tab in the EC2 Management Console and click on
+“Create an Auto Scaling group”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 19"
+src="017-UseCase-AutoScaling_files/image016.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Give MyEcommerceAppASG”
+as the name, select the Launch Template which has been created in the previous
+step. Click on Next.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 20"
+src="017-UseCase-AutoScaling_files/image017.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Select
+Subnet where the ASG can launch the EC2 instances. At least one subnet needs to
+be selected. Click on Next twice.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 22"
+src="017-UseCase-AutoScaling_files/image018.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Specify the Desired and Minimum capacity
+as 1, the Maximum capacity as 4. This is range of the EC2 instances that the
+ASG has to stick to. Click on Next thrice.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 24"
+src="017-UseCase-AutoScaling_files/image019.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Review
+the details of the ASG and click on Create.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 27"
+src="017-UseCase-AutoScaling_files/image020.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- In the ASG, we have specified the Desired
+capacity as 1. So, the ASG with launch as EC2 with the details which we have
+specified in the Launch Template. For sake of clarity the EC2 has be named 1 in
+the below screen.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>Grab the IP of the EC2 and type the same in
+the browser, it should display “I am WS”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 30"
+src="017-UseCase-AutoScaling_files/image021.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Let’s create an alarm for the ASG, when
+the alarm is breached, we can specify what action to take. Go to the CloudWatch
+Management Console, navigate to the Alarms tab and finally click on “Create
+alarm”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 32"
+src="017-UseCase-AutoScaling_files/image022.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Click on “Select metric”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 33"
+src="017-UseCase-AutoScaling_files/image023.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- In the
+“All metrics” tab, click “MyEcommerceApp”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 34"
+src="017-UseCase-AutoScaling_files/image024.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Click on “Metrics with no dimensions”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 35"
+src="017-UseCase-AutoScaling_files/image025.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Select
+“logged-in-users” and click on “Select metric”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 36"
+src="017-UseCase-AutoScaling_files/image026.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- In the threshold value specify 500 and
+make sure rest of the fields are as shown in the below screen. The alarm will
+be breached when the metric is greater than 500. Click on Next.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 37"
+src="017-UseCase-AutoScaling_files/image027.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 38"
+src="017-UseCase-AutoScaling_files/image028.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Click
+on Remove for the Notifications and click on Next.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 39"
+src="017-UseCase-AutoScaling_files/image029.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Give
+the name AppLoggedUsersCountAlarm with some description and click on Next.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 40"
+src="017-UseCase-AutoScaling_files/image030.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Review
+all the details of the alarm and click on “Create alarm”. The same alarm will
+be used later in the ASG to trigger an action.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 42"
+src="017-UseCase-AutoScaling_files/image031.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><br>
+-- Initially the alarm status will say “insufficient data” as it doesn’t have
+enough data to be in an OK or ALARM state. We can ignore this for now.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=698 height=338 id="Picture 43"
+src="017-UseCase-AutoScaling_files/image032.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Go back
+to the ASG in the EC2 Management Console. Expand the ASG which was created
+earlier.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 44"
+src="017-UseCase-AutoScaling_files/image033.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Go to
+the “Automatic scaling” tab and click on “Add policy”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 46"
+src="017-UseCase-AutoScaling_files/image034.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Select
+the “Simple scaling” as the policy type with ScaleUpPolicy as the name. in the
+“Take the action” specify the number of units to add as 1. Click on Create to
+update the ASG.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 47"
+src="017-UseCase-AutoScaling_files/image035.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 48"
+src="017-UseCase-AutoScaling_files/image036.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Go to
+the CloudWatch Log groups and delete if there are any, this way we can easily
+observe a fresh set of logs.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 49"
+src="017-UseCase-AutoScaling_files/image037.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- In the CloudWatch Rules, make sure the
+CallLambda-1m-freq is in an active state. This will trigger the Lambda function
+every minute, which gets the data from the DynamoDB table and send the metrics
+data to the CloudWatch.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 52"
+src="017-UseCase-AutoScaling_files/image038.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Go back
+to the CloudWatch and it everything has been setup properly till now, we should
+see a Log groups. Select the Log group.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 53"
+src="017-UseCase-AutoScaling_files/image039.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Select the Log streams.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 54"
+src="017-UseCase-AutoScaling_files/image040.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- We
+should see the message “Got the metrics from DynamoDB” and “Send the metrics to
+CloudWatch” in the logs, these are the messages logged by the Lambda function.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 55"
+src="017-UseCase-AutoScaling_files/image041.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Go back
+to the Alarms in the CloudWatch and notice that the AppLoggedUserCountAlarm will
+be in a OK state as the metric is less than 500 which is the threshold.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=698 height=338 id="Picture 56"
+src="017-UseCase-AutoScaling_files/image042.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Let’s
+change the value of the logged in users in the DynamoDB table as shown below.
+Between the commands, make sure to wait for 5 minutes.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>Notice
+that the last command updated the value in the database to 1000 which is more
+than 500 the threshold and hence the Alarm is triggered and the ASG event will
+be executed to add an EC2 instance.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=698 height=426 id="Picture 57"
+src="017-UseCase-AutoScaling_files/image043.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- In a
+few minutes notice the graph reflects the same for the custom metric which we
+have created in the CloudWatch.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 58"
+src="017-UseCase-AutoScaling_files/image044.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- The status of the Alarm would change to
+“In alarm” status within a few minutes as the threshold (500 logged in users)
+has been breached.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 59"
+src="017-UseCase-AutoScaling_files/image045.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- The
+alarm would trigger an ASG action to add another EC2. The same can be observed
+in the EC2 Management Console. For sake of clarity the EC2 has be named 2 in
+the below screen.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 60"
+src="017-UseCase-AutoScaling_files/image046.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- The
+list of EC2 associated with the ASG can also be observed in the “Instance
+management” tab of the ASG.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 61"
+src="017-UseCase-AutoScaling_files/image047.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>Finally, we have noticed that as the number
+of users connected to the web application increases, the ASG automatically adds
+an EC2 instance which allows the load to be balanced across the EC2 instances
+and so better response time for the application and better customer
+satisfaction.</span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -2,6 +2,9 @@
 
 # Further Reading
 
+1. EC2 instance comparison
+    - https://instances.vantage.sh/
+
 1. How can I utilize user data to automatically execute a script with every restart of my Amazon EC2 instance?
     - https://aws.amazon.com/premiumsupport/knowledge-center/execute-user-data-ec2/
 

@@ -2,7 +2,7 @@
 
 # Further Reading
 
-1. DynamoDB Guide (Incomplete but good)
+1. DynamoDB Guide
     - https://www.dynamodbguide.com/what-is-dynamo-db
 
 1. DynamoDB Paper
@@ -11,7 +11,7 @@
     - https://www.alexdebrie.com/posts/dynamodb-paper/
 
 1. Amazon Prime Day Infrastructure (including DynamoDB)
-    - https://aws.amazon.com/blogs/aws/prime-day-2023-powered-by-aws-all-the-numbers/
+    - https://aws.amazon.com/blogs/aws/how-aws-powered-prime-day-2024-for-record-breaking-sales/
 
 1. Migration Complete
     - https://aws.amazon.com/blogs/aws/migration-complete-amazons-consumer-business-just-turned-off-its-final-oracle-database/

@@ -1,0 +1,661 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:.5in .5in .5in .5in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Use Case</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Many organizations start
+small with AWS and once they see the benefits of the AWS, they spread the usage
+of AWS across the company in different departments. And in each of these
+departments multiple IAM users are created for different users with the
+appropriate permissions.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Overtime as the
+proliferation of the AWS in the organization increases, they would be
+interested in how the different departments and groups are using the AWS
+services. This is where CloudTrail comes into picture.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>CloudTrial </span><span
+lang=EN-IN style='font-family:"Verdana",sans-serif;color:#16191F;background:
+white'>enable governance, compliance, and operational and risk auditing of your
+AWS account. </span><span lang=EN-IN style='font-family:"Verdana",sans-serif'>CloudTrial
+is enabled by default and captures Management events (launching EC2/RDS etc)
+and Data events (reading data in S3, calling a Lambda function etc).</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>The events will be stored
+in the CloudTrail by default for 90 days and any events beyond 90 days will be
+automatically deleted by CloudTrail. To record an event that extends beyond 90
+days we have to use CloudTrail Trial (note the name repeated twice) which
+stores the events in the specified S3 bucket for ever unless deleted
+explicitly.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Once we have the data in
+S3, we can do the analytics using Athena to get some meaningful insights on the
+usage of AWS in the different departments and groups. Some of them are</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-bottom:0in;text-indent:-.25in;
+line-height:normal'><span lang=EN-IN style='font-family:"Verdana",sans-serif'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>How many EC2/RDS are being
+created by each of the group in a particular month?</span></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-bottom:0in;text-indent:-.25in;
+line-height:normal'><span lang=EN-IN style='font-family:"Verdana",sans-serif'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>How is the EC2/RDS usage
+growing/declining for a particular group?</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=698 height=184
+id="Picture 1" src="024-UseCase-CloudTrail-Athena_files/image001.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>To take it further we
+should be able to do some visualizations using QuickSight. This use case will
+cover on how to capture the data using CloudTrail Trail in S3 and do analytics
+using AWS Athena. Integrating AWS Athena with AWS QuickSight will be skipped as
+this has been addressed in one of the previous use cases.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Note that by once we enable
+the CloudTrail Trail, it will start capturing all the events in S3 and
+depending on how long the CloudTrail Trail was enabled we might be getting some
+interesting insights or not. The users of this document can enable the
+CloudTrail Trails feature a few days ahead, so that there is enough data for
+them to get good insights out of it.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>AWS Services: </span></b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>CloudTrail, Athena, EC2,
+RDS</span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Navigate to the CloudTrial Management Console and click on the burger on the
+top left.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 2" src="024-UseCase-CloudTrail-Athena_files/image002.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><br>
+-- Click on the Event History and here we can see the events for the last 90
+days and any events before 90 days will be automatically deleted by CloudTrail
+service.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 3" src="024-UseCase-CloudTrail-Athena_files/image003.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- To preserve the events
+beyond 90 days then a CloudTrail Trails has to be created. Click on Trials and
+click on “Create trial”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 4" src="024-UseCase-CloudTrail-Athena_files/image004.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Enter the Trial name and
+enter a S3 bucket name as shown below. The S3 bucket will be automatically
+created and all the events would be written to it as we perform any actions in
+AWS.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 5" src="024-UseCase-CloudTrail-Athena_files/image005.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Make sure the Enabled
+option is not selected for “Log file SSE-KMS encryption”. This requires a KMS
+key to be created for encrypting the data and there is an additional cost
+around it, so we will skip this for now.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 6" src="024-UseCase-CloudTrail-Athena_files/image006.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Click on Next at the
+bottom.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 7" src="024-UseCase-CloudTrail-Athena_files/image007.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Again, click on Next.
+Make sure to select only the Management events in the Event type. Click on
+Next.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 8" src="024-UseCase-CloudTrail-Athena_files/image008.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Review the details of
+the CloudTrial Trials and click on “Create trial”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 9" src="024-UseCase-CloudTrail-Athena_files/image009.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 10" src="024-UseCase-CloudTrail-Athena_files/image010.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- The trail should be
+created as shown below.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 11" src="024-UseCase-CloudTrail-Athena_files/image011.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- CloudTrail will automatically
+create an S3 bucket as shown below.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 12" src="024-UseCase-CloudTrail-Athena_files/image012.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- And with time there
+would be more and more file logged into the S3 buckets as shown below.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 13" src="024-UseCase-CloudTrail-Athena_files/image013.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Go back to the “Event history”
+tab and click on “Create Athena table”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 14" src="024-UseCase-CloudTrail-Athena_files/image014.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Select the S3 bucket
+mentioned in the previous steps as the Storage location and click on “Create
+table”. Note down the create table DDL statement, this can be later used to run
+any additional queries later.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 15" src="024-UseCase-CloudTrail-Athena_files/image015.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Navigate to the Athena Management Console and there would be a table created as
+shown below in the default database.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 17" src="024-UseCase-CloudTrail-Athena_files/image016.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Go to the IAM Management
+Console and create 2 users “devuser001” and “produser001” with
+“AmazonEC2FullAccess” and “AmazonRDSFullAccess” policies attached to the users.
+We are trying to mimic the actions performed by these users in the production
+and development groups.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 18" src="024-UseCase-CloudTrail-Athena_files/image017.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+The users would be created as shown below.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 19" src="024-UseCase-CloudTrail-Athena_files/image018.jpg"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 20" src="024-UseCase-CloudTrail-Athena_files/image019.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Login as the devuser001
+and create a bunch of EC2 and RDS instances. Make sure to use t2.micro and
+db.t2.micro as they do fall under the free category.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 22" src="024-UseCase-CloudTrail-Athena_files/image020.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=346 id="Picture 23"
+src="024-UseCase-CloudTrail-Athena_files/image021.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Likewise, login as the produser001 and create a bunch of EC2 and RDS instances.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=698 height=347
+id="Picture 24" src="024-UseCase-CloudTrail-Athena_files/image022.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=346 id="Picture 25"
+src="024-UseCase-CloudTrail-Athena_files/image023.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Go back to the Athena
+Management Console and execute the below query to get the number of events
+logged into the CloudTrail till now.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>select count(*) from cloudtrail_logs_my_aws_cloudtrail_logs;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 26" src="024-UseCase-CloudTrail-Athena_files/image024.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Execute the below query
+to get the users whose activities have been logged into the CloudTrail. Observe
+that it displays devuser001 and produser001, as actions have been performed
+earlier against these users in the previous steps.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>select
+distinct(userIdentity.userName) from cloudtrail_logs_my_aws_cloudtrail_logs;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 27" src="024-UseCase-CloudTrail-Athena_files/image025.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Execute the below query
+to find the distinct or unique operations performed by devusers. This can be
+used to identify any anomaly or deviations from the regular operations, which
+is very useful for the for the sake of security.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Let’s say we have seen an
+activity around Route53 performed by an account for which he or she should not
+have any permissions to, there might be a probability that the IAM permissions
+set for the user are not correct.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>select distinct(eventName)
+from cloudtrail_logs_my_aws_cloudtrail_logs where userIdentity.userName like
+'devuser%';</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 28" src="024-UseCase-CloudTrail-Athena_files/image026.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>-- Execute the below query
+to get the number of EC2 instances created by the development group in the
+month of October. Note to change the start and end time appropriately to get
+some results. Also, the eventName can be changed from CreateDBInstance to RunInstances
+to get the number of EC2 instances started. Also, devuser can be changed to
+produser to get the data around the production group.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>select count(*) from
+cloudtrail_logs_my_aws_cloudtrail_logs where userIdentity.userName like '<b><span
+style='color:red'>devuser%</span></b>' and eventName = '<b><span
+style='color:red'>CreateDBInstance</span></b>' and eventTime &gt; '<b><span
+style='color:red'>2020-10-01T00:00:00Z</span></b>' and eventtime &lt; '<b><span
+style='color:red'>2020-10-31T23:59:59Z</span></b>';</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=346
+id="Picture 29" src="024-UseCase-CloudTrail-Athena_files/image027.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Conclusion</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>In this use case we figured
+out how to use a combination of CloutTrail/Athena/S3 to figure out the AWS
+resource usage across groups like production, development. And by changing the
+query we can also get the data across different months also. As mentioned earlier,
+we also should be able to integrate with QuickSight to plot visualizations,
+integration of Athena with the QuickSight has been addressed in one of the
+previous use cases.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>While preparing for this
+use case, CloudTrail Trials has been enabled only for a day or two and so there
+is not much of data, once the CloudTrail Trail has gathered data in S3 for a
+couple of days in a live account as in the case of production, we would be
+getting much more interesting results in the use case.</span></p>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,861 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:.5in .5in .5in .5in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>Use Case</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>In the previous
+use case, we observed how ecommerce companies like amazon.com and Hotstar can
+automatically increase/decrease the number of EC2 instances automatically using
+AutoScalingGroups. This will save the billing around the EC2 instances and also
+makes sure the customer expectations are met as the web site responds within
+reasonable amount of time.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>But, how
+do the EC2 instances get the web traffic? This is where the Load Balancers
+(ELB) come into the picture. AWS supports three types of ELBs (Classic, Network
+and Application). These ELBs take the request from the end user and forward the
+request to the EC2 instances in a round robin/weighted based routing fashion.
+The ELB is a managed service and AWS takes care of the high availability,
+scalability. All we need to create the ELB and register the EC2 instances with
+the same.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>In this
+use case, we will create an Application ELB and register the EC2 instances with
+it and notice that the traffic is distributed across the EC2 instances.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>The
+ecommerce company might be interested in client demographic details (OS,
+browser used etc), there usage pattern (time of usage), the response time for
+the website and a few other metrics. They would be using these metrics to fine
+tune their application and also to actively fix any slowness in the
+application.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>This is
+where the ELB logs comes into the picture. ELB logs is disabled by default and
+needs to be enabled to write the request metrics to S3 bucket every five
+minutes. These metrics are fine grained and an analytics tool like Amazon EMR can
+be used to perform analytics on the metrics in a cost effective and scalable
+way.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>To quickly
+summarize, in this use case we will creating a bunch of EC2’s and one ELB,
+register the EC2 instances with the ELB. Then we would be enabling the ELB
+logging to write request metrics to an S3 bucket. And finally, once we have
+enough data, we would be doing basic analytics using Apache Hive on Amazon EMR.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>AWS
+Services: </span></b><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>Application
+Load Balancer, S3, EC2, EMR</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-IN
+style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><img
+width=469 height=255 id="Picture 1" src="018-UseCase-ELB-EMR_files/image001.png"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Create two EC2 instances with the below
+details and connect to the EC2 instances via Putty.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>        - t2.micro<br>
+        - Ubuntu 18.04<br>
+        - SG with inbound 22/SSH and 80/HTTP</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 53"
+src="018-UseCase-ELB-EMR_files/image002.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=360 id="Picture 54"
+src="018-UseCase-ELB-EMR_files/image003.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='text-indent:-.25in'><span lang=EN-IN
+style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'>Execute
+the below commands on both the EC2 instances, to install the apache2 webserver
+and create a simple webpage. Make sure to have different content in the
+index.html on both of them by modifying the last command.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>#become a
+root</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>sudo su</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>#get the
+list of softwares</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>apt-get
+update</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>#install
+the apache2 webserver</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>apt-get
+install apache2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'># start
+apache2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>service
+apache2 start</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>#move to
+the default html folder</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>cd
+/var/www/html</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>#delete
+the existing index.html</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>rm
+index.html</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>#create a
+new index.html</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>echo
+&quot;I am WS1&quot; &gt; index.html</span></p>
+
+<span lang=EN-IN style='font-size:10.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:10.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:10.0pt;font-family:"Verdana",sans-serif'>-- In the
+EC2 Management Console, go to the “Targets Group” tab and click on “Create
+target group”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 55"
+src="018-UseCase-ELB-EMR_files/image004.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Specify the “Target group name” as TG.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 56"
+src="018-UseCase-ELB-EMR_files/image005.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Go with all the default options and click
+on Next.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 57"
+src="018-UseCase-ELB-EMR_files/image006.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Select the EC2 instances and click on
+“Include as pending below” to register the EC2 instances with the Target Group.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 58"
+src="018-UseCase-ELB-EMR_files/image007.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Click on “Create target group”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 59"
+src="018-UseCase-ELB-EMR_files/image008.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Click on the “Load Balancers” tab and
+click on “Create Load Balancers”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 61"
+src="018-UseCase-ELB-EMR_files/image009.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Click on create for the “Application Load
+Balancer”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=698 height=338 id="Picture 62"
+src="018-UseCase-ELB-EMR_files/image010.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Specify the name as MyALB.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 63"
+src="018-UseCase-ELB-EMR_files/image011.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Make sure to select all the Availability
+Zones and click on Next twice.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 64"
+src="018-UseCase-ELB-EMR_files/image012.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Select the Security Group which allows the
+HTTP traffic through the Load Balancer. If there is no such Security Group then
+create one. Click on Next.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 66"
+src="018-UseCase-ELB-EMR_files/image013.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- For the Target group, select “Existing
+target group” and select TG for the name. Click on Next twice.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 67"
+src="018-UseCase-ELB-EMR_files/image014.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Review the Load Balancer details and click
+on Create.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 69"
+src="018-UseCase-ELB-EMR_files/image015.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Wait for the Load Balancer status to
+become active. It means that the Load Balancer has initialized and is ready to
+accept request. Note down the Load Balancer DNS name, the same is used to
+access the Load Balancer via the browser.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 70"
+src="018-UseCase-ELB-EMR_files/image016.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Make sure the Load Balancer is selected
+and click on “Edit attributes” at the bottom of the screen.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 71"
+src="018-UseCase-ELB-EMR_files/image017.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Enable the “Access logs” and enter a
+unique bucket name, make sure to select “Create the location for me” and click
+on Save. A bucket will be created in S3 and the Load Balancer requests will be
+logged into the same.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 72"
+src="018-UseCase-ELB-EMR_files/image018.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Access the Load Balancer via the DNS name
+from different machines (laptops, desktops and mobiles), different browsers,
+different OS and from different networks (LAN, different 3G operators etc). Try
+as many combinations as possible to get some variance in the data for about 10
+minutes and then delete the Load Balancer, Target Group and the EC2 instances
+as we have enough data to work with.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>The access details of the Load Balancer will
+be logged into the S3 folder as shown below. Note that there might be some
+files with size as 0B. Hive has problem with 0B files, so delete them.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 74"
+src="018-UseCase-ELB-EMR_files/image019.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 75"
+src="018-UseCase-ELB-EMR_files/image020.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Create a S3 bucket to store the analytics
+results from Hive.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 77"
+src="018-UseCase-ELB-EMR_files/image021.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><br>
+-- Create a bucket called “praveen-alb-queries” in S3 for the SQL queries to be
+run and upload the files to it. Before uploading the files make sure to change
+the “s3://praveen-alb-logs/AWSLogs/304000509264/elasticloadbalancing/us-east-1/”
+and “s3://praveen-alb-output” paths based on the buckets created earlier. The first
+represents the input path and the second represents the output path for the
+Hive scripts when executed.</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-IN
+style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><img
+width=100 height=65 src="018-UseCase-ELB-EMR_files/image022.png"><img
+width=100 height=65 src="018-UseCase-ELB-EMR_files/image023.png"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>The first SQL file has the definition for the
+creation of the table and second file has four SQL statements with the details
+on what those SQL statements do.<br>
+<img width=697 height=337 id="Picture 76"
+src="018-UseCase-ELB-EMR_files/image024.jpg"><br clear=all style='page-break-before:
+always'>
+</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Go to the EMR Management Console and click
+on “Create cluster”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 78"
+src="018-UseCase-ELB-EMR_files/image025.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Click on “Go to advanced options”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 79"
+src="018-UseCase-ELB-EMR_files/image026.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Go with the default release. Make sure
+only Hadoop and Hive is selected. Select concurrent execution of the steps as
+10 and click on Next.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 80"
+src="018-UseCase-ELB-EMR_files/image027.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 81"
+src="018-UseCase-ELB-EMR_files/image028.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- In the Hardware Configuration, make sure
+to</span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span lang=EN-IN style='font-size:
+12.0pt;line-height:115%;font-family:"Verdana",sans-serif'>- delete the task
+instance<br>
+        - select spot instances<br>
+        - number of instances for the Master and Core as 1</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>And click on Next.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 82"
+src="018-UseCase-ELB-EMR_files/image029.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 83"
+src="018-UseCase-ELB-EMR_files/image030.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Enter the Cluster name as “MyDemoCluster”,
+uncheck the “Termination protection” option and click on Next.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 84"
+src="018-UseCase-ELB-EMR_files/image031.jpg"></span><span lang=EN-IN
+style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br>
+<br>
+</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Select the EC2 key pair, this would allow
+to login to the EC2 instance later if required for the sake of debugging. Click
+on “Create cluster”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 85"
+src="018-UseCase-ELB-EMR_files/image032.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Initially the cluster would be in a
+“Starting” status.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 86"
+src="018-UseCase-ELB-EMR_files/image033.jpg"></span><span lang=EN-IN
+style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br>
+<br>
+</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Also, there would be two EC2 instances one
+for master and one for the core automatically created. On these the Big Data
+software would be automatically installed and configured by EMR.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 87"
+src="018-UseCase-ELB-EMR_files/image034.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- After around 10 minutes, the status of the
+cluster would change to “Waiting”. Click on the Steps tab and notice that the
+“Setup Hadoop debugging” step would be in a completed status.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 90"
+src="018-UseCase-ELB-EMR_files/image035.jpg"></span><span lang=EN-IN
+style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br>
+<br>
+</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Click on “Add step” and select the Step
+type as Hive. For the “Script S3 location” point to the 001-create-table.sql
+file in S3 and click on Add. This step for creates a table in S3 called
+alb_logs with the appropriate columns and points the table to the S3 location
+of the ELB generated logs.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 91"
+src="018-UseCase-ELB-EMR_files/image036.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Initially the Step would be in a pending
+Status and in a few minutes would change to Completed status for the table to
+be created in Hive.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 92"
+src="018-UseCase-ELB-EMR_files/image037.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 93"
+src="018-UseCase-ELB-EMR_files/image038.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- This time click on “Add step” again,
+select the Step type as Hive and point to the 002-queries-on-table.sql file in
+S3. Click on Add. This step would be executing four SQL queries on the alb_logs
+table which in turn would be processing the date in S3. The output of the
+queries would be written to S3.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 94"
+src="018-UseCase-ELB-EMR_files/image039.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Initially the status of the Step would be
+in a Pending state, in a few minutes it would change to Completed status as
+with the case of the previous step.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 95"
+src="018-UseCase-ELB-EMR_files/image040.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><br>
+<img width=697 height=337 id="Picture 97"
+src="018-UseCase-ELB-EMR_files/image041.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- In the output S3 bucket specified in the 002-queries-on-table.sql
+file there would be folders (output*) for the corresponding queries. Go into
+each of the output* folder and download the files to see the output of the
+queries.</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-IN
+style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><img
+width=100 height=65 src="018-UseCase-ELB-EMR_files/image042.png"><img
+width=100 height=65 src="018-UseCase-ELB-EMR_files/image043.png"><img
+width=100 height=65 src="018-UseCase-ELB-EMR_files/image044.png"><img
+width=100 height=65 src="018-UseCase-ELB-EMR_files/image045.png"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>The output of 4 queries has been attached for
+reference. Note that the content of the files might change from user to user.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 98"
+src="018-UseCase-ELB-EMR_files/image046.jpg"></span><span lang=EN-IN
+style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br>
+<br>
+</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Feel free to try out any new SQL
+statements on the alb_logs table by creating an SQL file, uploading the same to
+S3 and executing a Step using the same SQL file. Once done, click on Terminate
+twice.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 99"
+src="018-UseCase-ELB-EMR_files/image047.jpg"></span><span lang=EN-IN
+style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- The EMR cluster would be in a Terminating
+status and the EC2 instances in a shutting down status.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 100"
+src="018-UseCase-ELB-EMR_files/image048.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 101"
+src="018-UseCase-ELB-EMR_files/image049.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- In a few minutes the EMR Cluster would be
+in a terminated status and the EC2 instances also in a terminated status. </span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 102"
+src="018-UseCase-ELB-EMR_files/image050.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=697 height=337 id="Picture 103"
+src="018-UseCase-ELB-EMR_files/image051.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>To conclude, we have seen how to process ELB
+logs to get some useful insights out of it using Hive. AWS EMR also allows to
+use Spark, Impala and other softwares to be installed on the EC2 instances. Very
+interesting insights can be extracted from the data using the Big Data tools.</span></p>
+
+</div>
+
+</body>
+
+</html>

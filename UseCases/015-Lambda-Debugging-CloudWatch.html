@@ -1,0 +1,631 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:.5in .5in .5in .5in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Use Case</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>AWS Lambda along with other
+services provides a serverless way of doing things where we don’t need to think
+about servers. So, we don’t need to think about auto scaling, capacity planning
+and high availability. This allows to focus more on the business and the
+customers instead of worrying about the infrastructure.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>But, Serverless has got its
+own challenges, there are no servers where can connect to and get the log
+files. So, AWS provides the CloudWatch logs where are the log files would be
+written to. But, as the number of log messages increase it becomes difficult to
+filter out the error message and figure out the exact problem. So, AWS provides
+ElasticSearch for indexing, visualization and alarms around the log files. But,
+for small application with only a few Lambda functions and with only a few
+Lambda invocations, setting up and maintaining ElasticSearch would be an over
+burden.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=219
+id="Picture 1" src="015-Lambda-Debugging-CloudWatch_files/image001.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>One easy solution is to
+invoke another Lambda function for the new CloudWatch log error and warning
+messages which would send an email notification via email. In this scenario, an
+error or warning in the Lambda is the input event, getting notified via email
+is the output event.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>This approach makes it easy
+to get notified when any problems with the Lambda execution and is also to
+setup. Also, we don’t need to think about the servers in the entire scenario.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>AWS Services: </span></b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Lambda, IAM, CloudWatch,
+SNS</span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Navigate to the SNS Management console and click on `Creta topic`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 2"
+src="015-Lambda-Debugging-CloudWatch_files/image002.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Give the SNS Topic the `LambdaErrorNotificationTopic` name and click on `Create
+topic`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 3"
+src="015-Lambda-Debugging-CloudWatch_files/image003.jpg"></span><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><br>
+<br>
+<img width=697 height=355 id="Picture 4"
+src="015-Lambda-Debugging-CloudWatch_files/image004.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+The Topic should be created as shown below. Click on `Create subscription`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 5"
+src="015-Lambda-Debugging-CloudWatch_files/image005.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Select Email for the Protocol and enter the email address. Click on `Create subscription`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 6"
+src="015-Lambda-Debugging-CloudWatch_files/image006.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Initial the Subscription would be in a `Pending confirmation` status.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 7"
+src="015-Lambda-Debugging-CloudWatch_files/image007.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+There would be an email with a link from SNS. Click on `Confirm subscription`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 8"
+src="015-Lambda-Debugging-CloudWatch_files/image008.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 9"
+src="015-Lambda-Debugging-CloudWatch_files/image009.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+The status of the subscription would be changed to Confirmed as shown below.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 10"
+src="015-Lambda-Debugging-CloudWatch_files/image010.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Navigate to the IAM Management Console, select the Roles tab. Click on `Create
+role`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 11"
+src="015-Lambda-Debugging-CloudWatch_files/image011.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Select Lambda as the service and click on `Next Permissions`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 12"
+src="015-Lambda-Debugging-CloudWatch_files/image012.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Select `AWSLambdaBasicExecutionRole` and click on `Next Tags`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 13"
+src="015-Lambda-Debugging-CloudWatch_files/image013.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Tags are options, click on `Next Review`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 14"
+src="015-Lambda-Debugging-CloudWatch_files/image014.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Give the Lambda Role the name `Role4Lambda-BasicExecution` and click on `Create
+role`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 15"
+src="015-Lambda-Debugging-CloudWatch_files/image015.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 16"
+src="015-Lambda-Debugging-CloudWatch_files/image016.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Along the same lines create another Role called `Role4Lambda-SNS-FA` and attach
+`AWSLambdaBasicExecutionRole` and `AmazonSNSFullAccess` policies as shown
+below.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 17"
+src="015-Lambda-Debugging-CloudWatch_files/image017.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Navigate to the Lambda Management Console and click on `Create Function`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 18"
+src="015-Lambda-Debugging-CloudWatch_files/image018.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Give the Function a name `LambdaGenerateErrors`. Select Python 3.7 as the
+platform. Select the `Role4Lambda-BasicExecution` IAM Role created earlier.
+Click on `Create Function`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 19"
+src="015-Lambda-Debugging-CloudWatch_files/image019.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Replace the code with the below code and click on Deploy.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>import
+logging</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>import
+os</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>logging.basicConfig(level=logging.DEBUG)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>logger=logging.getLogger(__name__)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>def
+lambda_handler(event, context):</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>   
+logger.setLevel(logging.DEBUG)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>   
+logger.debug(&quot;This is a sample DEBUG message.. !!&quot;)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>   
+logger.error(&quot;This is a sample ERROR message.... !!&quot;)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>   
+logger.info(&quot;This is a sample INFO message.. !!&quot;)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>   
+logger.critical(&quot;This is a sample 5xx error message.. !!&quot;)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 20"
+src="015-Lambda-Debugging-CloudWatch_files/image020.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+In the same screen click on `Test`. Give a name and click on `Create`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 21"
+src="015-Lambda-Debugging-CloudWatch_files/image021.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Click on Test again to invoke the Lambda function. The Lambda function should
+be Executed successfully and the messages should be displayed as shown below.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 23"
+src="015-Lambda-Debugging-CloudWatch_files/image022.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Also, all the log messages from the Lambda code execution should be displayed
+in the CloudWatch logs.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=698 height=356 id="Picture 24"
+src="015-Lambda-Debugging-CloudWatch_files/image023.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Go back to the Lambda Management Console and click on `Create Function`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 25"
+src="015-Lambda-Debugging-CloudWatch_files/image024.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Enter the Lambda Function name as `LambdaCheckForErrorsAndNotify`. Select the
+platform as Python 3.7 and select the `Role4Lambda-SNS-FA` Role created
+earlier. Click on `Create Function`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 26"
+src="015-Lambda-Debugging-CloudWatch_files/image025.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Replace the Lambda code with the below and make sure to replace the SNS Topic
+ARN. Click on Deploy.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>import
+boto3</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>import
+logging</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>from
+botocore.exceptions import ClientError</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>def
+lambda_handler(event, context):</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>   
+sns_arn = &quot;<b><span style='color:red'>arn:aws:sns:us-east-1:304000509264:MyDemoTopic</span></b>&quot;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>   
+snsclient = boto3.client('sns')</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>   
+try:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>       
+message = &quot;Error in the Lambda Function -- lambda_generating_errors&quot;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>       
+# Sending the notification...</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>       
+snsclient.publish(</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>           
+TargetArn=sns_arn,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>           
+Subject=f'Execution error for Lambda',</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>           
+Message=message</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>       
+)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>   
+except ClientError as e:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>       
+logger.error(&quot;An error occured: %s&quot; % e)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 27"
+src="015-Lambda-Debugging-CloudWatch_files/image026.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Click on `Add Trigger`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 28"
+src="015-Lambda-Debugging-CloudWatch_files/image027.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Select `CloudWatch Logs` for the service. Select the Log Group, give the filter
+a name and for the filter pattern enter `?WARN ?5xx ?ERROR`. Click on Add.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 29"
+src="015-Lambda-Debugging-CloudWatch_files/image028.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Navigate to the Lambda Management Console and to the LambdaCheckForErrorAndNotify
+function. Click on Test to simulate error messages.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 30"
+src="015-Lambda-Debugging-CloudWatch_files/image029.jpg"></span><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><br clear=all
+style='page-break-before:always'>
+</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Check the email and there should be one notifying that there had been errors in
+the Lambda execution.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=698 height=356 id="Picture 31"
+src="015-Lambda-Debugging-CloudWatch_files/image030.jpg"></span></p>
+
+</div>
+
+</body>
+
+</html>

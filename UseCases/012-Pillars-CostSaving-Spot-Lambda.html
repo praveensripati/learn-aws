@@ -1,0 +1,572 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Helvetica;
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:.5in .5in .5in .5in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Use Case</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Cloud is all saving cost.
+Instead of buying the hardware and the software, we can use them on a need only
+a basis from the CSP (Cloud Service Provider), in this case AWS. As part of the
+well architected framework AWS provides some of the best practices around the
+cost savings in the Cloud.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>One of the approaches
+around the cost saving is use EC2 Spot Instances which come at a discounted
+price of about 70% when compared to the OnDemand Instances. This is a huge
+opportunity for cost saving, but Spot Instances can be terminated with a
+two-minute notice under certain conditions. In such a scenario then application
+on the EC2 instance in this case the web page is not accessible.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=698 height=188 id="Picture 1"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image001.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>One way to get around this
+problem is get notified via the ‘Spot Interruption Warning’ event in the AWS
+Event Bridge and call a Lambda function which will automatically start another
+EC2 instance in place of it. Along the way, the event will also publish a
+message to the SNS Topic which will send an email.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>The only problem with this
+approach is that it might take about 1-2 minutes by the time the event is
+captured by the AWS Event Bridge and the Lambda starts another EC2. This is OK
+in the case of the development, but not in the case of the Production where a
+downtime is not expected. In the case of the production where HA (High
+Availability) is expected, we should be able run multiple EC2 instances at the
+same time and front them using an ELB, if one of the ELB goes down then the
+rest of the EC2 instances can take the load002Eu</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Another thing which needs
+to be taken care is that when a new EC2 is started, the Public IP address of
+the EC2 might changes and all the individuals who are accessing the web site
+via the IP address need to be notified. The same can be avoided by using an
+Elastic IP. This makes sure that the Public IP address of the EC2 is not
+changed when a new EC2 is started by the Lambda. This way the transition to the
+new EC2 is seamless.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Also, the web page also
+needs to be deployed on the new EC2 instance. The same can be done by using the
+AMI (Amazon Machine Images).</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>AWS Services: </span></b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>AWS Well Architected
+Framework, EC2, Lambda, IAM, SNS, Event Bridge</span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Navigate to the EC2 Management Console and go to the Launch templates tab.
+Click on `Create launch templates`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 2"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image002.jpg"></span><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><br>
+<br>
+</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Give a name, description and under the AMI select Ubuntu 18.04.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 3"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image003.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+For the instance type select `t2.micro`. Select the appropriate keypair and
+security group. We are not going to connect to the EC2 instance as part of this
+exercise, so it doesn’t matter what we select for the keypair and security
+group.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 4"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image004.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><br>
+-- Make sure to add `Restart` as the Resource tag. The value can be empty.
+Click on `Create launch template`. Note that the tags are case sensitive.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 5"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image005.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Navigate to the SNS Management Console and give the Topic a name and click on
+`Next step`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 6"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image006.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><br>
+-- Go with all the default options and create the Topic.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 7"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image007.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Click on `Create subscription`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 8"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image008.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Select the Email as the Protocol and enter a valid email. Click on `Create subscription`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 9"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image009.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Initially the subscription would be in a pending status.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 10"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image010.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><br>
+-- AWS would be sending an email with a link, click on the link to confirm the
+subscription.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 11"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image011.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Navigate to the IAM Management Console and to the Roles tab.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 12"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image012.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><br>
+-- Select the Lambda as the service. Click on `Next Permissions`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 13"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image013.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+One after another select the below policies.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>          -
+AmazonEC2FullAccess<br>
+          - AWSLambdaBasicExecutionRole<br>
+          - AmazonSNSFullAccess</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 14"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image014.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><br>
+-- Give the Role a name and click on `Create role`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 15"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image015.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Navigate to the Lambda Management Console and click on `Create Function`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 16"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image016.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><br>
+-- Give the function a name. Select Python 3.6 as the platform. For the Lambda
+select the earlier created role as shown below.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 17"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image017.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Click on `Create Function`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 18"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image018.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><br>
+-- Replace the code with the below code. Make sure to replace the key pair,
+security group, AMI-ID and the SNS Topic ARN.</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-IN><img
+width=102 height=66 src="012-Pillars-CostSaving-Spot-Lambda_files/image019.png"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 19"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image020.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Under the `Basic settings`, click on Edit.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 20"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image021.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Change the Timeout to 15 sec and click on Save. Finally, deploy the Lambda
+function.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 21"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image022.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Navigate the EventBridge Management Console and click on `Create rule`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 22"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image023.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><br>
+-- Give the rule a name. Select `Event Pattern` and `Pre-defined pattern by
+service`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 23"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image024.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+For this exercise, the right option is select the Event Type as `EC2 Spot
+Instance Interruption Warning`. But there is no time frame when a Spot Instance
+is terminated by AWS, it might take a few minutes to hours. And we can’t wait
+for so much time.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 24"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image025.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+As a work around, select the service provider as `AWS`, Service name as `EC2`
+and event type as `EC2 instance State-change Notifications`. Make sure it
+exactly matches as below.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 25"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image026.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+For the targets select the Lambda function created in the previous step and
+click on `Create`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 26"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image027.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Navigate to the EC2 Management Console and to the `Spot Requests` tab. Click on
+`Request Spot Instances`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 28"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image028.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Select the Launch Template created in the previous step. For the rest, go with
+the default options and click on Launch.<br>
+<br>
+<img width=697 height=355 id="Picture 29"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image029.jpg"><br>
+<br>
+<img width=697 height=355 id="Picture 31"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image030.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Wait for a few minutes and the status of the requests will become active and a
+new EC2 would be created. Make sure the Capacity is `1 of 1` for the fleet.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 32"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image031.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><br>
+-- Navigate to the instances tab and there would be an EC2 in the running
+state.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 33"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image032.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Usually, </span><span lang=EN-IN style='font-family:"Verdana",sans-serif;
+color:#333333'>if the Spot price increases above your bid price, capacity is no
+longer available, or the spot request has constraints that can't be met, then
+the Spot Instance can be terminated. As this is dynamic, we won’t be able to
+predict when this can happen. So, ahead and terminate the EC2.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 34"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image033.jpg"></span><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><br>
+<br>
+</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Notice that in a few minutes a new EC2 would be started. This would have a
+different Instance ID. The termination can be done a couple of times and each
+time automatically a new EC2 is created by the Lambda function.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 35"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image034.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+All the messages from the Lambda can be observed in the CloudWatch logs as
+shown below.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 36"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image035.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><br>
+-- Also, we should have got an email when the EC2 has been terminated and a new
+one has been started.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+width=697 height=355 id="Picture 37"
+src="012-Pillars-CostSaving-Spot-Lambda_files/image036.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span lang=EN-IN style='font-family:"Verdana",sans-serif'>Summary</span></b></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>In
+the development phase where high availability is not of a concern, we can use
+the EC2 spot instances to deploy our applications. But the catch is that the
+spot instances can be terminates at any point of time. One way to get around is
+to have a Lambda function which automatically launches another EC2.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>The
+main advantage of this approach is that we don’t need to for multiple EC2
+instances to increase the availability.</span></p>
+
+</div>
+
+</body>
+
+</html>

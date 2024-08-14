@@ -1,0 +1,1502 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Calibri Light";
+	panose-1:2 15 3 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:.5in .5in .5in .5in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>Use Case</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>In a
+multi-tier architecture as shown below the EC2 in the Public Subnet hosts front
+end applications like web applications and RDS/EC2 instances are hosted in the
+Private Subnet. This way only the web application can be accessed by the public
+and the RDS/EC2 in the private subnet cannot be accessed by the public.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>So, how do
+we manage the EC2/RDS in the private subnet. For ex., creating tables and
+populating with data, giving permissions to tables, updating the OS with the
+latest patches. One way is to the use bastion host, which is not that reliable
+the bastion host has a public IP and hackers can try to exploit this.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>A
+much-preferred approach is to use VPN. In this use case we will explore how to
+setup a Client VPN in AWS and try to connect to the resources in the private
+subnet for the sake of maintenance.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>Note that
+all the entire setup is done in us-east-1 (North Virginia) and the commands
+reflect the same. The lab can be done in some other region also, but the
+commands need to be modified.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>AWS
+Services:</span></b><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>
+RDS, VPC, VPN</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=488 height=251 id="Picture 3"
+src="001-UseCase-ClientVPNCreation_files/image001.jpg"
+alt="Ink Drawings&#10;Ink Drawings&#10;Ink Drawings&#10;Ink Drawings&#10;Ink Drawings&#10;Ink Drawings&#10;￼&#10;￼￼￼&#10;￼￼￼&#10;￼￼￼&#10;￼￼￼￼&#10;￼￼￼&#10;￼&#10;"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=483 height=244 id="Picture 2"
+src="001-UseCase-ClientVPNCreation_files/image002.jpg"
+alt="Ink Drawings&#10;Ink Drawings&#10;Ink Drawings&#10;Ink Drawings&#10;Ink Drawings&#10;Ink Drawings&#10;Ink Drawings&#10;Ink Drawings&#10;Ink Drawings&#10;Ink Drawings&#10;Ink Drawings&#10;Ink Drawings&#10;Ink Drawings&#10;Ink Drawings&#10;Ink Drawings&#10;Ink Drawings&#10;￼￼￼&#10;￼&#10;￼&#10;￼&#10;￼&#10;￼￼￼&#10;￼￼￼&#10;￼￼￼&#10;￼￼￼&#10;￼&#10;￼&#10;￼￼￼&#10;￼&#10;￼￼￼&#10;￼￼￼&#10;￼&#10;￼￼￼&#10;￼￼￼&#10;Ink Drawings&#10;Ink Drawings&#10;Ink Drawings&#10;"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>In this
+lab, we would be setting up a VPN Endpoint in the Default VPC. And create a MyAppVPC
+along with an EC2 instance in the private subnet. Finally, we would be
+establishing a VPN connection to the VPN Endpoint and connect to the EC2
+instance using the private IP address from our Laptop. Along the way we also
+need to setup a Peering connection across the two VPCs.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=698 height=267 id="Picture 1"
+src="001-UseCase-ClientVPNCreation_files/image003.png"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Goto to
+the IAM Screen and create an IAM Role as shown below. </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=698 height=341 id="Picture 5"
+src="001-UseCase-ClientVPNCreation_files/image004.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Create an Ubuntu EC2 in the Default VPC
+and assign it a Role with AdministratorAccess Policy. “t2.micro” instance type
+should be good enough and make sure that the port 22 is allowed in the
+SecurityGroup inbound rules.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>Name the
+EC2 as ForCertificateGeneration as this EC2 will be used for the VPN
+Certificate generation purpose only.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=698 height=341 id="Picture 7"
+src="001-UseCase-ClientVPNCreation_files/image005.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Login
+to the EC2 via the Putty or some other SSH client using the Public IP Address
+of the EC2 instance.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=698 height=426 id="Picture 8"
+src="001-UseCase-ClientVPNCreation_files/image006.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Install
+the AWS CLI, by executing the below commands in the Putty session. Finally, run
+the aws command as shown below to make sure that the aws command is there in
+the PATH.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>sudo
+apt-get update</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>sudo
+apt-get install python2.7 python-pip</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>pip
+install awscli --upgrade</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>mkdir .aws</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>echo -e
+&quot;[default]\nregion=us-east-1&quot; &gt; .aws/config</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>export
+PATH=&quot;$PATH:/home/ubuntu/.local/bin/&quot;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=698 height=427 id="Picture 9"
+src="001-UseCase-ClientVPNCreation_files/image007.jpg"
+alt="A screenshot of a map&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Clone
+the </span><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>Easy
+RSA Git Repo using the below command</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>git clone </span></i><span
+lang=EN-IN><a href="https://github.com/OpenVPN/easy-rsa.git"><i><span
+style='font-size:12.0pt;font-family:"Verdana",sans-serif'>https://github.com/OpenVPN/easy-rsa.git</span></i></a></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>cd
+easy-rsa/easyrsa3</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>--
+Initialize the PKI using the below command.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>./easyrsa
+init-pki</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=426 id="Picture 10"
+src="001-UseCase-ClientVPNCreation_files/image008.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- </span><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>Build
+Certificate Authority using the below command. When prompted enter the common
+name as thecloudavenue.com. Anything can be used, but the same has to be
+reflected in the upcoming commands also.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>./easyrsa
+build-ca nopass</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=427 id="Picture 11"
+src="001-UseCase-ClientVPNCreation_files/image009.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Build
+the Server Certificate using the below command.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>./easyrsa
+build-server-full thecloudavenue.com nopass</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=424 id="Picture 12"
+src="001-UseCase-ClientVPNCreation_files/image010.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Build
+the Client Certificate using the below command.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>./easyrsa
+build-client-full sripati.thecloudavenue.com nopass</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=426 id="Picture 13"
+src="001-UseCase-ClientVPNCreation_files/image011.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Move
+the certificates and the keys to a folder called acm using the below commands.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>mkdir acm</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>cp
+pki/ca.crt acm</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>cp pki/issued/thecloudavenue.com.crt
+acm</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>cp
+pki/issued/sripati.thecloudavenue.com.crt acm</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>cp
+pki/private/thecloudavenue.com.key acm</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>cp
+pki/private/sripati.thecloudavenue.com.key acm</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>cd acm</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=424 id="Picture 14"
+src="001-UseCase-ClientVPNCreation_files/image012.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Import
+the Certificates into the AWS Certificate Manager using the below commands.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>aws acm
+import-certificate --certificate fileb://thecloudavenue.com.crt --private-key
+fileb://thecloudavenue.com.key --certificate-chain fileb://ca.crt --region
+us-east-1</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>aws acm
+import-certificate --certificate fileb://sripati.thecloudavenue.com.crt
+--private-key fileb://sripati.thecloudavenue.com.key --certificate-chain
+fileb://ca.crt --region us-east-1</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=451 id="Picture 15"
+src="001-UseCase-ClientVPNCreation_files/image013.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Go to
+the AWS Certificate Manager Console and the imported Certificates should appear
+as shown below.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 16"
+src="001-UseCase-ClientVPNCreation_files/image014.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- In the
+VPC Management Console go to “Client VPN Endpoints” and click on “Create Client
+VPN Endpoints”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 17"
+src="001-UseCase-ClientVPNCreation_files/image015.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Enter
+the name, the “Client IPv4 CIDR”, select the “Server certificate ARN”
+(thecloudavenue.com), “Use mutual authentication” and finally select the “Client
+certificate ARN” (sripati.thecloudavenue.com).</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 18"
+src="001-UseCase-ClientVPNCreation_files/image016.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- For the
+“Connection Logging” select No. Enable the “split-tunnel” and finally select
+the VPC.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 19"
+src="001-UseCase-ClientVPNCreation_files/image017.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Click
+on “Create Client VPN Endpoint”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 20"
+src="001-UseCase-ClientVPNCreation_files/image018.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- The
+“Client VPN Endpoint” will be created as shown below. Initially it would be in
+a “Pending-associate” state for it to be associated with a Subnet.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 21"
+src="001-UseCase-ClientVPNCreation_files/image019.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Click
+on the Associations tab and the Associate button.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 22"
+src="001-UseCase-ClientVPNCreation_files/image020.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Select
+the default VPC and choose any of the Subnet. It doesn’t matter which Subnet is
+selected. Click on Associate.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 23"
+src="001-UseCase-ClientVPNCreation_files/image021.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- It will
+take about 5 minutes for the Client VPN Endpoint to become in the Available
+State and the Association to the Subnet in an Associated state.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 24"
+src="001-UseCase-ClientVPNCreation_files/image022.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- In the
+same VPC Console, go to the “Elastic IPs&quot; screen and click on “Allocate
+Elastic IP Address”. The same is required for the sake of VPC Peering which we
+would be creating later.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 25"
+src="001-UseCase-ClientVPNCreation_files/image023.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Click
+on Allocate to assign an Elastic IP address as shown below.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 26"
+src="001-UseCase-ClientVPNCreation_files/image024.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 27"
+src="001-UseCase-ClientVPNCreation_files/image025.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Now
+that the Elastic IP has been created, it’s time to create a new VPC. Go to the
+“VPC Dashboard” and click on “Launch VPC Wizard”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 28"
+src="001-UseCase-ClientVPNCreation_files/image026.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Select
+the “VPC with Public and Private Subnets” option.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 29"
+src="001-UseCase-ClientVPNCreation_files/image027.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Give
+the VPC a name and select the Elastic IP created earlier. Rest of the default
+options are good enough. Click on “Create VPC”. It will take a few minutes for
+the VPC to be created.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 30"
+src="001-UseCase-ClientVPNCreation_files/image028.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- We will
+notice that there are two VPCs. One is the default and the other one is
+MyAppVPC which we created a few minutes back. <b>Note sure to note the “IPv4
+CIDR” for both the VPCs.</b></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 31"
+src="001-UseCase-ClientVPNCreation_files/image029.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Go to
+the EC2 Console and create and Ubuntu EC2 in the MyAppVPC and the Private
+Subnet. In the Configure Instance screen make sure to select the right VPC and
+the Subnet as shown below.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 32"
+src="001-UseCase-ClientVPNCreation_files/image030.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Also
+make sure to create a new Security Group to allow the SSH traffic as shown
+below.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 33"
+src="001-UseCase-ClientVPNCreation_files/image031.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Name
+the EC2 as “MyAppVPC-PrivateSubnet”. This EC2 has only the Private IP and not
+the Public IP as seen below. And this EC2 is primarily used for backend applications
+like Databases, for which the end users/customers don’t have access to because
+of the lack of Public IP.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><br>
+The whole exercise is about connecting to this EC2 from outside the Cloud, like
+from our Laptop for the sake of maintenance.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 34"
+src="001-UseCase-ClientVPNCreation_files/image032.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- We need
+to create a Peering connection between the Default and the MyAppVPC. In the VPC
+Management Console, go to the “Peering Connections” and click on “Create
+Peering Connection”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 35"
+src="001-UseCase-ClientVPNCreation_files/image033.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Give
+the Peering connection a name and select the Default VPC as the VPC (Requester)
+and the MyAppVPC as the VPC (Accepter). Rest of the options should be fine.
+Click on “Create Peering Connection”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 36"
+src="001-UseCase-ClientVPNCreation_files/image034.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>--
+Initially the Peering Connection would be in a Pending Acceptance State. Go to
+the Actions option and select the Accept option. In a few seconds, the state of
+the Peering connection will change to Active.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 37"
+src="001-UseCase-ClientVPNCreation_files/image035.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 38"
+src="001-UseCase-ClientVPNCreation_files/image036.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Now
+that the VPC Peering has been setup, the routing table has to be updated for
+the two VPCs to be able to communicate to each other.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>For
+updating the routing table, the below steps have to be repeated for both the
+EC2s. The order of the EC2 doesn’t matter. Make sure to select one of the EC2 and
+click on the Subnet ID in the description to go to the Subnet screen.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 39"
+src="001-UseCase-ClientVPNCreation_files/image037.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- In the Subnet
+Screen, click on the “Route Table” link to go the “Route Table” properties.</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 40"
+src="001-UseCase-ClientVPNCreation_files/image038.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Click
+on the Routes tab and click on “Edit routes”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 41"
+src="001-UseCase-ClientVPNCreation_files/image039.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Notice
+that there is a route for one of the VPC CIDR. Click on “Add route” and add the
+CIDR for the other VPC. For the Target select the Peering Connection and
+finally the VPC peering created earlier. Click on “Save routes”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>Note that
+all the above steps from selecting the EC2 has to be done for other EC2 also.
+This completes the Peering process across the VPCs.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 42"
+src="001-UseCase-ClientVPNCreation_files/image040.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- In the
+VPC Management Console, go to the “Client VPN Endpoints” and select the
+Authorization tab. Click on “Authorize Ingress”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 43"
+src="001-UseCase-ClientVPNCreation_files/image041.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Enter
+the CIDR of MyAppVPC and some description. Click on “Add authorization rule”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 44"
+src="001-UseCase-ClientVPNCreation_files/image042.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- In a
+few seconds the state of the Authorization will be Active.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 45"
+src="001-UseCase-ClientVPNCreation_files/image043.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Click
+on the “Route Table tab”. Click on “Create Route”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 46"
+src="001-UseCase-ClientVPNCreation_files/image044.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Give the CIDR for the MyAppVPC, Select the
+Target VPC Subnet ID and give some description. Click on “Create Route”.</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 47"
+src="001-UseCase-ClientVPNCreation_files/image045.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- The
+“Route Table” would be updated as shown below.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 48"
+src="001-UseCase-ClientVPNCreation_files/image046.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Click
+on “Download Client Configuration” to download the
+downloaded-client-config.ovpn. It’s a simple text file and need to be edited
+later.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 49"
+src="001-UseCase-ClientVPNCreation_files/image047.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Copy
+the sripati.thecloudavenue.com.key and sripati.thecloudavenue.com.crt files
+from the first EC2 instance where the certificates and keys were generated. The
+same can be done by doing a cat on the file in the Putty session and copying
+the content or using a tool like WinSCP. Make sure to copy the content
+carefully without missing anything.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Open
+the downloaded-client-config.ovpn in a notepad. Add a random string before the
+VPN endpoint. Like the way “abcd.” has been below. Also, provide the cert and
+key paths as shown below towards the end, make sure to specify the proper path.
+This file has all the details for us to establish a VPN connection.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'> </span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=616 height=687 id="Picture 50"
+src="001-UseCase-ClientVPNCreation_files/image048.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Download
+and install the </span><span lang=EN-IN style='font-size:12.0pt;font-family:
+"Verdana",sans-serif'>AWS Client VPN (</span><span lang=EN-IN><a
+href="https://aws.amazon.com/vpn/client-vpn-download/"><span style='font-size:
+12.0pt;font-family:"Verdana",sans-serif'>https://aws.amazon.com/vpn/client-vpn-download/</span></a></span><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 51"
+src="001-UseCase-ClientVPNCreation_files/image049.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Start
+the AWS VPN Client.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=374 height=183 id="Picture 52"
+src="001-UseCase-ClientVPNCreation_files/image050.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- On the
+File Menu, select “Manage Profiles” and click on “Add Profile”.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=261 id="Picture 53"
+src="001-UseCase-ClientVPNCreation_files/image051.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Give
+the Profile a Display Name and Point to the VPN Configuration file and click on
+“Add Profile”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=481 height=214 id="Picture 54"
+src="001-UseCase-ClientVPNCreation_files/image052.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Click
+on Connect and it takes a few seconds for the VPN connection to be established.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=356 height=185 id="Picture 55"
+src="001-UseCase-ClientVPNCreation_files/image053.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>--
+Finally, the connection to the VPN should be established and the Connect button
+should be changed to Disconnect as the connection has been established.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=361 height=188 id="Picture 56"
+src="001-UseCase-ClientVPNCreation_files/image054.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- In the
+“Client VPN Endpoints”, go to the Connections tab and an active connection
+should be displayed.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=341 id="Picture 57"
+src="001-UseCase-ClientVPNCreation_files/image055.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Go back
+to the EC2 Console. Select the EC2 with the name “MyAppVPC-PrivateSubnet” and
+grab the Private IP.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=276 id="Picture 58"
+src="001-UseCase-ClientVPNCreation_files/image056.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Use the
+Putty Session to connect to this EC2 via Private IP. We should be able to
+connect as we have established a VPN connection to the AWS Cloud.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=367 height=359 id="Picture 59"
+src="001-UseCase-ClientVPNCreation_files/image057.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Below
+is the Putty Session for the same.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=609 height=349 id="Picture 60"
+src="001-UseCase-ClientVPNCreation_files/image058.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- The
+following AWS resources have to be cleaned up in the same order.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;line-height:normal'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Verdana",sans-serif'>- Disconnect from the AWS VPN Client</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;line-height:normal'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Verdana",sans-serif'>- Terminate the EC2 instances</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;line-height:normal'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Verdana",sans-serif'>- Delete the VPC Peering connections</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;line-height:normal'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Verdana",sans-serif'>- Delete the NAT Gateway from the VPC Console</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;line-height:normal'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Verdana",sans-serif'>- Wait for a few Minutes</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;line-height:normal'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Verdana",sans-serif'>- Release the Elastic IP</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;line-height:normal'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Verdana",sans-serif'>- Finally delete the VPC (MyAppVPC)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;line-height:normal'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Verdana",sans-serif'>- Disassociate the Subnet association to the
+Client VPN Endpoint</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;line-height:normal'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Verdana",sans-serif'>- Delete the Client VPN Endpoint</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;line-height:normal'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Verdana",sans-serif'>- Delete the Certificates in Certification
+Manager</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;line-height:normal'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Verdana",sans-serif'>- Delete the Role in the IAM which has been
+created for the EC2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

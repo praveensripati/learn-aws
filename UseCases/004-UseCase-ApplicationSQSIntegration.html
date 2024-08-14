@@ -1,0 +1,788 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:.5in .5in .5in .5in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>Use Case</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>In the
+traditional way of building applications, the applications  directly talk to
+each other. And if one of the applications goes down, it impacts the other
+application and some of the data might be lost. This is called tightly coupled architecture.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>To make
+the applications more highly available, the applications don’t talk to each
+other directly, but through SQS Queue. In the below diagram, the Customer Web
+Applications interacts with the Backend Applications via SQS Queue. For some reason
+if the Backend Applications goes down, the Customer Web Application can still
+continue working with the messages being buffered in the SQS Queue. Once the
+Backend Application is up, it can start polling the messages from the SQS Queue
+and update the database. This way none of the messages are lost and
+applications are loosely coupled and not aware of the status of each other.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=223 id="Picture 1"
+src="004-UseCase-ApplicationSQSIntegration_files/image001.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>AWS
+Services:</span></b><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>
+SQS, EC2, IAM and RDS</span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Make sure to create a Security Group with
+the port 3306 allowed in the “Inbound rules”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=698 height=341 id="Picture 63"
+src="004-UseCase-ApplicationSQSIntegration_files/image002.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Go to the RDS Management Console and click
+on “Create Database”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=698 height=341 id="Picture 2"
+src="004-UseCase-ApplicationSQSIntegration_files/image003.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Select MySQL as the Database.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img width=698 height=341 id="Picture 3"
+src="004-UseCase-ApplicationSQSIntegration_files/image004.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Select “Free tier” for the templates. This
+will make sure all the settings for the RDS are for the AWS Free Tier (</span><span
+lang=EN-IN><a href="https://aws.amazon.com/free/"><span style='font-size:12.0pt;
+line-height:115%;font-family:"Verdana",sans-serif'>https://aws.amazon.com/free/</span></a></span><span
+lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'>).
+Specify the “DB instance identifier” as CustomerDB.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 4" src="004-UseCase-ApplicationSQSIntegration_files/image005.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Specify the username and the password.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 5" src="004-UseCase-ApplicationSQSIntegration_files/image006.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Uncheck “Storage autoscaling”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 6" src="004-UseCase-ApplicationSQSIntegration_files/image007.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Under Connectivity, for “Publicly
+accessible” as Yes.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 7" src="004-UseCase-ApplicationSQSIntegration_files/image008.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Select the AllowMySQL Security Group
+created earlier.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 8" src="004-UseCase-ApplicationSQSIntegration_files/image009.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><br>
+-- For the “Initial database name” specify “customer_db”. Disable the Backup.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 9" src="004-UseCase-ApplicationSQSIntegration_files/image010.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Finally click on “Create Database”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 10" src="004-UseCase-ApplicationSQSIntegration_files/image011.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><br>
+-- The database would be initially in a Creating Status for a few minutes.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 11" src="004-UseCase-ApplicationSQSIntegration_files/image012.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- After a few minutes the database should be
+in available status and the endpoint would be populated.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 13" src="004-UseCase-ApplicationSQSIntegration_files/image013.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Download the HeidiSQL (</span><span
+lang=EN-IN><a href="https://www.heidisql.com/download.php"><span
+style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'>https://www.heidisql.com/download.php</span></a></span><span
+lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'>)
+by clicking on “Installer, 32/64 bit combined” and install it as any other
+application.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 12" src="004-UseCase-ApplicationSQSIntegration_files/image014.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Launch HeidiSQL once the installation is
+complete and enter the RDS/MySQL endpoinp/user/password. And finally click on
+Open.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=697 height=425
+id="Picture 14" src="004-UseCase-ApplicationSQSIntegration_files/image015.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Click on Yes when prompted. This will
+store the connection details.</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-IN
+style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><img
+border=0 width=375 height=158 id="Picture 15"
+src="004-UseCase-ApplicationSQSIntegration_files/image016.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- In the HeidiSQL make sure to select
+customer_db in the top left pane, go to the Query tab, copy the below DDL
+statement and click on Execute to create a table.</span></p>
+
+<p class=MsoNormal><i><span lang=EN-IN style='font-size:12.0pt;line-height:
+115%;font-family:"Verdana",sans-serif'>CREATE TABLE customers (<br>
+  name VARCHAR(30) NOT NULL,<br>
+  address VARCHAR(30) NOT NULL<br>
+);</span></i></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=376
+id="Picture 16" src="004-UseCase-ApplicationSQSIntegration_files/image017.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Go to the SQS Management Console and click
+on “Create Queue”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 17" src="004-UseCase-ApplicationSQSIntegration_files/image018.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span><span
+lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br>
+<br>
+<br>
+</span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Enter the Queue name as “CustomerQueue”,
+go with the default options and click on “Create queue”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 18" src="004-UseCase-ApplicationSQSIntegration_files/image019.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 19" src="004-UseCase-ApplicationSQSIntegration_files/image020.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Note down the Queue URL and the ARN.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 20" src="004-UseCase-ApplicationSQSIntegration_files/image021.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Go to the IAM Management Console and go to
+Policies. Click on “Create Policy”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 48" src="004-UseCase-ApplicationSQSIntegration_files/image022.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span><span
+lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br>
+<br>
+</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Click on the JSON tab and paste the below
+JSON. Make sure to replace the Queue ARN with the one got from the previous
+step. Click on “Review Policy”.</span></p>
+
+<p class=MsoNormal><i><span lang=EN-IN style='font-size:10.0pt;line-height:
+115%;font-family:"Verdana",sans-serif'>{<br>
+   &quot;Version&quot;: &quot;2012-10-17&quot;,<br>
+   &quot;Statement&quot;: [{<br>
+      &quot;Sid&quot;:&quot;SQSSendMessage&quot;,<br>
+      &quot;Effect&quot;: &quot;Allow&quot;,<br>
+      &quot;Action&quot;: &quot;sqs:SendMessage&quot;,<br>
+      &quot;Resource&quot;: &quot;<b><span style='color:red'>arn:aws:sqs:us-east-1:304000509264:CustomerQueue</span></b>&quot;<br>
+   }]<br>
+}<br>
+</span></i><i><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><br>
+</span></i><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 49" src="004-UseCase-ApplicationSQSIntegration_files/image023.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Enter the policy name as
+“SQS_SendMessage_Policy” and click on “Create policy”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 50" src="004-UseCase-ApplicationSQSIntegration_files/image024.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span><span
+lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br>
+<br>
+-- Click on Roles and click on “Create Role”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 51" src="004-UseCase-ApplicationSQSIntegration_files/image025.jpg"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Select EC2 as the service and click on
+“Next Permissions”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 52" src="004-UseCase-ApplicationSQSIntegration_files/image026.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><br>
+-- Select the Policy create in the previous step and click on “Next Tags”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 53" src="004-UseCase-ApplicationSQSIntegration_files/image027.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Tags are optional. Click on “Next Review”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 54" src="004-UseCase-ApplicationSQSIntegration_files/image028.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span><span
+lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br>
+<br>
+<br>
+</span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Enter the Role name as
+SQS_SendMessage_Role and click on “Create Role”.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 55" src="004-UseCase-ApplicationSQSIntegration_files/image029.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><br>
+<img border=0 width=698 height=341 id="Picture 56"
+src="004-UseCase-ApplicationSQSIntegration_files/image030.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Create another Policy called
+“SQS_ReceiveDeleteMessage_Policy” with the below JSON. Make sure to replace the
+SQS Queue ARN. Create a role called “SQS_ReceiveDeleteMessage_Role” and
+attached the Policy to it.</span></p>
+
+<p class=MsoNormal><i><span lang=EN-IN style='font-size:10.0pt;line-height:
+115%;font-family:"Verdana",sans-serif'>{<br>
+   &quot;Version&quot;: &quot;2012-10-17&quot;,<br>
+   &quot;Statement&quot;: [{<br>
+      &quot;Sid&quot;:&quot;SQSReceiveDeleteMessage&quot;,<br>
+      &quot;Effect&quot;: &quot;Allow&quot;,<br>
+      &quot;Action&quot;: [&quot;sqs:ReceiveMessage&quot; ,
+&quot;sqs:DeleteMessage&quot;],<br>
+      &quot;Resource&quot;: &quot;<b><span style='color:red'>arn:aws:sqs:us-east-1:304000509264:CustomerQueue</span></b>&quot;<br>
+   }]<br>
+}</span></i></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- At the end two Policies and two Roles
+should be created as shown below.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 57" src="004-UseCase-ApplicationSQSIntegration_files/image031.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 58" src="004-UseCase-ApplicationSQSIntegration_files/image032.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Create two EC2 Instances and name them as
+&quot;CustomerWebApplication&quot; and &quot;BackendApplication&quot; with the
+below details. Make sure to select the KeyPair.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>        - Ubuntu 18.04<br>
+        - t2.micro<br>
+        - SecurityGroup with 22/SSH inbound<br>
+<br>
+</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=341
+id="Picture 59" src="004-UseCase-ApplicationSQSIntegration_files/image033.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Login to the EC2 instances via Putty. Execute
+the below commands on both the EC2 instances. See the exception.</span></p>
+
+<p class=MsoNormal><i><span lang=EN-IN style='font-size:12.0pt;line-height:
+115%;font-family:"Verdana",sans-serif'>#become root<br>
+sudo su<br>
+<br>
+#get the list of softwares<br>
+apt-get update<br>
+<br>
+#install python<br>
+apt-get install -y python2.7 python-pip<br>
+<br>
+#install Python AWS SDK and MySQL drivers<br>
+pip install boto3<br>
+pip install mysql-connector-python </span></i><b><i><span lang=EN-IN
+style='font-size:10.0pt;line-height:115%;font-family:"Verdana",sans-serif;
+color:red'>(only on the &quot;BackendApplication&quot; EC2 Instance)</span></i></b></p>
+
+<p class=MsoNormal><i><span lang=EN-IN style='font-size:12.0pt;line-height:
+115%;font-family:"Verdana",sans-serif'>exit<br>
+mkdir .aws<br>
+echo -e &quot;[default]\nregion=us-east-1&quot; &gt; .aws/config</span></i></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><br>
+-- Attach the SQS_SendMessage_Role Role to the
+&quot;CustomerWebApplication&quot; EC2 Instance.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>Attach the SQS_ReceiveDeleteMessage_Role Role
+to the &quot;BackendApplication&quot; EC2 Instance.</span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Create a file send_message.py with the
+below code on the &quot;CustomerWebApplication&quot; EC2 instance. Make sure to
+change the queue_url. We are trying to mimic a web application where the
+customers can create an account and the customer details are put into a Queue.</span></p>
+
+<p class=MsoNormal><i><span lang=EN-IN style='font-size:10.0pt;line-height:
+115%;font-family:"Verdana",sans-serif'>import sys<br>
+import boto3<br>
+<br>
+sqs = boto3.client('sqs')<br>
+queue_url = '<b><span style='color:red'>https://sqs.us-east-1.amazonaws.com/304000509264/CustomerQueue</span></b>'<br>
+<br>
+response = sqs.send_message(<br>
+    QueueUrl=queue_url,<br>
+    MessageBody=(sys.argv[1])<br>
+)<br>
+<br>
+print(response['MessageId'])<br>
+<br>
+</span></i></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Execute the below commands to put the
+messages in the Queue.</span></p>
+
+<p class=MsoNormal><i><span lang=EN-IN style='font-size:12.0pt;line-height:
+115%;font-family:"Verdana",sans-serif'>python send_message.py Praveen,Hyderabad<br>
+python send_message.py Prajval,Delhi<br>
+python send_message.py Kusuma,Mumbai<br>
+python send_message.py Prathibha,Bangalore<br>
+<br>
+</span></i></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=697 height=104
+id="Picture 60" src="004-UseCase-ApplicationSQSIntegration_files/image034.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Create a file get_message_write_to_rds.py
+with the below code on the &quot;BackendApplication&quot; EC2 instance. Make
+sure to change the queue_url and the database details. The below program reads
+the message from Queue and inserts a row in the RDS/MySQL Database.</span></p>
+
+<p class=MsoNormal><i><span lang=EN-IN style='font-size:10.0pt;line-height:
+115%;font-family:"Verdana",sans-serif'>import time<br>
+import boto3<br>
+import mysql.connector<br>
+<br>
+queue_url = '<b><span style='color:red'>https://sqs.us-east-1.amazonaws.com/304000509264/CustomerQueue</span></b>'<br>
+<br>
+#Specify the database details<br>
+host = '<b><span style='color:red'>customerdb.cmeeo0ikklen.us-east-1.rds.amazonaws.com</span></b>'<br>
+user = '<b><span style='color:red'>praveen</span></b>'<br>
+password = '<b><span style='color:red'>praveen123'</span></b><br>
+database='<b><span style='color:red'>customer_db</span></b>'<br>
+<br>
+#Create a SQS Client<br>
+sqs = boto3.client('sqs')<br>
+<br>
+#Connect to the RDS MySQL Instance<br>
+mydb = mysql.connector.connect(host=host, user=user, password=password,
+database=database)<br>
+mycursor = mydb.cursor()<br>
+<br>
+# Receive message from SQS queue<br>
+response = sqs.receive_message(QueueUrl=queue_url)<br>
+message = response['Messages'][0]<br>
+<br>
+# Delete received message from queue<br>
+receipt_handle = message['ReceiptHandle']<br>
+<br>
+sqs.delete_message(<br>
+    QueueUrl=queue_url,<br>
+    ReceiptHandle=receipt_handle<br>
+)<br>
+<br>
+print('Received and deleted message: %s' % message[&quot;Body&quot;])<br>
+<br>
+#Get the customer name and address from the message<br>
+customerDetails = message[&quot;Body&quot;]<br>
+customerDetailsList = customerDetails.split(',')<br>
+name = customerDetailsList[0]<br>
+address = customerDetailsList[1]<br>
+<br>
+#Write the record to the database<br>
+val = (name, address)<br>
+sql = &quot;INSERT INTO customers (name, address) VALUES (%s, %s)&quot;<br>
+<br>
+mycursor.execute(sql, val)<br>
+mydb.commit()<br>
+print(&quot;Record inserted in the DB&quot;)</span></i><span lang=EN-IN
+style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br>
+<br>
+<br>
+</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Wait for a few minutes and execute the
+“python get_message_write_to_rds.py” command to get the message from the Queue
+and insert a row the database.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>Here we are trying to mimic the backend
+application being down. Notice that the messages between the web application
+are not lost inspite of waiting for a few minutes or the backend application
+being down. This is how Highly Available applications are built.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=697 height=202
+id="Picture 61" src="004-UseCase-ApplicationSQSIntegration_files/image035.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Go back to the HeidiSQL and execute the
+“select * from customers” query to fetch the customers details.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><img border=0 width=698 height=377
+id="Picture 62" src="004-UseCase-ApplicationSQSIntegration_files/image036.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+</div>
+
+</body>
+
+</html>

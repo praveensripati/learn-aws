@@ -1,0 +1,919 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:.5in .5in .5in .5in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>Use Case</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>Lets say
+we have deployed an application EC2 which interacts with the SQS Service for
+the sake of high availability and scalability. By default, the communication
+between the EC2 and the SQS service happens over the internet connection. And
+there is a requirement for a NAT and Internet Gateway components.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>The data
+flowing over the internet is not really required as both the EC2 and SQS
+components are within the AWS network only. For the network communication to
+happen within the AWS network, we need use AWS PrivateLink. This way the
+network packets remain with the AWS network only which makes the application
+much more reliable and secure.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=483 height=155 id="Picture 1"
+src="025-UseCase-VPCEndPoints_files/image001.png"></span><span lang=EN-IN
+style='font-size:12.0pt;font-family:"Verdana",sans-serif'><br>
+<br>
+We would be creating a VPC with a Private and Public Subnet. And within each of
+the subnets an EC2 instance. First we would be connecting to the EC2 instance
+in the Public Subnet and from there to the EC2 in the Private Subnet. On the
+EC2 in the Private Subnet, we would be interacting with the SQS Service. In
+this scenario the EC2 in the Public Subnet is acting as a jump box or a bastion
+box.<br>
+<br>
+<img width=433 height=229 id="Picture 47"
+src="025-UseCase-VPCEndPoints_files/image002.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>AWS
+Services:</span></b><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>
+VPC PrivateLink, EC2, IAM</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- In the
+VPC Management Console, go to the “Elastic IPs&quot; screen and click on
+“Allocate Elastic IP Address”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=698 height=341 id="Picture 25"
+src="025-UseCase-VPCEndPoints_files/image003.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Click
+on Allocate to assign an Elastic IP address as shown below.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=698 height=341 id="Picture 26"
+src="025-UseCase-VPCEndPoints_files/image004.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=698 height=341 id="Picture 27"
+src="025-UseCase-VPCEndPoints_files/image005.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Now
+that the Elastic IP has been created, it’s time to create a new VPC. Go to the
+“VPC Dashboard” and click on “Launch VPC Wizard”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=698 height=341 id="Picture 28"
+src="025-UseCase-VPCEndPoints_files/image006.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'><br>
+-- Select the “VPC with Public and Private Subnets” option.</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=698 height=341 id="Picture 29"
+src="025-UseCase-VPCEndPoints_files/image007.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Give
+the VPC a name and select the Elastic IP created earlier. Rest of the default
+options are good enough. Click on “Create VPC”. It will take a few minutes for
+the VPC to be created.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=698 height=341 id="Picture 30"
+src="025-UseCase-VPCEndPoints_files/image008.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- We will
+notice that there are two VPCs. One is the default and the other one is
+MyAppVPC which we created a few minutes back.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
+line-height:normal'><span lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=698 height=341 id="Picture 31"
+src="025-UseCase-VPCEndPoints_files/image009.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Select
+the PublicSubnet for the MyAppVPC. Go to actions “Modify auto-assign IP
+settings” and make sure “Enable auto-assign public IPv4 address” is checked and
+click on “Save”.<br>
+<br>
+<img width=698 height=339 id="Picture 2"
+src="025-UseCase-VPCEndPoints_files/image010.png"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=697 height=338
+id="Picture 3" src="025-UseCase-VPCEndPoints_files/image011.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Go to
+the EC2 Management Console, make sure the “New EC2 Experience” is selected on
+the top left. </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=171 height=96 id="Picture 4"
+src="025-UseCase-VPCEndPoints_files/image012.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Click
+on the KeyPair link and click on “Create key pair”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 5"
+src="025-UseCase-VPCEndPoints_files/image013.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Enter
+the KeyPair name as “MyDemoKeyPair” and click on “Create key pair”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 6"
+src="025-UseCase-VPCEndPoints_files/image014.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Store
+the Private Key file in the ppk format in a location which can be easily
+retrieved.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+width=697 height=337 id="Picture 8"
+src="025-UseCase-VPCEndPoints_files/image015.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Download the pageant.exe from the below
+link and open the executable.<br>
+<br>
+</span><span lang=EN-IN><a
+href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html"><span
+style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'>https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html</span></a></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=513 height=383 id="Picture 9"
+src="025-UseCase-VPCEndPoints_files/image016.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Add the
+Private Key which has been downloaded earlier.<br>
+<img border=0 width=516 height=386 id="Picture 10"
+src="025-UseCase-VPCEndPoints_files/image017.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Go to
+the IAM Management Console, click on “Create role”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 11"
+src="025-UseCase-VPCEndPoints_files/image018.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Select
+EC2 as the Service. Click on “Next : Permissions”.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 12"
+src="025-UseCase-VPCEndPoints_files/image019.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Select
+AmazonSQSFullAccess Policy. Click on “Next : Tags”.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 13"
+src="025-UseCase-VPCEndPoints_files/image020.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Tags
+are optional, so click on “Next : Review”.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 14"
+src="025-UseCase-VPCEndPoints_files/image021.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Enter
+the role name as “Role4EC2-SQS-FA”. Finally, click on “Create role”.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 15"
+src="025-UseCase-VPCEndPoints_files/image022.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 16"
+src="025-UseCase-VPCEndPoints_files/image023.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Create two EC2 instance, both in the
+MyAppVPC with the below details. One in the PrivateSubnet and the other in the
+PublicSubnet. These options can be selected in the “Configure instance” options
+while creating the EC2 instance.<br>
+<br>
+        - t2.micro<br>
+        - Ubuntu</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 17"
+src="025-UseCase-VPCEndPoints_files/image024.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Make
+sure to allow Port 22/SSH inbound the for both the EC2 instances. Also, attach
+the default Security Group for the EC2 instances in the PrivateSubnet.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 18"
+src="025-UseCase-VPCEndPoints_files/image025.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Name
+the EC2 instances as “MyAppVPC-PublicSubnet” and “MyAppVPC-PrivateSubnet” just
+to make it east to identify the EC2 instances.<br>
+<br>
+Notice that the EC2 in the Public Subnet has both the Public and Private IP
+address, while the EC2 in the Private Subnet has only the Private IP address.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 19"
+src="025-UseCase-VPCEndPoints_files/image026.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 20"
+src="025-UseCase-VPCEndPoints_files/image027.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Attach
+the IAM role created earlier to the EC2 instance in the Private Subnet. The
+same can be observed in the properties of the EC2 instance.<br>
+<br>
+<img border=0 width=697 height=337 id="Picture 21"
+src="025-UseCase-VPCEndPoints_files/image028.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Start
+Putty, in Host Name enter the username (ubuntu) followed by the symbol @ and
+finally the Public IP address of the EC2 in the Public Subnet.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=363 height=361 id="Picture 22"
+src="025-UseCase-VPCEndPoints_files/image029.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><br>
+-- In Putty, go to Connection </span><span lang=EN-IN style='font-size:12.0pt;
+font-family:Wingdings'>à</span><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Verdana",sans-serif'> SSH </span><span lang=EN-IN
+style='font-size:12.0pt;font-family:Wingdings'>à</span><span lang=EN-IN
+style='font-size:12.0pt;font-family:"Verdana",sans-serif'> Auth.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>        -
+Select “Allow agent forwarding”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>        -
+Click on Browse for “Private key file authentication” and select the Private
+Key downloaded in the PPK format.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>        -
+Click on open to connect to the EC2 instance.<br>
+<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=359 height=358 id="Picture 23"
+src="025-UseCase-VPCEndPoints_files/image030.jpg"
+alt="A screenshot of a cell phone&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Once
+connected to the EC2 in the Public Subnet, execute the below command to connect
+to the EC2 in the Private Subnet. Replace the IP address with the one from the
+EC2 in the Private Subnet. When prompted enter ‘yes’. We should be connected to
+the EC2 in the Private Subnet via Putty.<br>
+<br>
+ssh ubuntu@10.0.1.81<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=429 id="Picture 24"
+src="025-UseCase-VPCEndPoints_files/image031.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><br>
+<img border=0 width=698 height=431 id="Picture 32"
+src="025-UseCase-VPCEndPoints_files/image032.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>-- Execute the below commands in the EC2 of
+the Private Subnet in install the AWS CLI and configure it.<br>
+<br>
+        sudo apt-get update<br>
+        sudo apt-get install python2.7 python-pip -y<br>
+        pip install awscli –upgrade<br>
+        export PATH=&quot;$PATH:/home/ubuntu/.local/bin/&quot;<br>
+        mkdir .aws<br>
+        echo -e &quot;[default]\nregion=us-east-1&quot; &gt; .aws/config<br>
+<br>
+-- Test the internet connectivity on the same EC2 by using the command ‘ping
+google.com’. Is should go through.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=428 id="Picture 33"
+src="025-UseCase-VPCEndPoints_files/image033.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Let’s
+disable the internet connection for this EC2. This way we can be for sure that
+the application on the EC2 can interact with the AWS Services using the AWS
+internal network and not the internet.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><br>
+Select the PrivateSubnet in the VPC Management Console. Click on “Route Table”
+property.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 34"
+src="025-UseCase-VPCEndPoints_files/image034.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Click
+on the Routes tab and click on “Edit routes”.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 35"
+src="025-UseCase-VPCEndPoints_files/image035.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Delete
+the route with the Destination CIDR range as 0.0.0.0/0 and click on “Save
+routes”. This will remove the internet connection for any of the EC2 instances
+in the Private Subnet.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 36"
+src="025-UseCase-VPCEndPoints_files/image036.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 38"
+src="025-UseCase-VPCEndPoints_files/image037.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Now try
+to ping google.com from the internet and notice that if fails as we have
+removed the internet connection for the EC2 instance.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=429 id="Picture 39"
+src="025-UseCase-VPCEndPoints_files/image038.jpg"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- In the
+VPC Management Console, click on Endpoints link. Click on “Create Endpoint”.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 40"
+src="025-UseCase-VPCEndPoints_files/image039.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Filter
+out for the services for sqs and select “com.amazonaws.us-east1.sqs”. Select
+the MyAppVPC. Also, make sure only the PrivateSubnet is selected.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 41"
+src="025-UseCase-VPCEndPoints_files/image040.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Go with
+all the default options and click on “Create endpoint”.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 42"
+src="025-UseCase-VPCEndPoints_files/image041.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>--
+Initially end endpoint will be in a pending status and in a few minutes it will
+be a changed to available status for it to be used. Make sure to select the
+endpoint and from the DNS servers copy the first host name.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 43"
+src="025-UseCase-VPCEndPoints_files/image042.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 44"
+src="025-UseCase-VPCEndPoints_files/image043.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- Wait
+for a few minutes for the DNS propagation to happen and execute the below
+command. Make sure to replace ABCD with the hostname got from the previous
+step. Once the command gets executed successfully a queue will be creates in
+SQS and the command returns a QueueURL which is an identifier to interact with
+the queue.<br>
+<br>
+aws sqs create-queue --queue-name MyQueue --endpoint-url </span><span
+lang=EN-IN><a href="https://ABCD"><span style='font-size:12.0pt;font-family:
+"Verdana",sans-serif'>https://ABCD</span></a></span><span lang=EN-IN
+style='font-size:12.0pt;font-family:"Verdana",sans-serif'><br>
+<br>
+Note that the command ran successfully without any internet connection and used
+the AWS internal network. This makes it more secure and reliable.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=698 height=428 id="Picture 45"
+src="025-UseCase-VPCEndPoints_files/image044.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<span lang=EN-IN style='font-size:12.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:12.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>-- The
+creation of the Queue can be observed from the AWS Management Console.<br>
+<br>
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=337 id="Picture 46"
+src="025-UseCase-VPCEndPoints_files/image045.jpg"
+alt="A screenshot of a social media post&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'><br>
+<br>
+-- Finally, the following AWS resources have to be cleaned up in the same
+order.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;line-height:normal'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Verdana",sans-serif'>- Terminate the EC2 instances</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;line-height:normal'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Verdana",sans-serif'>- Delete the NAT Gateway<br>
+- Release the ElasticIP</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;line-height:normal'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Verdana",sans-serif'>- Delete the EndPoint</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;line-height:normal'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Verdana",sans-serif'>- Finally delete the VPC (MyAppVPC)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;line-height:normal'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Verdana",sans-serif'>- Delete the Role in the IAM which has been
+created for the EC2</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:27.0pt;line-height:normal'><span lang=EN-IN style='font-size:12.0pt;
+font-family:"Verdana",sans-serif'>- Delete the SQS</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-size:12.0pt;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

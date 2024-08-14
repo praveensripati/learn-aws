@@ -1,0 +1,499 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:10.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:10.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:.5in .5in .5in .5in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Use Case</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>AWS S3 (Simple Storage
+Service) follows the serverless model with theoretically infinite amount of
+storage without the need to think about the servers and the storage. It can be
+used for storing media, backups, documents and to a wide variety of use cases.
+It’s so each to use S3 that things might go out of control leading to
+spiralling costs for an enterprise.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>With the Cloud sprawling
+happening in the organizations, more and more applications would be storing the
+data in S3 along with the users. With time, the data stored in S3 would become
+huge which would lead to unnecessary expenditure to the enterprise. There might
+be a lot of files which are not required or not have been accessed for the last
+few months or years. These are the prime candidates for deletion for the sake
+of cost cutting.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'><img width=698 height=124
+id="Picture 1" src="014-S3-Athena-CostCutting_files/image001.png"></span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>As the number of files in
+S3 grow, it becomes more of a challenge to identify the big files to be
+deleted. We should be able to generate a S3 inventory report with the bucket
+name, object name, when was it last modified and a few other attributes. Once
+we have the report analysis can be done using Athena to figure out bigger files
+and these can be deleted manually with caution.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Caution needs to be taken
+when deleting the files in S3. If accidently deleted, the data in the files
+would be gone for ever. One way to get around it is to enable versioning on a
+bucket. In this case, when a file is deleted in S3 a delete marker is placed on
+the deleted file instead of deleting the actual file and so the deleted file
+can be restored.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>Also, we should be able to
+figure out who has deleted the files using the S3 Server Access Logs feature or
+by using the AWS Cloud Trail Service.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>AWS Services: </span></b><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>S3, Athena, IAM</span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Create a bucket is S3 with some folders and upload some big data sets into it.
+There are lot of big data sets available on the internet, one of it can be
+downloaded from the below site.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN><a
+href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HG7NV7"><span
+style='font-family:"Verdana",sans-serif'>https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HG7NV7</span></a></span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=355 id="Picture 2"
+src="014-S3-Athena-CostCutting_files/image002.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+As seen in the below screen big files have been uploaded to S3.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=355 id="Picture 3"
+src="014-S3-Athena-CostCutting_files/image003.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Create another bucket in S3 to store the inventory results. The results would
+be generated by the `S3 inventory configurations`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=355 id="Picture 4"
+src="014-S3-Athena-CostCutting_files/image004.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Go back to the original bucket and click on the ‘Management tab`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=355 id="Picture 5"
+src="014-S3-Athena-CostCutting_files/image005.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Navigate to the bottom of the screen and click on `Create inventory
+configuration`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=355 id="Picture 6"
+src="014-S3-Athena-CostCutting_files/image006.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Give the inventory configuration a name. For the destination bucket give the
+path to the inventory bucket created earlier as shown below.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=355 id="Picture 7"
+src="014-S3-Athena-CostCutting_files/image007.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Go with all the default options and make sure to select the `Output format` as
+`Apache ORC`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=355 id="Picture 8"
+src="014-S3-Athena-CostCutting_files/image008.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+For the `Additional fields – optional` make sure to select all the fields and
+click on `Create`.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=355 id="Picture 9"
+src="014-S3-Athena-CostCutting_files/image009.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+The inventory configuration would be created as shown below.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=355 id="Picture 10"
+src="014-S3-Athena-CostCutting_files/image010.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+The actual inventory would be created in the S3 inventory bucket as shown
+below. The inventory should be generated in less than 24 hours as per the AWS
+documentation. The inventory generated is a binary file.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=344 id="Picture 11"
+src="014-S3-Athena-CostCutting_files/image011.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Create another bucket in S3 for storing the results from the query in Athena.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=355 id="Picture 12"
+src="014-S3-Athena-CostCutting_files/image012.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Navigate to the Athena Management Console and click on Settings.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=355 id="Picture 13"
+src="014-S3-Athena-CostCutting_files/image013.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+For the `Query result location` specify the S3 bucket created for storing the
+Athena query results created earlier.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=355 id="Picture 14"
+src="014-S3-Athena-CostCutting_files/image014.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Copy the below statement into the Athena Console. Make sure to replace the
+highlighted section. Click on `Run query`.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>CREATE
+EXTERNAL TABLE inventory(</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'> 
+bucket string,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'> 
+key string,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'> 
+size bigint,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'> 
+last_modified_date timestamp,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'> 
+e_tag string,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'> 
+storage_class string,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'> 
+is_multipart_uploaded boolean,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'> 
+replication_status string,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'> 
+encryption_status string</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'> 
+)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'> 
+PARTITIONED BY (dt string)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'> 
+ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.orc.OrcSerde'</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'> 
+STORED AS INPUTFORMAT 'org.apache.hadoop.hive.ql.io.SymlinkTextInputFormat'</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'> 
+OUTPUTFORMAT  'org.apache.hadoop.hive.ql.io.IgnoreKeyTextOutputFormat'</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'> 
+LOCATION '<b><span style='color:red'>s3://airline-dataset-praveen-inventory/airline-dataset-praveen/airline-dataset-praveen-inventory/hive</span></b>';</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=355 id="Picture 15"
+src="014-S3-Athena-CostCutting_files/image015.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+To make sure that the partitions of the table are updated, likewise run the
+below command.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-size:8.0pt;line-height:115%;
+font-family:"Verdana",sans-serif'>MSCK REPAIR TABLE inventory;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=355 id="Picture 16"
+src="014-S3-Athena-CostCutting_files/image016.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+Finally, execute the below query to get the size of the different folders
+within the buckets in GB. As noticed the input bucket where the big files have
+been uploaded has 3 GB of files in it.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>Now,
+we should be able to identify the files in this input folder which are not
+required and can be deleted manually.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>SELECT
+prefix, SUM(size)/1000/1000/1000 AS total_size FROM (</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'> 
+SELECT regexp_extract(i.key, '([^\/]*\/).*', 1) AS prefix, i.size </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'> 
+FROM inventory AS i WHERE i.dt = '2020-12-14-00-00'</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>)
+GROUP BY prefix ORDER BY total_size DESC;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:0in;margin-top:0in'><span
+lang=EN-IN style='font-size:8.0pt;line-height:115%;font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=355 id="Picture 17"
+src="014-S3-Athena-CostCutting_files/image017.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>--
+The results can also be found in the in S3 bucket created as shown below. Thee
+selected csv files can be downloaded and the file opened in Excel to see the
+results of the Athena query.</span></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'><img
+border=0 width=697 height=355 id="Picture 18"
+src="014-S3-Athena-CostCutting_files/image018.jpg"></span></p>
+
+<span lang=EN-IN style='font-size:11.0pt;line-height:115%;font-family:"Verdana",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span lang=EN-IN style='font-family:"Verdana",sans-serif'>Conclusion</span></b></p>
+
+<p class=MsoNormal><span lang=EN-IN style='font-family:"Verdana",sans-serif'>Cloud
+is all about saving cost, but by using the above technique around S3 further
+cost savings can be achieved. This is always a constant pressure by the
+different companies to reduce their costs and this would definitely help them.</span></p>
+
+</div>
+
+</body>
+
+</html>
