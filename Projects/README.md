@@ -4,6 +4,9 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 ## Aggregation Of Projects
 
+1. Usecases / Mini Projects from Praveen
+	- https://www.dropbox.com/scl/fo/zq4cdx78nw2ng50msrr9k/AJtmhbMNFpuiobksaRIzPjI?rlkey=htnxs0ralbn3ba3augglor2jq&dl=0
+
 1. AWS Workshop (**#GENERAL**)
 	- https://workshops.aws/
 	- https://awssecworkshops.com/workshops/
