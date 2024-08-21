@@ -23,6 +23,10 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 ## Individual Projects
 
+1. Is it on AWS?
+	- https://isitonaws.com/
+	- https://aws.amazon.com/blogs/aws/is-it-on-aws-domain-identification-using-aws-lambda/
+
 1. Build a vaccination verification solution using the Queries feature in Amazon Textract
 	- https://aws.amazon.com/blogs/machine-learning/build-a-vaccination-verification-solution-using-the-queries-feature-in-amazon-textract/
 

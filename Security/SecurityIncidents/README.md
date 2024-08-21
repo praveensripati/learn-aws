@@ -4,6 +4,9 @@ Security in the AWS or any other Cloud is a [shared responsibility](https://aws.
 
 Fow what ever reason, there had been a few security breaches in the Cloud. This page is all about consolidating such incidents in AWS. It doesn't mean that AWS is not secure and other Clouds are secure. It's just a collection of security incidents around AWS.
 
+1. An AWS Configuration Issue Could Expose Thousands of Web Apps
+    - https://www.wired.com/story/aws-application-load-balancer-implementation-compromise/
+
 1. CapitalOne Hack
     - https://www.thecloudavenue.com/2019/08/how-capital-one-hack-was-achieved-in-aws.html
     - https://www.thecloudavenue.com/2019/11/changes-to-aws-ec2-instance-metadata-service.html

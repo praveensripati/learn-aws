@@ -8,7 +8,7 @@
 	
 **Option 2** : Install the different components manually.
 
-1. Create EC2 (Ubuntu Server 18.04 LTS (HVM), SSD Volume Type) of type t2.micro
+1. Create EC2 (Ubuntu Server 24.04 LTS (HVM), SSD Volume Type) of type t2.micro
 	
 1.  Create a public RDS instance of db.t2.micro type using MySQL database. Note down the username, password, database and the RDS endpoint.
 	
