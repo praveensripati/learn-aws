@@ -23,6 +23,12 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 ## Individual Projects
 
+1. Analyze customer reviews using Amazon Bedrock
+	- https://aws.amazon.com/blogs/machine-learning/analyze-customer-reviews-using-amazon-bedrock/
+
+1. Use Amazon Bedrock to generate, evaluate, and understand code in your software development pipeline
+	- https://aws.amazon.com/blogs/machine-learning/use-amazon-bedrock-to-generate-evaluate-and-understand-code-in-your-software-development-pipeline/
+
 1. Is it on AWS?
 	- https://isitonaws.com/
 	- https://aws.amazon.com/blogs/aws/is-it-on-aws-domain-identification-using-aws-lambda/
@@ -214,6 +220,9 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 1. Converting call center recordings into useful data for analytics
 	- https://aws.amazon.com/blogs/compute/converting-call-center-recordings-into-useful-data-for-analytics/
+
+1. Enhance call center efficiency using batch inference for transcript summarization with Amazon Bedrock
+	- https://aws.amazon.com/blogs/machine-learning/enhance-call-center-efficiency-using-batch-inference-for-transcript-summarization-with-amazon-bedrock/
 
 1. Building a lawn monitor and weed detection solution with AWS machine learning and IoT services
 	- https://aws.amazon.com/blogs/machine-learning/building-a-lawn-monitor-and-weed-detection-solution-with-aws-machine-learning-and-iot-services/
