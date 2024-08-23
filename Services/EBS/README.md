@@ -37,6 +37,9 @@
 
 # Further Reading
 
+1. Continuous reinvention: A brief history of block storage at AWS
+    - https://www.allthingsdistributed.com/2024/08/continuous-reinvention-a-brief-history-of-block-storage-at-aws.html
+
 1. New – Recycle Bin for EBS Snapshots
     - https://aws.amazon.com/blogs/aws/new-recycle-bin-for-ebs-snapshots/
 

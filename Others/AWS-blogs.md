@@ -8,6 +8,9 @@ There are a good number of blogs on AWS and below are some of them I do follow o
 1. Perspectives **
     - http://perspectives.mvdirona.com/SyndicationService.asmx/GetRss
 
+1. Amazon Bedrock Blog
+    - https://aws.amazon.com/blogs/machine-learning/category/artificial-intelligence/amazon-machine-learning/amazon-bedrock/
+
 1. AWS - What's New
     - http://aws.amazon.com/rss/whats-new.rss
 
