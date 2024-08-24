@@ -2,11 +2,6 @@
 
 # Further Reading
 
-1. DynamoDB Scan vs Query - Everything You Need To Know
-    - https://dynobase.dev/dynamodb-scan-vs-query/
-
-    ![](images/2024-08-24-08-05-36.png)
-
 1. DynamoDB Guide
     - https://www.dynamodbguide.com/what-is-dynamo-db
 
@@ -20,6 +15,11 @@
 
 1. Migration Complete
     - https://aws.amazon.com/blogs/aws/migration-complete-amazons-consumer-business-just-turned-off-its-final-oracle-database/
+
+1. DynamoDB Scan vs Query - Everything You Need To Know
+    - https://dynobase.dev/dynamodb-scan-vs-query/
+
+    ![](images/2024-08-24-08-05-36.png)
 
 1. How to know if DynamoDB is appropriate?
     - https://aws.amazon.com/blogs/database/how-to-determine-if-amazon-dynamodb-is-appropriate-for-your-needs-and-then-plan-your-migration/

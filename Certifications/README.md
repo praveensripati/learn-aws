@@ -1,5 +1,8 @@
 # Certifications
 
+1. Join the Get AWS Certified: Associate Challenge
+    - https://pages.awscloud.com/GLOBAL-ln-GC-Traincert-Associate-Certification-Challenge-Registration-2024.html
+
 1. Free courses, cheat sheets and exam.
     - https://tutorialsdojo.com/
 
