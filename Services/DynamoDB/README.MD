@@ -2,6 +2,11 @@
 
 # Further Reading
 
+1. DynamoDB Scan vs Query - Everything You Need To Know
+    - https://dynobase.dev/dynamodb-scan-vs-query/
+
+    ![](images/2024-08-24-08-05-36.png)
+
 1. DynamoDB Guide
     - https://www.dynamodbguide.com/what-is-dynamo-db
 
@@ -31,14 +36,11 @@
 1. Best Practices for DynamoDB
     - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/best-practices.html
 
-1. DynamoDB Scan vs Query - Everything You Need To Know
-    - https://dynobase.dev/dynamodb-scan-vs-query/
-
 1. Fine-Grained access Control
     - https://aws.amazon.com/blogs/aws/fine-grained-access-control-for-amazon-dynamodb/
 
 1. Write Consistency (Eventual and Strong)
-    - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html
+    - https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.![](images/2024-08-24-08-04-30.png)html
 
 1. How to auto increment in DynamoDB?
     - https://stackoverflow.com/a/45899308/614157
