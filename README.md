@@ -1,4 +1,4 @@
-# Rant about AWS
+# Rant about AWS Cloud
 
 AWS is like a big ocean with 200+ services like EC2, S3, RDS etc., each of them with a tons of features. AWS does spend a lot of effort and money around innovation. AWS has really fascinated me.
 
