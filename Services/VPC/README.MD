@@ -93,6 +93,9 @@ VPC spans within a region, Subnet spans within a Availability Zone. When you cre
 
 # Further Reading
 
+1. Amazon VPC IP Address Manager (IPAM)
+	- https://docs.aws.amazon.com/vpc/latest/ipam/what-it-is-ipam.html
+
 1. IPv4 Subnet Creator
 	- https://network00.com/NetworkTools/IPv4SubnetCreator/
 
