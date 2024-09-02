@@ -30,3 +30,17 @@ https://docs.aws.amazon.com/documentdb/latest/developerguide/document-database-d
 https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-migration.html#docdb-migration-planning
 
 ![](images/2024-08-31-22-04-49.png)
+
+# Further Reading
+
+1. Supported MongoDB APIs, operations, and data types in Amazon DocumentDB
+    - https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html
+
+1. Connecting to Amazon DocumentDB as a replica set
+    - https://docs.aws.amazon.com/documentdb/latest/developerguide/connect-to-replica-set.html
+
+1. Connecting and developing applications with Amazon DocumentDB
+    - https://docs.aws.amazon.com/documentdb/latest/developerguide/documentdb-development.html
+
+1. Performing text search with Amazon DocumentDB
+    - https://docs.aws.amazon.com/documentdb/latest/developerguide/text-search.html
