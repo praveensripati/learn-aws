@@ -12,14 +12,15 @@ SNS, SQS, SES, S3 along with Lambda are a few AWS Services which follow the serv
 
 1. `lambda-nodejs-send-ses-email-s3trigger.js` is a JS code which uses AWS SES to send an email. This can be integrated with S3. So, when an object is uploaded to S3, it can automatically trigger the Lambda function which will send an email notification. Note that both the email addresses have to verified in the SES.
 
-2. `lambda-nodejs-publish-sns-topic-sqs-trigger.js` again is a JS code which publishes a messaged to an SNS Topic. This Lambda function can be integrated with SQS. As soon as a messages is put in the Queue, it triggers the Lambda functions which publishes a messages to the SNS Topic.
+1. `lambda-nodejs-publish-sns-topic-sqs-trigger.js` again is a JS code which publishes a messaged to an SNS Topic. This Lambda function can be integrated with SQS. As soon as a messages is put in the Queue, it triggers the Lambda functions which publishes a messages to the SNS Topic.
 
 # Further Reading
 
 1. AWS Serverless
     - https://aws.amazon.com/serverless/
 
-1. Migrating from Lambda@Edge to CloudFront Functions
+1. Differences between CloudFront Functions and Lambda@Edge
+    - https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/edge-functions-choosing.html
     - https://dev.to/aws-builders/migrating-from-lambda-edge-to-cloudfront-functions-3k7k
 
 1. How do I give internet access to a Lambda function that's connected to an Amazon VPC?

@@ -152,6 +152,7 @@ AWS does provide a lot of services with very nice and interesting features. But,
 	- https://levelup.gitconnected.com/resize-an-image-in-aws-s3-using-lambda-function-dc386afd4128 (Python)
 	- https://aws.amazon.com/solutions/implementations/serverless-image-handler/
 	- http://www.thecloudavenue.com/2017/08/photo-resizing-using-aws-lambda-serverless-architecture.html
+	- https://github.com/saniaky/aws-lambda-create-thumbnail/s (Java)
 	
 1. Analyzing the Airline Dataset using S3/Athena or EMR (**#S3, #ATHENA, #EMR**)
 	- https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/HG7NV7
