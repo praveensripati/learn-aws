@@ -1,5 +1,7 @@
 # Bedrock
 
+![](images/2024-09-06-13-19-00.png)
+
 ## Customer Success Stories
 
 1. Amazon Bedrock Customer Success Stories
@@ -23,3 +25,6 @@
 
 1. Significant new capabilities make it easier to use Amazon Bedrock to build and scale generative AI applications – and achieve impressive results
     - https://aws.amazon.com/blogs/machine-learning/new-capabilities-make-it-easier-to-use-amazon-bedrock-to-build-and-scale-generative-ai-applications-and-deliver-impact/
+
+1. Evaluating prompts at scale with Prompt Management and Prompt Flows for Amazon Bedrock
+    - https://aws.amazon.com/blogs/machine-learning/evaluating-prompts-at-scale-with-prompt-management-and-prompt-flows-for-amazon-bedrock/

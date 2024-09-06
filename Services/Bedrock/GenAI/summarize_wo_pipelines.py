@@ -1,9 +1,7 @@
 from transformers import BartTokenizer, BartForConditionalGeneration
 
-# Instantiate a pretrained pytorch model from a pre-trained model configuration.
 tokenizer = BartTokenizer.from_pretrained('facebook/bart-large-cnn')
 
-# Instantiate a pretrained pytorch model from a pre-trained model configuration.
 model = BartForConditionalGeneration.from_pretrained('facebook/bart-large-cnn')
 
 def generate_summary(text):

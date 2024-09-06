@@ -33,6 +33,12 @@ https://docs.aws.amazon.com/documentdb/latest/developerguide/docdb-migration.htm
 
 # Further Reading
 
+1. How we reduced our DocumentDB cost by nearly 50% and optimized performance
+    - https://blog.postman.com/how-we-reduced-our-documentdb-cost-by-nearly-50-and-optimized-performance/
+
+1. AWS DMS homogenous migration from document-oriented databases to Amazon DocumentDB
+    - https://aws.amazon.com/blogs/database/aws-dms-homogenous-migration-from-document-oriented-databases-to-amazon-documentdb/
+
 1. Supported MongoDB APIs, operations, and data types in Amazon DocumentDB
     - https://docs.aws.amazon.com/documentdb/latest/developerguide/mongo-apis.html
 

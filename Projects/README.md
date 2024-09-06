@@ -15,6 +15,9 @@ AWS does provide a lot of services with very nice and interesting features. But,
 1. Project Ideas (**#GENERAL**)
 	- https://aws.amazon.com/getting-started/hands-on/
 
+1. Build an ecommerce product recommendation chatbot with Amazon Bedrock Agents
+	- https://aws.amazon.com/blogs/machine-learning/build-an-ecommerce-product-recommendation-chatbot-with-amazon-bedrock-agents/
+
 1. Projects in the intersection of Big Data and AWS Services (**#BIGDATA**)
 	- https://registry.opendata.aws/usage-examples/
 
