@@ -16,6 +16,15 @@ High level steps for CloudFormation
 
 # Further Reading
 
+1. Visually design and build modern applications quickly
+	- https://aws.amazon.com/application-composer/
+
+1. Generate templates from existing resources with IaC generator
+	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/generate-IaC.html
+
+1. Accelerate infrastructure as code development with open source Former2
+	- https://aws.amazon.com/blogs/opensource/accelerate-infrastructure-as-code-development-with-open-source-former2/
+
 1. AWS CloudFormation: IaC at Enterprise Scale
 	- https://www.singlestoneconsulting.com/blog/aws-cloudformation-iac-at-enterprise-scale/
 
@@ -81,6 +90,3 @@ High level steps for CloudFormation
 1. CloudFormation Registry
 	- https://aws.amazon.com/blogs/aws/introducing-a-public-registry-for-aws-cloudformation/
 	- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html
-
-1. Accelerate infrastructure as code development with open source Former2
-	- https://aws.amazon.com/blogs/opensource/accelerate-infrastructure-as-code-development-with-open-source-former2/

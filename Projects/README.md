@@ -26,6 +26,15 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 ## Individual Projects
 
+1. Chaos Testing with AWS Fault Injection Simulator and AWS CodePipeline
+    - https://aws.amazon.com/blogs/architecture/chaos-testing-with-aws-fault-injection-simulator-and-aws-codepipeline/
+
+1. Increase your e-commerce website reliability using chaos engineering and AWS Fault Injection Simulator
+    - https://aws.amazon.com/blogs/devops/increase-e-commerce-reliability-using-chaos-engineering-with-aws-fault-injection-simulator/
+
+1. How Audi improved their chat experience with Generative AI on Amazon SageMaker
+	- https://aws.amazon.com/blogs/industries/how-audi-improved-their-chat-experience-with-generative-ai-on-amazon-sagemaker/
+
 1. Analyze customer reviews using Amazon Bedrock
 	- https://aws.amazon.com/blogs/machine-learning/analyze-customer-reviews-using-amazon-bedrock/
 
