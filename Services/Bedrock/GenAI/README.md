@@ -39,6 +39,15 @@
 1. Use AI to generate code with human language prompts
     - https://cloud.google.com/use-cases/ai-code-generation
 
+## Building LLM Applications
+
+1. LangChain
+    - https://www.langchain.com/
+    - https://python.langchain.com/v0.2/docs/tutorials/
+
+1. LlamaIndex
+    - https://www.llamaindex.ai/
+
 ## Courses
 
 1. Data Visualization with OpenAI API: Generate code with GenAI
