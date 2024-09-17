@@ -1,5 +1,7 @@
-
 # Best practices
+
+1. Methodology for incident response on generative AI workloads
+    - https://aws.amazon.com/blogs/security/methodology-for-incident-response-on-generative-ai-workloads/
 
 1. Strengthen the security of sensitive data stored in Amazon S3 by using additional AWS services
     - https://aws.amazon.com/blogs/security/strengthen-the-security-of-sensitive-data-stored-in-amazon-s3-by-using-additional-aws-services
