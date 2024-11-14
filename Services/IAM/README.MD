@@ -2,10 +2,14 @@
 
 # Further Reading
 
+1. Refine unused access using IAM Access Analyzer recommendations
+	- https://aws.amazon.com/blogs/security/refine-unused-access-using-iam-access-analyzer-recommendations/
+	- https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-delegated-administrator.html
+
 1. IAM identifiers
 	- https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html
 
-1. Delegate Access Across AWS Accounts Using IAM Roles (**#SECURITY**)
+1. Delegate Access Across AWS Accounts Using IAM Roles
 	- https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html
 
 1. Identity-based policies and resource-based policies

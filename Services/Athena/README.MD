@@ -20,3 +20,8 @@ Athena is a service to process the data in S3 using standard SQL queries. It's a
 
 1. Redacting sensitive information with user-defined functions in Amazon Athena
     - https://aws.amazon.com/blogs/big-data/redacting-sensitive-information-with-user-defined-functions-in-amazon-athena/
+
+1. Analyzing ALB access logs in S3 using Athena
+    - https://docs.aws.amazon.com/athena/latest/ug/application-load-balancer-logs.html
+    - https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html
+    

@@ -39,6 +39,10 @@
 1. Use AI to generate code with human language prompts
     - https://cloud.google.com/use-cases/ai-code-generation
 
+1. Continue - Codestral, Claude, and more (VSCode integration with LLM)
+    - https://marketplace.visualstudio.com/items?itemName=Continue.continue
+    - https://ollama.com/blog/continue-code-assistant
+
 ## Building LLM Applications
 
 1. LangChain
@@ -60,3 +64,10 @@
 
 1. Hugging Face
     - https://huggingface.co/models
+
+## Run ChatGPT locally
+
+1. Set up a Local AI like ChatGPT on your own machine!
+    - https://www.youtube.com/watch?v=DYhC7nFRL5I
+    - https://ollama.com/
+    - https://github.com/open-webui/open-webui
