@@ -32,6 +32,9 @@ AWS does provide a lot of services with very nice and interesting features. But,
 
 ## Individual Projects
 
+1. Use Raspberry Pi 5 as Amazon EKS Hybrid Nodes for edge workloads
+	- https://aws.amazon.com/blogs/containers/use-raspberry-pi-5-as-amazon-eks-hybrid-nodes-for-edge-workloads/
+
 1. Chaos Testing with AWS Fault Injection Simulator and AWS CodePipeline
     - https://aws.amazon.com/blogs/architecture/chaos-testing-with-aws-fault-injection-simulator-and-aws-codepipeline/
 

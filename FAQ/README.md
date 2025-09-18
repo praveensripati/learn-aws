@@ -17,6 +17,8 @@ While talking to someone around AWS or while conducting trainings, some of the q
 
 1. AWS Free tier
     - https://aws.amazon.com/free/
+    - https://aws.amazon.com/blogs/aws/aws-free-tier-update-new-customers-can-get-started-and-explore-aws-with-up-to-200-in-credits/
+
 
 1. AWS Infrastructure
     - https://aws.amazon.com/about-aws/global-infrastructure/
