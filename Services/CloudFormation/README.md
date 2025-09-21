@@ -16,6 +16,9 @@ High level steps for CloudFormation
 
 # Further Reading
 
+1. What is AWS CloudFormation Guard?
+	- https://docs.aws.amazon.com/cfn-guard/latest/ug/what-is-guard.html
+
 1. Visually design and build modern applications quickly
 	- https://aws.amazon.com/application-composer/
 
