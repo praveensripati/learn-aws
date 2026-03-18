@@ -4,6 +4,10 @@ This is one of the oldest service from AWS and is also very widely used by the i
 
 # Further Reading
 
+1. AWS S3 account regional namespaces
+    - https://aws.amazon.com/blogs/aws/introducing-account-regional-namespaces-for-amazon-s3-general-purpose-buckets/
+    - https://onecloudplease.com/blog/bucketsquatting-is-finally-dead
+
 1. How USAA built an Amazon S3 malware scanning solution
     - https://aws.amazon.com/blogs/architecture/how-usaa-built-an-amazon-s3-malware-scanning-solution/
 
